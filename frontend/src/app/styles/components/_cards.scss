@@ -1,0 +1,15 @@
+.page-placeholder {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  padding: var(--space-8);
+}
+
+.page-placeholder h1 {
+  margin: 0;
+}
+
+.page-placeholder p {
+  margin: var(--space-3) 0 0;
+  color: var(--text-secondary);
+}

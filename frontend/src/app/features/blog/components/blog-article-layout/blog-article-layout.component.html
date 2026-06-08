@@ -1,0 +1,88 @@
+<section class="article-layout">
+  <!-- Sidebar -->
+
+  <aside class="article-layout__sidebar">
+    <div class="toc">
+      <span class="toc__title"> TABLE OF CONTENTS </span>
+
+      <a href="#intro"> Introduction </a>
+
+      <a href="#session"> Session-Based Auth </a>
+
+      <a href="#jwt"> JWT Authentication </a>
+
+      <a href="#comparison"> Architecture Comparison </a>
+
+      <a href="#security"> Security Considerations </a>
+
+      <a href="#decision"> Decision Framework </a>
+    </div>
+
+    <div class="pro-tip">
+      <span> PRO TIP </span>
+
+      <p>
+        Always use HttpOnly and Secure flags for cookies, regardless of whether
+        you use JWTs or Sessions.
+      </p>
+    </div>
+  </aside>
+
+  <!-- Content -->
+
+  <div class="article-layout__content">
+    <section id="intro">
+      <p>
+        In the modern landscape of distributed systems and microservices,
+        choosing the right authentication mechanism is more than a technical
+        preference—it’s a fundamental architectural decision.
+      </p>
+
+      <p>
+        While sessions have been the gold standard for decades, JSON Web Tokens
+        (JWT) have surged in popularity alongside the rise of Single Page
+        Applications and mobile clients.
+      </p>
+    </section>
+
+    <section id="session">
+      <h2>The Case for Stateful Sessions</h2>
+
+      <p>
+        Session-based authentication is inherently stateful. When a user logs
+        in, the server creates a session record and stores a unique session
+        identifier.
+      </p>
+
+      <div class="callout">
+        <strong> SECURITY NOTE </strong>
+
+        <p>
+          Sessions offer instant revocation. If a breach is detected, you can
+          simply delete the session from your database.
+        </p>
+      </div>
+    </section>
+
+    <section id="jwt">
+      <h2>JWT and Stateless Scaling</h2>
+
+      <p>
+        JWTs are stateless. The token itself contains the user data and is
+        validated cryptographically by the server.
+      </p>
+
+      <div class="code-block">
+        <pre>
+const jwt = require('jsonwebtoken');
+
+jwt.verify(
+ token,
+ process.env.JWT_SECRET
+);
+</pre
+        >
+      </div>
+    </section>
+  </div>
+</section>

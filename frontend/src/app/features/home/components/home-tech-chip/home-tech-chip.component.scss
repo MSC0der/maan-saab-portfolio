@@ -1,0 +1,28 @@
+:host {
+  display: inline-flex;
+}
+
+.tech-chip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--home-border);
+  border-radius: var(--home-radius);
+  background: var(--home-surface);
+  color: var(--home-text-secondary);
+  font-family: var(--home-font-code);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.5;
+  padding: 6px 12px;
+  transition: transform 0.2s ease;
+}
+
+.tech-chip:hover {
+  transform: scale(1.05);
+}
+
+.tech-chip--compact {
+  font-size: 12px;
+  padding: 4px 8px;
+}

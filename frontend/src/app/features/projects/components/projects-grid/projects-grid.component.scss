@@ -1,0 +1,27 @@
+.projects-grid {
+  display: grid;
+
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+
+  gap: 2rem;
+}
+
+.projects-grid__item {
+  grid-column: span 4;
+}
+
+.projects-grid__item--featured {
+  grid-column: span 8;
+}
+
+.projects-grid__item--full-width {
+  grid-column: span 12;
+}
+
+@media (max-width: 1024px) {
+  .projects-grid__item,
+  .projects-grid__item--featured,
+  .projects-grid__item--full-width {
+    grid-column: span 12;
+  }
+}

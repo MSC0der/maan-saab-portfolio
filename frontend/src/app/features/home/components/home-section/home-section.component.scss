@@ -1,0 +1,29 @@
+:host {
+  display: block;
+}
+
+.home-section {
+  width: min(100%, var(--home-container-max));
+  margin-inline: auto;
+  margin-bottom: var(--home-section-gap);
+  padding-inline: var(--home-margin-mobile);
+}
+
+.home-section--reveal {
+  animation: homeFadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@media (min-width: 768px) {
+  .home-section {
+    padding-inline: var(--home-margin-desktop);
+  }
+}
+
+@keyframes homeFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

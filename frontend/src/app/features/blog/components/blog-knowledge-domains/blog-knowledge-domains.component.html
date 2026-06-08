@@ -1,0 +1,13 @@
+<section class="knowledge-domains">
+  <h2>Core Knowledge Domains</h2>
+
+  <div class="knowledge-grid">
+    @for (domain of domains; track domain.title) {
+      <article class="domain-card">
+        <h3>{{ domain.title }}</h3>
+
+        <p>{{ domain.subtitle }}</p>
+      </article>
+    }
+  </div>
+</section>

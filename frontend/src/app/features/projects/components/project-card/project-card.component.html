@@ -1,0 +1,39 @@
+<article
+  class="project-card"
+  [class.project-card--featured]="project().featured"
+>
+  @if (project().planned) {
+    <span class="project-card__status">
+      Planned
+    </span>
+  }
+
+  <div class="project-card__header">
+    <span class="project-card__category">
+      {{ project().category }}
+    </span>
+  </div>
+
+  <h3 class="project-card__title">
+    {{ project().title }}
+  </h3>
+
+  <p class="project-card__summary">
+    {{ project().summary }}
+  </p>
+
+  <div class="project-card__technologies">
+    @for (technology of project().technologies; track technology) {
+      <span class="project-card__chip">
+        {{ technology }}
+      </span>
+    }
+  </div>
+
+  <a
+    class="project-card__link"
+    [routerLink]="['/projects', project().slug]"
+  >
+    View Case Study →
+  </a>
+</article>

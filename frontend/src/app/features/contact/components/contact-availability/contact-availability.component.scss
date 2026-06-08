@@ -1,0 +1,70 @@
+:host {
+  display: block;
+}
+
+.availability-card {
+  padding: 1.75rem;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: 16px;
+}
+
+.availability-card__status {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  margin-bottom: 1.5rem;
+}
+
+.availability-card__status h3 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: 1.75rem;
+}
+
+.availability-dot {
+  width: 12px;
+  height: 12px;
+
+  border-radius: 50%;
+
+  background: var(--primary);
+
+  box-shadow: 0 0 12px var(--primary);
+}
+
+.availability-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  margin-bottom: 1.5rem;
+}
+
+.availability-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.availability-row span {
+  color: var(--text-secondary);
+}
+
+.availability-row strong {
+  color: var(--primary);
+}
+
+.availability-note {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 0.875rem;
+}

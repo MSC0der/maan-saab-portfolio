@@ -1,0 +1,44 @@
+.project-next {
+  padding-block: 6rem;
+  border-top: 1px solid var(--border);
+}
+
+.project-next__content {
+  max-width: 800px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.project-next h2 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.project-next p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.project-next__actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.project-next__primary,
+.project-next__secondary {
+  padding: 0.9rem 1.5rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+}
+
+.project-next__primary {
+  background: var(--primary);
+  color: var(--background);
+}
+
+.project-next__secondary {
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+}

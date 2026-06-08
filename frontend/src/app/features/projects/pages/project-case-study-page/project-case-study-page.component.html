@@ -1,0 +1,25 @@
+@if (project) {
+  <app-project-case-study-hero [project]="project" />
+
+  <app-project-overview [project]="project" />
+
+  <app-project-system-flow [project]="project" />
+
+  <app-project-capabilities [project]="project" />
+
+  <app-project-design-review [project]="project" />
+
+  <app-project-engineering-report [project]="project" />
+
+  <app-project-results [project]="project" />
+
+  <app-project-security-architecture />
+
+  <app-project-next-project />
+} @else {
+  <section class="case-study-empty">
+    <h1>Project Not Found</h1>
+
+    <a routerLink="/projects"> Return to Projects </a>
+  </section>
+}

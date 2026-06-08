@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+
+.projects-page {
+  padding-top: 2rem;
+}
+
+.projects-placeholder {
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+
+  text-align: center;
+
+  color: var(--text-secondary);
+}

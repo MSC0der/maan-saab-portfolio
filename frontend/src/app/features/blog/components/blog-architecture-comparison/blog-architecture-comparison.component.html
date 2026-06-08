@@ -1,0 +1,36 @@
+<section class="architecture-comparison">
+  <div class="architecture-comparison__header">
+    <h2>Architectural Flow Comparison</h2>
+
+    <p>
+      Comparing traditional session-based authentication against stateless JWT
+      authentication.
+    </p>
+  </div>
+
+  <div class="comparison-grid">
+    <article class="comparison-card">
+      <span class="comparison-card__badge"> STATEFUL SESSION </span>
+
+      <ol>
+        <li>User submits credentials</li>
+
+        <li>Server validates and stores session</li>
+
+        <li>Session ID stored in cookie</li>
+      </ol>
+    </article>
+
+    <article class="comparison-card">
+      <span class="comparison-card__badge"> STATELESS JWT </span>
+
+      <ol>
+        <li>User submits credentials</li>
+
+        <li>API signs JWT token</li>
+
+        <li>Client sends JWT in headers</li>
+      </ol>
+    </article>
+  </div>
+</section>

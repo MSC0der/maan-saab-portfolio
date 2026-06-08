@@ -1,0 +1,109 @@
+.project-design-review {
+  padding-block: 6rem;
+}
+
+.project-design-review__header {
+  text-align: center;
+
+  margin-bottom: 3rem;
+}
+
+.project-design-review__header h2 {
+  margin-bottom: 1rem;
+
+  color: var(--text-primary);
+
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.project-design-review__header p {
+  max-width: 48rem;
+
+  margin-inline: auto;
+
+  color: var(--text-secondary);
+
+  line-height: 1.8;
+}
+
+.design-review-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+}
+
+.design-review-card {
+  border: 1px solid var(--border);
+
+  border-radius: 1rem;
+
+  overflow: hidden;
+
+  background: var(--surface);
+}
+
+.design-review-card__header {
+  width: 100%;
+
+  padding: 1.5rem;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  text-align: left;
+}
+
+.design-review-card__code {
+  display: inline-flex;
+
+  margin-bottom: 0.75rem;
+
+  padding: 0.35rem 0.75rem;
+
+  border-radius: 999px;
+
+  background: var(--primary-soft);
+
+  color: var(--primary);
+
+  font-size: 0.75rem;
+
+  font-weight: 600;
+}
+
+.design-review-card h3 {
+  margin: 0;
+
+  color: var(--text-primary);
+}
+
+.design-review-card__toggle {
+  color: var(--primary);
+
+  font-size: 1.5rem;
+
+  font-weight: 700;
+}
+
+.design-review-card__body {
+  padding: 0 1.5rem 1.5rem;
+
+  border-top: 1px solid var(--border);
+}
+
+.design-review-card__body p {
+  margin-top: 1rem;
+
+  color: var(--text-secondary);
+
+  line-height: 1.8;
+}

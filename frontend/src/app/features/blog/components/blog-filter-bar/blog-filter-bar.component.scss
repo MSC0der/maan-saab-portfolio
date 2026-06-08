@@ -1,0 +1,47 @@
+:host {
+  display: block;
+}
+
+.filter-bar {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 0.75rem;
+
+  margin-bottom: 3rem;
+}
+
+.filter-chip {
+  padding: 0.75rem 1.25rem;
+
+  border-radius: 999px;
+
+  border: 1px solid var(--border);
+
+  background: var(--surface);
+
+  color: var(--text-secondary);
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.filter-chip:hover {
+  border-color: var(--primary);
+
+  color: var(--text-primary);
+
+  transform: translateY(-2px);
+}
+
+.filter-chip--active {
+  background: var(--primary);
+
+  border-color: var(--primary);
+
+  color: #04110c;
+
+  font-weight: 600;
+}

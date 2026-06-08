@@ -1,0 +1,48 @@
+:host {
+  display: block;
+}
+
+.capability-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.capability-card {
+  padding: 24px;
+}
+
+.capability-card__icon {
+  display: block;
+  color: var(--home-primary);
+  margin-bottom: 16px;
+}
+
+.capability-card h2 {
+  margin: 0 0 4px;
+  color: var(--home-text-primary);
+  font-family: var(--home-font-display);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+
+.capability-card p {
+  margin: 0;
+  color: var(--home-text-secondary);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  .capability-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .capability-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

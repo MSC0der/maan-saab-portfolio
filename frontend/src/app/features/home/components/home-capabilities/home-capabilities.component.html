@@ -1,0 +1,11 @@
+<div class="capability-grid">
+  @for (capability of capabilities; track capability.title) {
+    <app-home-card>
+      <article class="capability-card">
+        <app-home-icon class="capability-card__icon" [name]="capability.icon" />
+        <h2>{{ capability.title }}</h2>
+        <p>{{ capability.label }}</p>
+      </article>
+    </app-home-card>
+  }
+</div>

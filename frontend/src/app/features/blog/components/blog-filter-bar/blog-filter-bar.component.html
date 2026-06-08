@@ -1,0 +1,11 @@
+<section class="filter-bar">
+  @for (filter of filters; track filter) {
+    <button
+      type="button"
+      class="filter-chip"
+      [class.filter-chip--active]="filter === activeFilter"
+    >
+      {{ filter }}
+    </button>
+  }
+</section>

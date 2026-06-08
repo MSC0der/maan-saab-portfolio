@@ -1,0 +1,47 @@
+:host {
+  display: block;
+}
+
+.hero-image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--home-border);
+  border-radius: var(--home-radius-xl);
+  background: var(--home-surface);
+  transition: transform 0.2s ease-out;
+}
+
+.hero-image:hover {
+  transform: rotateY(-2deg) rotateX(2deg);
+}
+
+.hero-image__overlay,
+.hero-image img {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-image__overlay {
+  z-index: 1;
+  background: linear-gradient(to top right, rgba(16, 185, 129, 0.1), transparent);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.hero-image:hover .hero-image__overlay {
+  opacity: 1;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  filter: grayscale(1);
+  object-fit: cover;
+  transition: filter 0.7s ease;
+}
+
+.hero-image:hover img {
+  filter: grayscale(0);
+}

@@ -1,0 +1,70 @@
+:host {
+  display: block;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  padding-top: 16px;
+}
+
+.home-button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--home-radius);
+  font-family: var(--home-font-display);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  padding: 12px 24px;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.home-button:active {
+  transform: scale(0.95);
+}
+
+.home-button--primary {
+  border: 1px solid var(--home-primary);
+  background: var(--home-primary);
+  color: var(--home-text-primary);
+}
+
+.home-button--primary:hover {
+  background: var(--home-accent);
+}
+
+.home-button--secondary {
+  border: 1px solid var(--home-border);
+  color: var(--home-text-primary);
+}
+
+.home-button--secondary:hover {
+  background: var(--home-surface);
+}
+
+.home-button--ghost {
+  color: var(--home-text-secondary);
+}
+
+.home-button--ghost:hover {
+  color: var(--home-text-primary);
+}
+
+.animate-on-load {
+  animation: fadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 400ms forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

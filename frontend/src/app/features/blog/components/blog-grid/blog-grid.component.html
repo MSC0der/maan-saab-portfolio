@@ -1,0 +1,5 @@
+<section class="blog-grid">
+  @for (article of articles; track article.slug) {
+    <app-blog-card [article]="article" />
+  }
+</section>

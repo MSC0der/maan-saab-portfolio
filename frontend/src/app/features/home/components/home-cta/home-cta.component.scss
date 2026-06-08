@@ -1,0 +1,122 @@
+:host {
+  display: block;
+}
+
+.cta-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--home-border);
+  border-radius: 1rem;
+  background: var(--home-surface);
+  padding: 48px;
+  text-align: center;
+  transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cta-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: var(--home-surface-hover);
+  transform: translateY(-4px);
+}
+
+.cta-card__glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.1);
+  filter: blur(100px);
+  opacity: 0.5;
+  pointer-events: none;
+  transform: translateX(-50%);
+  transition: opacity 0.5s ease;
+}
+
+.cta-card:hover .cta-card__glow {
+  opacity: 1;
+}
+
+.cta-card__content {
+  position: relative;
+  z-index: 1;
+  max-width: 42rem;
+  margin-inline: auto;
+}
+
+.cta-card h2 {
+  margin: 0 0 24px;
+  color: var(--home-text-primary);
+  font-family: var(--home-font-display);
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.cta-card p {
+  margin: 0 0 32px;
+  color: var(--home-text-secondary);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.cta-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.home-button {
+  display: inline-flex;
+  min-height: 56px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--home-radius);
+  font-family: var(--home-font-display);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  padding: 16px 32px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.home-button:active {
+  transform: scale(0.95);
+}
+
+.home-button--primary {
+  border: 1px solid var(--home-primary);
+  background: var(--home-primary);
+  color: var(--home-text-primary);
+}
+
+.home-button--primary:hover {
+  background: var(--home-accent);
+}
+
+.home-button--secondary {
+  border: 1px solid var(--home-border);
+  color: var(--home-text-primary);
+}
+
+.home-button--secondary:hover {
+  background: var(--home-surface);
+}
+
+@media (min-width: 768px) {
+  .cta-card h2 {
+    font-size: 64px;
+    line-height: 1.1;
+  }
+}
+
+@media (max-width: 767px) {
+  .cta-card {
+    padding: 32px 20px;
+  }
+}

@@ -1,0 +1,32 @@
+<section class="related-articles">
+  <div class="related-articles__header">
+    <h2>Continue Reading</h2>
+
+    <p>
+      More engineering insights on backend architecture, security, scalability
+      and modern web development.
+    </p>
+  </div>
+
+  <div class="related-articles__grid">
+    @for (article of articles; track article.slug) {
+      <a class="related-card" [routerLink]="['/blog', article.slug]">
+        <span class="related-card__category">
+          {{ article.category }}
+        </span>
+
+        <h3>
+          {{ article.title }}
+        </h3>
+
+        <p>
+          {{ article.excerpt }}
+        </p>
+
+        <span class="related-card__meta">
+          {{ article.readTime }}
+        </span>
+      </a>
+    }
+  </div>
+</section>

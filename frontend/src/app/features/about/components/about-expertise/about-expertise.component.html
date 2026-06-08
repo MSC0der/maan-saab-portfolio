@@ -1,0 +1,22 @@
+<section class="expertise-section" id="expertise">
+  <div class="expertise-section__inner">
+    <div class="expertise-section__header">
+      <h2>Technical Expertise</h2>
+      <p>
+        Technologies and engineering disciplines I use to design, build and maintain
+        production-grade software systems.
+      </p>
+    </div>
+
+    <div class="expertise-grid">
+      @for (panel of panels; track panel.title) {
+        <app-about-expertise-card
+          [title]="panel.title"
+          [imageUrl]="panel.imageUrl"
+          [imageAlt]="panel.imageAlt"
+          [skills]="panel.skills"
+        />
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,40 @@
+:host {
+  display: block;
+  margin-inline: calc(var(--layout-gutter) * -1);
+}
+
+.home-page {
+  --home-bg: #0a0a0b;
+  --home-surface: #141415;
+  --home-surface-hover: #1e1e20;
+  --home-primary: #10b981;
+  --home-accent: #059669;
+  --home-text-primary: #ffffff;
+  --home-text-secondary: #9ca3af;
+  --home-border: rgba(255, 255, 255, 0.08);
+  --home-container-max: 1200px;
+  --home-margin-desktop: 80px;
+  --home-margin-mobile: 20px;
+  --home-section-gap: 128px;
+  --home-radius: 0.125rem;
+  --home-radius-lg: 0.25rem;
+  --home-radius-xl: 0.5rem;
+  --home-font-display: Geist, Inter, ui-sans-serif, system-ui, sans-serif;
+  --home-font-body: Inter, ui-sans-serif, system-ui, sans-serif;
+  --home-font-code: 'JetBrains Mono', 'Courier New', monospace;
+
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--home-bg);
+  color: var(--home-text-primary);
+  font-family: var(--home-font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  padding-top: 128px;
+}
+
+@media (max-width: 767px) {
+  .home-page {
+    padding-top: 72px;
+  }
+}

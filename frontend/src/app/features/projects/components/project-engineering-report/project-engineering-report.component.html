@@ -1,0 +1,48 @@
+@if (project().obstacles?.length) {
+  <section class="project-engineering-report">
+    <div class="project-engineering-report__header">
+      <h2>Engineering Report</h2>
+
+      <p>
+        Technical challenges encountered during implementation and the
+        architectural solutions used to resolve them.
+      </p>
+    </div>
+
+    <div class="engineering-report-list">
+      @for (item of project().obstacles; track item.obstacle) {
+        <article class="engineering-report-card">
+          <div class="engineering-report-card__column">
+            <span class="engineering-report-card__label"> Obstacle </span>
+
+            <h3>
+              {{ item.obstacle }}
+            </h3>
+
+            <p>
+              {{ item.obstacleDescription }}
+            </p>
+          </div>
+
+          <div class="engineering-report-card__divider">→</div>
+
+          <div class="engineering-report-card__column">
+            <span
+              class="engineering-report-card__label engineering-report-card__label--solution"
+            >
+              Solution
+            </span>
+
+            <h3>
+              {{ item.solution }}
+            </h3>
+
+            <p>
+              {{ item.solutionDescription }}
+            </p>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+}

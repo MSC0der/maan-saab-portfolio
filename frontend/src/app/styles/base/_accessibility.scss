@@ -1,0 +1,17 @@
+@use '../abstracts/mixins' as *;
+
+:focus-visible {
+  @include focus-ring;
+}
+
+.skip-link {
+  position: fixed;
+  left: var(--space-4);
+  top: var(--space-4);
+  z-index: calc(var(--z-header) + 1);
+  transform: translateY(-160%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}

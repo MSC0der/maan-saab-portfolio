@@ -1,0 +1,29 @@
+@if (project().capabilities?.length) {
+  <section class="project-capabilities">
+    <div class="project-capabilities__header">
+      <h2>Core Capabilities</h2>
+
+      <p>
+        The key architectural and engineering features that power this system.
+      </p>
+    </div>
+
+    <div class="project-capabilities__grid">
+      @for (capability of project().capabilities; track capability.title) {
+        <article class="capability-card">
+          <div class="capability-card__icon">
+            {{ $index + 1 }}
+          </div>
+
+          <h3>
+            {{ capability.title }}
+          </h3>
+
+          <p>
+            {{ capability.description }}
+          </p>
+        </article>
+      }
+    </div>
+  </section>
+}

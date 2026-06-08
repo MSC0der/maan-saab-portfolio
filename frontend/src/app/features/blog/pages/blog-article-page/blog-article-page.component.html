@@ -1,0 +1,19 @@
+@if (article) {
+  <div class="blog-article-page">
+    <app-blog-article-hero [article]="article" />
+
+    <app-blog-article-layout [article]="article" />
+    <app-blog-architecture-comparison />
+    <app-blog-performance-metrics />
+    <app-blog-related-articles />
+    <app-blog-article-newsletter />
+
+    <app-blog-article-final-cta />
+  </div>
+} @else {
+  <section class="article-empty">
+    <h1>Article Not Found</h1>
+
+    <a routerLink="/blog"> Return To Blog </a>
+  </section>
+}

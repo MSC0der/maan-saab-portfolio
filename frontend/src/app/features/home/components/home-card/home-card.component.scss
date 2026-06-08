@@ -1,0 +1,33 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.glass-card {
+  height: 100%;
+  border: 1px solid var(--home-border);
+  border-radius: var(--home-radius-lg);
+  background: var(--home-surface);
+  transition:
+    background 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: var(--home-surface-hover);
+  transform: translateY(-4px);
+}
+
+.glass-card--dashed {
+  border-style: dashed;
+}
+
+.glass-card--centered {
+  display: flex;
+  min-height: 350px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}

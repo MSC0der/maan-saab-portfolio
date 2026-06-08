@@ -1,0 +1,176 @@
+:host {
+  display: block;
+}
+
+.featured-article {
+  margin-bottom: 4rem;
+}
+
+.featured-article__label {
+  margin-bottom: 1rem;
+
+  color: var(--text-secondary);
+
+  font-size: 0.875rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.12em;
+}
+
+.featured-card {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+
+  border-radius: 20px;
+
+  background: var(--surface);
+
+  transition: all 0.25s ease;
+}
+
+.featured-card:hover {
+  border-color: var(--primary);
+
+  transform: translateY(-4px);
+}
+
+.featured-card__diagram {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 1rem;
+
+  padding: 3rem;
+
+  background: linear-gradient(
+    rgba(16, 185, 129, 0.04),
+    rgba(16, 185, 129, 0.02)
+  );
+}
+
+.diagram-node {
+  width: 220px;
+
+  padding: 0.9rem;
+
+  text-align: center;
+
+  border: 1px solid var(--border);
+
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.02);
+
+  color: var(--text-primary);
+}
+
+.diagram-row {
+  display: flex;
+
+  gap: 1rem;
+}
+
+.diagram-node--small {
+  width: 100px;
+}
+
+.featured-card__content {
+  padding: 3rem;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.featured-meta {
+  display: flex;
+
+  gap: 1rem;
+
+  margin-bottom: 1rem;
+
+  color: var(--text-secondary);
+
+  font-size: 0.875rem;
+}
+
+.featured-category {
+  color: var(--primary);
+
+  font-weight: 700;
+}
+
+.featured-card h2 {
+  margin-bottom: 1rem;
+
+  color: var(--text-primary);
+
+  font-size: 2rem;
+
+  line-height: 1.2;
+}
+
+.featured-card p {
+  color: var(--text-secondary);
+
+  line-height: 1.8;
+
+  margin-bottom: 2rem;
+}
+
+.featured-actions {
+  display: flex;
+
+  gap: 1rem;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 0.85rem 1.5rem;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.primary-btn {
+  border: none;
+
+  background: var(--primary);
+
+  color: #04110c;
+}
+
+.secondary-btn {
+  background: transparent;
+
+  border: 1px solid var(--border);
+
+  color: var(--text-primary);
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .featured-card {
+    grid-template-columns: 1fr;
+  }
+}

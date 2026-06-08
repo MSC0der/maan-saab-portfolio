@@ -1,0 +1,83 @@
+:host {
+  display: block;
+}
+
+.architecture-comparison {
+  margin-top: 5rem;
+}
+
+.architecture-comparison__header {
+  text-align: center;
+
+  margin-bottom: 3rem;
+}
+
+.architecture-comparison__header h2 {
+  font-size: 2rem;
+
+  margin-bottom: 1rem;
+}
+
+.architecture-comparison__header p {
+  color: var(--text-secondary);
+
+  max-width: 700px;
+
+  margin: 0 auto;
+}
+
+.comparison-grid {
+  display: grid;
+
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .comparison-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.comparison-card {
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: 20px;
+
+  padding: 1.5rem;
+}
+
+.comparison-card__badge {
+  display: inline-flex;
+
+  margin-bottom: 1.5rem;
+
+  padding: 0.4rem 0.9rem;
+
+  border-radius: 999px;
+
+  color: var(--primary);
+
+  border: 1px solid rgba(16, 185, 129, 0.25);
+
+  background: rgba(16, 185, 129, 0.08);
+
+  font-size: 0.75rem;
+
+  font-weight: 700;
+}
+
+.comparison-card ol {
+  margin: 0;
+
+  padding-left: 1.25rem;
+}
+
+.comparison-card li {
+  color: var(--text-secondary);
+
+  line-height: 1.8;
+
+  margin-bottom: 0.75rem;
+}

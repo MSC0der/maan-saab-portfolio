@@ -1,0 +1,53 @@
+:host {
+  display: block;
+}
+
+.performance-metrics {
+  display: grid;
+
+  gap: 1.5rem;
+
+  margin-top: 5rem;
+}
+
+@media (min-width: 768px) {
+  .performance-metrics {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.metric-card {
+  padding: 2rem 1.5rem;
+
+  text-align: center;
+
+  border-radius: 20px;
+
+  border: 1px solid var(--border);
+
+  background: var(--surface);
+
+  transition: all 0.25s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-4px);
+
+  border-color: var(--primary);
+}
+
+.metric-card strong {
+  display: block;
+
+  margin-bottom: 0.75rem;
+
+  color: var(--primary);
+
+  font-size: 2rem;
+
+  font-weight: 800;
+}
+
+.metric-card span {
+  color: var(--text-secondary);
+}

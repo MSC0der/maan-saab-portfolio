@@ -1,0 +1,35 @@
+<section class="experience-section">
+  <div class="experience-section__inner">
+    <div class="experience-section__header">
+      <div class="experience-pill">
+        <span aria-hidden="true"></span>
+        <p>Production Engineering</p>
+      </div>
+
+      <h2>Experience Building Production Systems</h2>
+      <p>
+        Building secure, scalable, and maintainable software architecture used in high-stakes
+        real-world business environments at Imminent Ideas.
+      </p>
+    </div>
+
+    <div class="experience-grid">
+      @for (card of cards; track card.title) {
+        <article class="experience-card">
+          <div class="experience-card__media">
+            <img [src]="card.imageUrl" [alt]="card.imageAlt" referrerpolicy="no-referrer" />
+            <div class="experience-card__fade" aria-hidden="true"></div>
+          </div>
+
+          <div class="experience-card__body">
+            <div class="experience-card__icon">
+              <app-about-icon [name]="card.icon" />
+            </div>
+            <h3>{{ card.title }}</h3>
+            <p>{{ card.description }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

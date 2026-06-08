@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+
+.blog-article-page {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: 0 1.5rem 6rem;
+  padding-top: 3rem;
+}
+
+.article-empty {
+  text-align: center;
+  padding: 8rem 1.5rem;
+}
+
+.article-empty h1 {
+  margin-bottom: 1rem;
+}

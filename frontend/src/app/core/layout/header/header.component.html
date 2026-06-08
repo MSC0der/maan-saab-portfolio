@@ -1,0 +1,26 @@
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__brand" [routerLink]="['/']" [attr.aria-label]="site.brandName + ' home'">
+      <span class="site-header__brand-name">{{ site.brandName }}</span>
+    </a>
+
+    <nav class="site-header__nav" aria-label="Primary navigation">
+      @for (item of navigation; track item.path) {
+        @if (item.fragmentOnly) {
+          <a class="site-header__nav-link" [href]="item.path">{{ item.label }}</a>
+        } @else {
+          <a
+            class="site-header__nav-link"
+            [routerLink]="item.path"
+            routerLinkActive="site-header__nav-link--active"
+            [routerLinkActiveOptions]="{ exact: item.exact }"
+          >
+            {{ item.label }}
+          </a>
+        }
+      }
+    </nav>
+
+    <a class="site-header__resume" href="/resume.pdf">Resume</a>
+  </div>
+</header>

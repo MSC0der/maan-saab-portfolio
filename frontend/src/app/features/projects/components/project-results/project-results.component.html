@@ -1,0 +1,30 @@
+@if (project().metrics?.length) {
+  <section class="project-results">
+    <div class="project-results__header">
+      <h2>Results & Impact</h2>
+
+      <p>
+        Key outcomes achieved through architectural improvements, security
+        enhancements and engineering optimizations.
+      </p>
+    </div>
+
+    <div class="project-results__grid">
+      @for (metric of project().metrics; track metric.label) {
+        <article class="result-card">
+          <div class="result-card__value">
+            {{ metric.value }}
+          </div>
+
+          <h3>
+            {{ metric.label }}
+          </h3>
+
+          <p>
+            {{ metric.description }}
+          </p>
+        </article>
+      }
+    </div>
+  </section>
+}

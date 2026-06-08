@@ -1,0 +1,110 @@
+.project-engineering-report {
+  padding-block: 6rem;
+}
+
+.project-engineering-report__header {
+  text-align: center;
+
+  margin-bottom: 4rem;
+}
+
+.project-engineering-report__header h2 {
+  margin-bottom: 1rem;
+
+  color: var(--text-primary);
+
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.project-engineering-report__header p {
+  max-width: 48rem;
+
+  margin-inline: auto;
+
+  color: var(--text-secondary);
+
+  line-height: 1.8;
+}
+
+.engineering-report-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2rem;
+}
+
+.engineering-report-card {
+  display: grid;
+
+  grid-template-columns: 1fr auto 1fr;
+
+  gap: 2rem;
+
+  padding: 2rem;
+
+  border: 1px solid var(--border);
+
+  border-radius: 1rem;
+
+  background: var(--surface);
+}
+
+.engineering-report-card__column h3 {
+  margin: 1rem 0;
+
+  color: var(--text-primary);
+}
+
+.engineering-report-card__column p {
+  color: var(--text-secondary);
+
+  line-height: 1.8;
+}
+
+.engineering-report-card__label {
+  display: inline-flex;
+
+  padding: 0.4rem 0.8rem;
+
+  border-radius: 999px;
+
+  background: rgba(239, 68, 68, 0.15);
+
+  color: #ef4444;
+
+  font-size: 0.75rem;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+}
+
+.engineering-report-card__label--solution {
+  background: var(--primary-soft);
+
+  color: var(--primary);
+}
+
+.engineering-report-card__divider {
+  display: flex;
+
+  align-items: center;
+
+  color: var(--primary);
+
+  font-size: 2rem;
+
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .engineering-report-card {
+    grid-template-columns: 1fr;
+  }
+
+  .engineering-report-card__divider {
+    justify-content: center;
+
+    transform: rotate(90deg);
+  }
+}

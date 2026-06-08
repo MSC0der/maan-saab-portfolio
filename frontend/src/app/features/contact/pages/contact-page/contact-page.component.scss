@@ -1,0 +1,41 @@
+:host {
+  display: block;
+}
+
+.contact-page {
+  width: min(100%, var(--home-container-max));
+  margin-inline: auto;
+  padding-inline: var(--home-margin-mobile);
+  padding-top: 4rem;
+  padding-bottom: 6rem;
+}
+
+.contact-layout {
+  display: grid;
+  gap: 2rem;
+}
+
+.contact-layout__main {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.contact-layout__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .contact-layout {
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+  }
+}
+
+@media (min-width: 768px) {
+  .contact-page {
+    padding-inline: var(--home-margin-desktop);
+  }
+}

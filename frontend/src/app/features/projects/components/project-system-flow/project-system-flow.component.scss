@@ -1,0 +1,105 @@
+.project-system-flow {
+  margin-top: 6rem;
+
+  padding: 4rem;
+
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+
+  background: var(--surface);
+}
+
+.project-system-flow__header {
+  text-align: center;
+
+  margin-bottom: 4rem;
+}
+
+.project-system-flow__header h2 {
+  margin-bottom: 1rem;
+
+  color: var(--text-primary);
+
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.project-system-flow__header p {
+  max-width: 48rem;
+
+  margin-inline: auto;
+
+  color: var(--text-secondary);
+
+  line-height: 1.8;
+}
+
+.project-system-flow__diagram {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 1rem;
+}
+
+.flow-node {
+  width: 220px;
+
+  padding: 1.5rem;
+
+  border: 1px solid var(--border);
+
+  border-radius: 1rem;
+
+  background: var(--surface-elevated);
+
+  text-align: center;
+}
+
+.flow-node__icon {
+  width: 3rem;
+  height: 3rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-inline: auto;
+  margin-bottom: 1rem;
+
+  border-radius: 50%;
+
+  background: var(--primary-soft);
+
+  color: var(--primary);
+
+  font-weight: 700;
+}
+
+.flow-node h3 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: 1rem;
+}
+
+.flow-arrow {
+  color: var(--primary);
+
+  font-size: 2rem;
+
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .project-system-flow__diagram {
+    flex-direction: column;
+  }
+
+  .flow-arrow {
+    transform: rotate(90deg);
+  }
+}

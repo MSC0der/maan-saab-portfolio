@@ -1,0 +1,43 @@
+<section class="article-hero">
+  <div class="article-hero__content">
+    <div class="article-hero__meta">
+      <div class="article-hero__meta">
+        <span class="article-hero__category">
+          {{ article().category }}
+        </span>
+
+        <span>
+          {{ article().publishedAt }}
+        </span>
+
+        <span>
+          {{ article().readTime }}
+        </span>
+      </div>
+    </div>
+
+    <h1>
+      {{ article().heroTitle || article().title }}
+    </h1>
+
+    <p class="article-hero__excerpt">
+      {{ article().excerpt }}
+    </p>
+
+    <div class="article-hero__author">
+      <div class="article-hero__avatar">RS</div>
+
+      <div>
+        <strong>Ranbir Singh Maan</strong>
+        <span>Backend Architect & Security Consultant</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="article-hero__image">
+    <img
+      src="/images/about/sechema_optimization.png"
+      alt="Architecture Diagram"
+    />
+  </div>
+</section>
