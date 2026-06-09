@@ -9,6 +9,7 @@
 }
 
 .project-overview__card {
+  min-height: 220px;
   padding: 2rem;
 
   border: 1px solid var(--border);
@@ -23,21 +24,11 @@
 }
 
 .project-overview__card:hover {
-  border-color: var(--primary);
+  border-color: rgba(16, 185, 129, 0.35);
+
+  background: rgba(16, 185, 129, 0.03);
 
   transform: translateY(-4px);
-}
-
-.project-overview__card h3 {
-  margin: 0 0 1rem;
-
-  color: var(--primary);
-
-  font-size: 0.85rem;
-
-  letter-spacing: 0.08em;
-
-  text-transform: uppercase;
 }
 
 .project-overview__card h4 {
@@ -45,7 +36,9 @@
 
   color: var(--text-primary);
 
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+
+  font-weight: 700;
 }
 
 .project-overview__card p {
@@ -67,14 +60,33 @@
   display: flex;
 
   justify-content: space-between;
-}
 
+  padding-bottom: 0.75rem;
+
+  border-bottom: 1px solid var(--border);
+}
 .project-overview__details span {
   color: var(--text-secondary);
 }
 
 .project-overview__details strong {
   color: var(--text-primary);
+}
+
+.project-overview__label {
+  display: inline-block;
+
+  margin-bottom: 1rem;
+
+  color: var(--primary);
+
+  font-size: 0.75rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
 }
 
 @media (max-width: 1024px) {

@@ -4,6 +4,8 @@ export const PROJECTS: readonly Project[] = [
   {
     slug: 'security-compliance-system',
 
+    coverImage: '/images/projects/people_vault.jpeg',
+
     title: 'Security Compliance System',
 
     category: 'Enterprise Security Platform',
@@ -152,6 +154,8 @@ export const PROJECTS: readonly Project[] = [
 
   {
     slug: 'garage-management-system',
+
+    coverImage: 'images/projects/garage_futurist.png',
     title: 'Garage Management System',
     category: 'Business Management Platform',
 
@@ -194,6 +198,8 @@ export const PROJECTS: readonly Project[] = [
 
     title: 'MAAN SAAB Portfolio',
 
+    coverImage: '/images/projects/maan_saab_portfolio.png',
+
     category: 'Personal Engineering Platform',
 
     summary:
@@ -203,7 +209,7 @@ export const PROJECTS: readonly Project[] = [
 
     featured: true,
 
-    status: 'completed',
+    status: 'ongoing',
 
     projectType: 'portfolio',
 
@@ -236,6 +242,8 @@ export const PROJECTS: readonly Project[] = [
   {
     slug: 'ilica-shopify-store',
 
+    coverImage: '/images/projects/ilica.png',
+
     title: 'Ilica Shopify Store',
 
     category: 'E-Commerce Platform',
@@ -261,6 +269,8 @@ export const PROJECTS: readonly Project[] = [
 
     title: 'Connex Blue Tech',
 
+    coverImage: '/images/projects/connex_bluetech.png',
+
     category: 'Corporate Website',
 
     summary:
@@ -281,6 +291,8 @@ export const PROJECTS: readonly Project[] = [
 
   {
     slug: 'imminent-ideas',
+
+    coverImage: '/images/projects/imminent_ideas.png',
 
     title: 'Imminent Ideas',
 
@@ -307,6 +319,8 @@ export const PROJECTS: readonly Project[] = [
 
     title: 'Adorno Living',
 
+    coverImage: '/images/projects/adorno_living.png',
+
     category: 'Luxury Interior Brand',
 
     summary:
@@ -327,6 +341,8 @@ export const PROJECTS: readonly Project[] = [
 
   {
     slug: 'denstar-dental',
+
+    coverImage: '/images/projects/denstardental.png',
 
     title: 'Denstar Dental',
 
@@ -351,6 +367,8 @@ export const PROJECTS: readonly Project[] = [
   {
     slug: 'divine-shiva',
 
+    coverImage: '/images/projects/divine_shiva.png',
+
     title: 'Divine Shiva',
 
     category: 'Business Website',
@@ -373,6 +391,8 @@ export const PROJECTS: readonly Project[] = [
 
   {
     slug: 'paperscraft',
+
+    coverImage: '/images/projects/papercrafts.png',
 
     title: 'PapersCraft',
 

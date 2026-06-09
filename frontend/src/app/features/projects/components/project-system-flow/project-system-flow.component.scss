@@ -1,12 +1,13 @@
 .project-system-flow {
   margin-top: 6rem;
 
-  padding: 4rem;
+  padding: 5rem 3rem;
 
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  border-radius: 1.5rem;
 
   background: var(--surface);
+
+  border: 1px solid var(--border);
 }
 
 .project-system-flow__header {
@@ -33,21 +34,20 @@
   line-height: 1.8;
 }
 
-.project-system-flow__diagram {
-  display: flex;
+.flow-grid {
+  display: grid;
 
-  justify-content: center;
-  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 
-  flex-wrap: wrap;
+  gap: 1.5rem;
 
-  gap: 1rem;
+  margin-top: 3rem;
 }
 
-.flow-node {
-  width: 220px;
+.flow-card {
+  position: relative;
 
-  padding: 1.5rem;
+  padding: 2rem 1.5rem;
 
   border: 1px solid var(--border);
 
@@ -56,42 +56,49 @@
   background: var(--surface-elevated);
 
   text-align: center;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
 }
 
-.flow-node__icon {
-  width: 3rem;
-  height: 3rem;
+.flow-card:hover {
+  transform: translateY(-4px);
+
+  border-color: var(--primary);
+}
+
+.flow-card__number {
+  width: 2.5rem;
+  height: 2.5rem;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
   margin-inline: auto;
   margin-bottom: 1rem;
 
-  border-radius: 50%;
+  border-radius: 999px;
 
-  background: var(--primary-soft);
+  background: rgba(16, 185, 129, 0.15);
 
   color: var(--primary);
 
   font-weight: 700;
+
+  font-size: 0.95rem;
 }
 
-.flow-node h3 {
+.flow-card h3 {
   margin: 0;
 
   color: var(--text-primary);
 
   font-size: 1rem;
-}
 
-.flow-arrow {
-  color: var(--primary);
-
-  font-size: 2rem;
-
-  font-weight: 700;
+  line-height: 1.4;
 }
 
 @media (max-width: 900px) {

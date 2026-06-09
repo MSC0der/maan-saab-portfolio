@@ -8,23 +8,17 @@
     </p>
   </div>
 
-  <div class="project-system-flow__diagram">
-    @for (step of project().architecture; track step; let last = $last) {
-      <div class="flow-node">
-        <div class="flow-node__icon">
+  <div class="flow-grid">
+    @for (step of project().architecture; track step) {
+      <article class="flow-card">
+        <div class="flow-card__number">
           {{ $index + 1 }}
         </div>
 
-        <div class="flow-node__content">
-          <h3>
-            {{ step }}
-          </h3>
-        </div>
-      </div>
-
-      @if (!last) {
-        <div class="flow-arrow">→</div>
-      }
+        <h3>
+          {{ step }}
+        </h3>
+      </article>
     }
   </div>
 </section>

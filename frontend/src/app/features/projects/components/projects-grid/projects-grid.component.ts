@@ -14,5 +14,5 @@ import { ProjectDataService } from '../../services/project-data.service';
 export class ProjectsGridComponent {
   private readonly projectService = inject(ProjectDataService);
 
-  protected readonly projects = this.projectService.getProjects();
+  protected readonly projects = this.projectService.filteredProjects;
 }

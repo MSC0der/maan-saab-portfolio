@@ -1,8 +1,12 @@
 <section class="case-study-hero">
   <div class="case-study-hero__content">
     <div class="case-study-hero__text">
-      <div class="case-study-hero__badge">
-        Case Study · {{ project().category }}
+      <div class="case-study-hero__meta">
+        <span class="case-study-hero__badge"> Case Study </span>
+
+        <span class="case-study-hero__status">
+          {{ project().status }}
+        </span>
       </div>
 
       <h1>
@@ -22,20 +26,46 @@
       </div>
 
       <div class="case-study-hero__actions">
-        <a href="#" class="case-study-hero__primary"> View Source </a>
+        <a routerLink="/projects" class="case-study-hero__primary">
+          View Projects
+        </a>
 
-        <a href="#" class="case-study-hero__secondary"> Live Demo </a>
+        @if (project().liveUrl) {
+          <a
+            [href]="project().liveUrl"
+            target="_blank"
+            class="case-study-hero__secondary"
+          >
+            Live Site
+          </a>
+        }
+
+        @if (project().githubUrl) {
+          <a
+            [href]="project().githubUrl"
+            target="_blank"
+            class="case-study-hero__secondary"
+          >
+            GitHub
+          </a>
+        }
       </div>
     </div>
 
     <div class="case-study-hero__diagram">
-      <div class="architecture-card">
-        @for (step of project().architecture; track step) {
-          <div class="architecture-card__node">
-            {{ step }}
-          </div>
-        }
-      </div>
+      @if (project().coverImage) {
+        <div class="case-study-hero__image-wrapper">
+          <img [src]="project().coverImage" [alt]="project().title" />
+        </div>
+      } @else {
+        <div class="architecture-card">
+          @for (step of project().architecture; track step) {
+            <div class="architecture-card__node">
+              {{ step }}
+            </div>
+          }
+        </div>
+      }
     </div>
   </div>
 </section>

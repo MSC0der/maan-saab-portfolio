@@ -1,14 +1,12 @@
 <section class="project-filter-bar">
-
   @for (filter of filters; track filter) {
     <button
       type="button"
       class="project-filter-bar__pill"
-      [class.project-filter-bar__pill--active]="filter === selectedFilter"
+      [class.project-filter-bar__pill--active]="filter === selectedFilter()"
       (click)="selectFilter(filter)"
     >
       {{ filter }}
     </button>
   }
-
 </section>

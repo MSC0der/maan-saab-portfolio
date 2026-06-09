@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+
+import { ProjectDataService } from '../../services/project-data.service';
 
 @Component({
   selector: 'app-project-filter-bar',
@@ -8,20 +10,13 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectFilterBarComponent {
-  protected readonly filters = [
-    'All',
-    'Backend',
-    'Full Stack',
-    'Angular',
-    'Node.js',
-    'MongoDB',
-    'Authentication',
-    'System Design',
-  ];
+  private readonly projectService = inject(ProjectDataService);
 
-  protected selectedFilter = 'All';
+  protected readonly filters = this.projectService.getFilters();
+
+  protected readonly selectedFilter = this.projectService.selectedFilter;
 
   protected selectFilter(filter: string): void {
-    this.selectedFilter = filter;
+    this.projectService.setFilter(filter);
   }
 }
