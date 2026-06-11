@@ -23,6 +23,11 @@ export interface EngineeringObstacle {
   readonly solutionDescription: string;
 }
 
+export interface ProjectSecurityFeature {
+  readonly title: string;
+  readonly description: string;
+}
+
 export interface Project {
   readonly slug: string;
 

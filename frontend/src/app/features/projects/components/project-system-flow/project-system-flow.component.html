@@ -1,17 +1,17 @@
 <section class="project-system-flow">
   <div class="project-system-flow__header">
-    <h2>End-to-End System Flow</h2>
+    <h2>System Architecture Flow</h2>
 
     <p>
-      Mapping the request lifecycle from the frontend through the security
-      perimeter and business logic layer into persistent storage.
+      End-to-end request journey through the platform architecture,
+      demonstrating how data flows across application layers.
     </p>
   </div>
 
-  <div class="flow-grid">
-    @for (step of project().architecture; track step) {
-      <article class="flow-card">
-        <div class="flow-card__number">
+  <div class="architecture-flow">
+    @for (step of project().architecture; track step; let last = $last) {
+      <article class="architecture-node">
+        <div class="architecture-node__number">
           {{ $index + 1 }}
         </div>
 
@@ -19,6 +19,10 @@
           {{ step }}
         </h3>
       </article>
+
+      @if (!last) {
+        <div class="architecture-flow__connector">→</div>
+      }
     }
   </div>
 </section>

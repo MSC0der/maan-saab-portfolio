@@ -3,11 +3,11 @@
 
   padding: 5rem 3rem;
 
+  border: 1px solid var(--border);
+
   border-radius: 1.5rem;
 
   background: var(--surface);
-
-  border: 1px solid var(--border);
 }
 
 .project-system-flow__header {
@@ -34,20 +34,34 @@
   line-height: 1.8;
 }
 
-.flow-grid {
-  display: grid;
+.architecture-flow {
+  display: flex;
 
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  justify-content: center;
 
-  gap: 1.5rem;
+  align-items: center;
 
-  margin-top: 3rem;
+  flex-wrap: wrap;
+
+  gap: 1rem;
 }
 
-.flow-card {
-  position: relative;
+.architecture-node {
+  width: 220px;
+
+  min-height: 140px;
 
   padding: 2rem 1.5rem;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
 
   border: 1px solid var(--border);
 
@@ -55,43 +69,43 @@
 
   background: var(--surface-elevated);
 
-  text-align: center;
-
   transition:
     transform 0.25s ease,
-    border-color 0.25s ease;
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-.flow-card:hover {
-  transform: translateY(-4px);
+.architecture-node:hover {
+  transform: translateY(-6px);
 
   border-color: var(--primary);
+
+  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.08);
 }
 
-.flow-card__number {
-  width: 2.5rem;
-  height: 2.5rem;
+.architecture-node__number {
+  width: 3rem;
+
+  height: 3rem;
 
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
-  margin-inline: auto;
   margin-bottom: 1rem;
 
-  border-radius: 999px;
+  border-radius: 50%;
 
   background: rgba(16, 185, 129, 0.15);
 
   color: var(--primary);
 
   font-weight: 700;
-
-  font-size: 0.95rem;
 }
 
-.flow-card h3 {
+.architecture-node h3 {
   margin: 0;
 
   color: var(--text-primary);
@@ -101,12 +115,20 @@
   line-height: 1.4;
 }
 
-@media (max-width: 900px) {
-  .project-system-flow__diagram {
+.architecture-flow__connector {
+  color: var(--primary);
+
+  font-size: 2rem;
+
+  font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+  .architecture-flow {
     flex-direction: column;
   }
 
-  .flow-arrow {
+  .architecture-flow__connector {
     transform: rotate(90deg);
   }
 }

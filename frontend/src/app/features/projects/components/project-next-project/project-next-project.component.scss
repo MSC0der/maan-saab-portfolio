@@ -1,22 +1,45 @@
 .project-next {
   padding-block: 6rem;
-  border-top: 1px solid var(--border);
 }
 
 .project-next__content {
-  max-width: 800px;
+  max-width: 900px;
+
   margin-inline: auto;
+
   text-align: center;
+
+  padding: 4rem;
+
+  border: 1px solid var(--border);
+
+  border-radius: 1.5rem;
+
+  background: var(--surface);
+
+  position: relative;
+
+  overflow: hidden;
 }
 
 .project-next h2 {
+  margin: 0 0 1.25rem;
+
   color: var(--text-primary);
-  margin-bottom: 1rem;
+
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+
+  line-height: 1.05;
 }
 
 .project-next p {
+  max-width: 42rem;
+
+  margin: 0 auto 2rem;
+
   color: var(--text-secondary);
-  margin-bottom: 2rem;
+
+  line-height: 1.8;
 }
 
 .project-next__actions {
@@ -28,9 +51,15 @@
 
 .project-next__primary,
 .project-next__secondary {
-  padding: 0.9rem 1.5rem;
-  border-radius: 0.75rem;
+  padding: 1rem 1.75rem;
+
+  border-radius: 0.9rem;
+
   text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .project-next__primary {
@@ -41,4 +70,24 @@
 .project-next__secondary {
   border: 1px solid var(--border);
   color: var(--text-primary);
+}
+
+.project-next__content::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  height: 4px;
+
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+}
+
+.project-next__primary:hover,
+.project-next__secondary:hover {
+  transform: translateY(-2px);
 }

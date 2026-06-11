@@ -5,7 +5,7 @@
 .project-design-review__header {
   text-align: center;
 
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 .project-design-review__header h2 {
@@ -26,41 +26,39 @@
   line-height: 1.8;
 }
 
-.design-review-list {
+.adr-list {
   display: flex;
+
   flex-direction: column;
 
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
-.design-review-card {
+.adr-card {
+  overflow: hidden;
+
   border: 1px solid var(--border);
 
   border-radius: 1.25rem;
 
-  overflow: hidden;
-
   background: var(--surface);
 
-  transition:
-    border-color 0.25s ease,
-    transform 0.25s ease;
+  transition: border-color 0.25s ease;
 }
 
-.design-review-card:hover {
-  border-color: rgba(16, 185, 129, 0.35);
-
-  transform: translateY(-2px);
+.adr-card:hover {
+  border-color: rgba(16, 185, 129, 0.3);
 }
 
-.design-review-card__header {
+.adr-card__header {
   width: 100%;
 
-  padding: 1.75rem 2rem;
+  padding: 1.75rem;
 
   display: flex;
 
   justify-content: space-between;
+
   align-items: center;
 
   border: none;
@@ -72,12 +70,12 @@
   text-align: left;
 }
 
-.design-review-card__code {
+.adr-card__code {
   display: inline-flex;
 
-  margin-bottom: 0.85rem;
+  margin-bottom: 0.75rem;
 
-  padding: 0.45rem 0.85rem;
+  padding: 0.4rem 0.8rem;
 
   border-radius: 999px;
 
@@ -88,53 +86,54 @@
   font-size: 0.75rem;
 
   font-weight: 700;
-
-  letter-spacing: 0.08em;
 }
 
-.design-review-card h3 {
+.adr-card h3 {
   margin: 0;
 
   color: var(--text-primary);
 
   font-size: 1.2rem;
-
-  line-height: 1.4;
 }
 
-.design-review-card__toggle {
-  width: 2.5rem;
-  height: 2.5rem;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 999px;
-
-  background: rgba(16, 185, 129, 0.12);
-
+.adr-card__toggle {
   color: var(--primary);
 
-  font-size: 1.25rem;
+  font-size: 1.75rem;
 
   font-weight: 700;
 }
 
-.design-review-card__body {
-  padding: 0 2rem 2rem;
+.adr-card__body {
+  padding: 0 1.75rem 1.75rem;
 
   border-top: 1px solid var(--border);
-
-  background: rgba(255, 255, 255, 0.01);
 }
-.design-review-card__body p {
-  margin-top: 1.25rem;
+
+.adr-card__section {
+  margin-top: 1.5rem;
+}
+
+.adr-card__section span {
+  display: block;
+
+  margin-bottom: 0.75rem;
+
+  color: var(--primary);
+
+  font-size: 0.8rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.adr-card__section p {
+  margin: 0;
 
   color: var(--text-secondary);
 
   line-height: 1.9;
-
-  max-width: 75ch;
 }

@@ -1,28 +1,28 @@
 @if (project().engineeringDecisions?.length) {
   <section class="project-design-review">
     <div class="project-design-review__header">
-      <h2>Engineering Design Review</h2>
+      <h2>Architecture Decision Records</h2>
 
       <p>
-        Key technical decisions, architectural trade-offs and implementation
-        considerations made during the design of this system.
+        Key engineering decisions, trade-offs and architectural reasoning that
+        shaped the implementation of this platform.
       </p>
     </div>
 
-    <div class="design-review-list">
+    <div class="adr-list">
       @for (
         decision of project().engineeringDecisions;
         track decision.code;
         let index = $index
       ) {
-        <article class="design-review-card">
+        <article class="adr-card">
           <button
             type="button"
-            class="design-review-card__header"
+            class="adr-card__header"
             (click)="toggle(index)"
           >
             <div>
-              <span class="design-review-card__code">
+              <span class="adr-card__code">
                 {{ decision.code }}
               </span>
 
@@ -31,16 +31,20 @@
               </h3>
             </div>
 
-            <span class="design-review-card__toggle">
+            <span class="adr-card__toggle">
               {{ expandedIndex() === index ? "−" : "+" }}
             </span>
           </button>
 
           @if (expandedIndex() === index) {
-            <div class="design-review-card__body">
-              <p>
-                {{ decision.explanation }}
-              </p>
+            <div class="adr-card__body">
+              <div class="adr-card__section">
+                <span> Decision Rationale </span>
+
+                <p>
+                  {{ decision.explanation }}
+                </p>
+              </div>
             </div>
           }
         </article>

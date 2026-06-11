@@ -1,34 +1,26 @@
-<section class="project-security">
-  <div class="project-security__header">
-    <h2>Security Architecture</h2>
+@if (project().capabilities?.length) {
+  <section class="project-security">
+    <div class="project-security__header">
+      <h2>Architecture Highlights</h2>
 
-    <p>
-      Security controls implemented across the platform to ensure authentication
-      integrity, authorization enforcement and auditability.
-    </p>
-  </div>
-
-  <div class="project-security__grid">
-    <article class="security-card">
-      <h3>JWT Authentication</h3>
-      <p>Stateless token-based authentication with secure claim validation.</p>
-    </article>
-
-    <article class="security-card">
-      <h3>RBAC Authorization</h3>
       <p>
-        Middleware-driven permission checks and hierarchical role management.
+        Core engineering capabilities and platform foundations implemented
+        throughout the system.
       </p>
-    </article>
+    </div>
 
-    <article class="security-card">
-      <h3>Input Validation</h3>
-      <p>Request sanitization and schema validation at API boundaries.</p>
-    </article>
+    <div class="project-security__grid">
+      @for (capability of project().capabilities; track capability.title) {
+        <article class="security-card">
+          <h3>
+            {{ capability.title }}
+          </h3>
 
-    <article class="security-card">
-      <h3>Audit Logging</h3>
-      <p>Immutable activity tracking for compliance and forensic analysis.</p>
-    </article>
-  </div>
-</section>
+          <p>
+            {{ capability.description }}
+          </p>
+        </article>
+      }
+    </div>
+  </section>
+}

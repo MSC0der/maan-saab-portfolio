@@ -1,51 +1,53 @@
 <section class="project-overview">
-  <article class="project-overview__card">
-    <span class="project-overview__label"> BUSINESS PROBLEM </span>
+  <div class="project-overview__left">
+    <div class="project-overview__section-label">Project Context</div>
 
-    <p>
-      {{ project().businessProblem }}
-    </p>
-  </article>
+    <article class="project-overview__panel">
+      <h3>Business Problem</h3>
 
-  <article class="project-overview__card">
-    <span class="project-overview__label"> TECHNICAL GOALS </span>
+      <p>
+        {{ project().businessProblem }}
+      </p>
+    </article>
 
-    <p>
-      {{ project().technicalGoals }}
-    </p>
-  </article>
+    <article class="project-overview__panel">
+      <h3>Technical Goals</h3>
 
-  <article class="project-overview__card">
-    <span class="project-overview__label"> ROLE </span>
+      <p>
+        {{ project().technicalGoals }}
+      </p>
+    </article>
+  </div>
 
-    <h4>
-      {{ project().role }}
-    </h4>
+  <div class="project-overview__right">
+    <div class="project-overview__section-label">Project Ownership</div>
 
-    <p>
-      {{ project().roleDescription }}
-    </p>
-  </article>
+    <article class="project-overview__panel">
+      <h3>
+        {{ project().role }}
+      </h3>
 
-  <article class="project-overview__card">
-    <span class="project-overview__label"> DETAILS </span>
+      <p>
+        {{ project().roleDescription }}
+      </p>
 
-    <div class="project-overview__details">
-      <div>
-        <span>Duration</span>
+      <div class="project-overview__stats">
+        <div class="project-overview__stat">
+          <span>Duration</span>
 
-        <strong>
-          {{ project().duration }}
-        </strong>
+          <strong>
+            {{ project().duration }}
+          </strong>
+        </div>
+
+        <div class="project-overview__stat">
+          <span>Team Size</span>
+
+          <strong>
+            {{ project().teamSize }}
+          </strong>
+        </div>
       </div>
-
-      <div>
-        <span>Team Size</span>
-
-        <strong>
-          {{ project().teamSize }}
-        </strong>
-      </div>
-    </div>
-  </article>
+    </article>
+  </div>
 </section>

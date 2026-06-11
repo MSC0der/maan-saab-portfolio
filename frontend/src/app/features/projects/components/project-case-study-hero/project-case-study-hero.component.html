@@ -4,10 +4,25 @@
       <div class="case-study-hero__meta">
         <span class="case-study-hero__badge"> Case Study </span>
 
-        <span class="case-study-hero__status">
+        <span
+          class="case-study-hero__status"
+          [class.case-study-hero__status--completed]="
+            project().status === 'completed'
+          "
+          [class.case-study-hero__status--ongoing]="
+            project().status === 'ongoing'
+          "
+          [class.case-study-hero__status--concept]="
+            project().status === 'concept'
+          "
+        >
           {{ project().status }}
         </span>
       </div>
+
+      <span class="case-study-hero__category">
+        {{ project().category }}
+      </span>
 
       <h1>
         {{ project().title }}
@@ -27,7 +42,7 @@
 
       <div class="case-study-hero__actions">
         <a routerLink="/projects" class="case-study-hero__primary">
-          View Projects
+          Back to Projects
         </a>
 
         @if (project().liveUrl) {
@@ -52,7 +67,7 @@
       </div>
     </div>
 
-    <div class="case-study-hero__diagram">
+    <div class="case-study-hero__visual">
       @if (project().coverImage) {
         <div class="case-study-hero__image-wrapper">
           <img [src]="project().coverImage" [alt]="project().title" />

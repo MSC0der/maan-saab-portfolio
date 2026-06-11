@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+} from '@angular/core';
+
+import { Project } from '../../models/project.model';
 
 @Component({
   selector: 'app-project-security-architecture',
@@ -7,4 +13,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './project-security-architecture.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProjectSecurityArchitectureComponent {}
+export class ProjectSecurityArchitectureComponent {
+  readonly project = input.required<Project>();
+}
