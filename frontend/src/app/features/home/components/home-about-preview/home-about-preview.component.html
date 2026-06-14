@@ -1,9 +1,17 @@
 <div class="about-preview">
   <div class="about-preview__content">
-    <h2>Turning Complex Business Requirements into Scalable Software</h2>
+    @if (config.aboutPreview.eyebrow) {
+      <div class="about-preview__eyebrow">
+        {{ config.aboutPreview.eyebrow }}
+      </div>
+    }
+
+    <h2>
+      {{ config.aboutPreview.title }}
+    </h2>
+
     <p>
-      With a deep focus on backend architecture, I specialize in translating high-level business
-      goals into robust, maintainable, and high-performance technical solutions.
+      {{ config.aboutPreview.description }}
     </p>
 
     <ul class="engineering-list">
@@ -19,7 +27,11 @@
     </ul>
   </div>
 
-  <div class="about-preview__visual" role="img" aria-label="Backend architecture preview">
+  <div
+    class="about-preview__visual"
+    role="img"
+    aria-label="Backend architecture preview"
+  >
     <svg
       class="architecture-diagram"
       width="400"
@@ -28,39 +40,159 @@
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect width="400" height="500" rx="16" fill="#0E0E10" />
+      <rect width="400" height="500" rx="16" fill="var(--diagram-panel-bg)" />
       <path
         d="M0 50H400M0 100H400M0 150H400M0 200H400M0 250H400M0 300H400M0 350H400M0 400H400M0 450H400"
-        stroke="#1C1B1D"
+        stroke="var(--diagram-grid)"
         stroke-width="1"
       />
       <path
         d="M50 0V500M100 0V500M150 0V500M200 0V500M250 0V500M300 0V500M350 0V500"
-        stroke="#1C1B1D"
+        stroke="var(--diagram-grid)"
         stroke-width="1"
       />
 
       <g id="nodes">
-        <rect x="125" y="40" width="150" height="40" rx="8" fill="#1C1B1D" stroke="#10B981" stroke-width="1.5" />
-        <text x="200" y="65" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-size="12" font-weight="bold">Angular Client</text>
+        <rect
+          x="125"
+          y="40"
+          width="150"
+          height="40"
+          rx="8"
+          fill="var(--diagram-node-bg)"
+          stroke="var(--diagram-node-border)"
+          stroke-width="1.5"
+        />
+        <text
+          x="200"
+          y="65"
+          text-anchor="middle"
+          fill="var(--diagram-node-text)"
+          font-family="sans-serif"
+          font-size="12"
+          font-weight="bold"
+        >
+          Angular Client
+        </text>
 
-        <rect x="125" y="120" width="150" height="40" rx="8" fill="#1C1B1D" stroke="#10B981" stroke-width="1.5" />
-        <text x="200" y="145" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-size="12" font-weight="bold">Node.js API Layer</text>
+        <rect
+          x="125"
+          y="120"
+          width="150"
+          height="40"
+          rx="8"
+          fill="var(--diagram-node-bg)"
+          stroke="var(--diagram-node-border)"
+          stroke-width="1.5"
+        />
+        <text
+          x="200"
+          y="145"
+          text-anchor="middle"
+          fill="var(--diagram-node-text)"
+          font-family="sans-serif"
+          font-size="12"
+          font-weight="bold"
+        >
+          Node.js API Layer
+        </text>
 
-        <rect x="125" y="200" width="150" height="40" rx="8" fill="#1C1B1D" stroke="#10B981" stroke-width="1.5" />
-        <text x="200" y="225" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-size="12" font-weight="bold">JWT Authentication</text>
+        <rect
+          x="125"
+          y="200"
+          width="150"
+          height="40"
+          rx="8"
+          fill="var(--diagram-node-bg)"
+          stroke="var(--diagram-node-border)"
+          stroke-width="1.5"
+        />
+        <text
+          x="200"
+          y="225"
+          text-anchor="middle"
+          fill="var(--diagram-node-text)"
+          font-family="sans-serif"
+          font-size="12"
+          font-weight="bold"
+        >
+          JWT Authentication
+        </text>
 
-        <rect x="125" y="280" width="150" height="40" rx="8" fill="#1C1B1D" stroke="#10B981" stroke-width="1.5" />
-        <text x="200" y="305" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-size="12" font-weight="bold">RBAC</text>
+        <rect
+          x="125"
+          y="280"
+          width="150"
+          height="40"
+          rx="8"
+          fill="var(--diagram-node-bg)"
+          stroke="var(--diagram-node-border)"
+          stroke-width="1.5"
+        />
+        <text
+          x="200"
+          y="305"
+          text-anchor="middle"
+          fill="var(--diagram-node-text)"
+          font-family="sans-serif"
+          font-size="12"
+          font-weight="bold"
+        >
+          RBAC
+        </text>
 
-        <rect x="75" y="380" width="110" height="40" rx="8" fill="#1C1B1D" stroke="#10B981" stroke-width="1.5" />
-        <text x="130" y="405" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-size="12" font-weight="bold">MongoDB</text>
+        <rect
+          x="75"
+          y="380"
+          width="110"
+          height="40"
+          rx="8"
+          fill="var(--diagram-node-bg)"
+          stroke="var(--diagram-node-border)"
+          stroke-width="1.5"
+        />
+        <text
+          x="130"
+          y="405"
+          text-anchor="middle"
+          fill="var(--diagram-node-text)"
+          font-family="sans-serif"
+          font-size="12"
+          font-weight="bold"
+        >
+          MongoDB
+        </text>
 
-        <rect x="215" y="380" width="110" height="40" rx="8" fill="#1C1B1D" stroke="#10B981" stroke-width="1.5" />
-        <text x="270" y="405" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-size="12" font-weight="bold">MySQL</text>
+        <rect
+          x="215"
+          y="380"
+          width="110"
+          height="40"
+          rx="8"
+          fill="var(--diagram-node-bg)"
+          stroke="var(--diagram-node-border)"
+          stroke-width="1.5"
+        />
+        <text
+          x="270"
+          y="405"
+          text-anchor="middle"
+          fill="var(--diagram-node-text)"
+          font-family="sans-serif"
+          font-size="12"
+          font-weight="bold"
+        >
+          MySQL
+        </text>
       </g>
 
-      <g id="connections" stroke="#10B981" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6">
+      <g
+        id="connections"
+        stroke="var(--diagram-connection)"
+        stroke-width="1.5"
+        stroke-dasharray="4 4"
+        opacity="0.6"
+      >
         <path d="M200 80V120" />
         <path d="M200 160V200" />
         <path d="M200 240V280" />

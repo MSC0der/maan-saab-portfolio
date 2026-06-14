@@ -19,8 +19,12 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.05), transparent 40%);
-  content: '';
+  background: radial-gradient(
+    circle at top right,
+    color-mix(in srgb, var(--about-primary) 12%, transparent),
+    transparent 40%
+  );
+  content: "";
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
@@ -67,9 +71,10 @@
   display: grid;
   padding: 16px;
   place-items: center;
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  border: 1px solid color-mix(in srgb, var(--about-primary) 20%, transparent);
+  background: color-mix(in srgb, var(--about-primary) 10%, transparent);
+  color: var(--about-primary);
   border-radius: 999px;
-  background: rgba(16, 185, 129, 0.1);
   color: var(--about-primary);
 }
 
@@ -82,7 +87,7 @@
 
 h3 {
   margin: 0 0 24px;
-  color: var(--about-text);
+  color: var(--about-text-strong);
   font-family: var(--about-font-display);
   font-size: 24px;
   font-weight: 600;
@@ -105,4 +110,28 @@ h3 {
   font-size: 13px;
   line-height: 1.5;
   padding: 6px 12px;
+}
+
+[data-theme='wayne'] .expertise-card {
+  background: var(--surface);
+}
+
+[data-theme='wayne'] .expertise-card__media {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+[data-theme='wayne'] h3 {
+  font-family: var(--font-display);
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.05em;
+}
+
+[data-theme='wayne'] .expertise-card__chips span {
+  background: rgba(255, 255, 255, 0.03);
+
+  border-color: var(--border);
+
+  color: var(--text-secondary);
 }

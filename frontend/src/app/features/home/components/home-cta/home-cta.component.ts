@@ -1,5 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { inject } from '@angular/core';
+import { ThemeService } from '../../../../core/services/theme.service';
+import { THEME_HOME_CONFIG } from '../../../../core/config/theme-home.config';
 
 @Component({
   selector: 'app-home-cta',
@@ -9,4 +12,10 @@ import { RouterLink } from '@angular/router';
   styleUrl: './home-cta.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeCtaComponent {}
+export class HomeCtaComponent {
+  private readonly themeService = inject(ThemeService);
+
+  protected get config() {
+    return THEME_HOME_CONFIG[this.themeService.theme()];
+  }
+}

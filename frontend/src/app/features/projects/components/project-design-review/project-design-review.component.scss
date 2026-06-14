@@ -4,109 +4,79 @@
 
 .project-design-review__header {
   text-align: center;
-
   margin-bottom: 4rem;
 }
 
 .project-design-review__header h2 {
   margin-bottom: 1rem;
-
   color: var(--text-primary);
-
   font-size: clamp(2rem, 4vw, 3rem);
+  max-width: var(--project-adr-heading-width);
+  margin-inline: auto;
 }
 
 .project-design-review__header p {
   max-width: 48rem;
-
   margin-inline: auto;
-
   color: var(--text-secondary);
-
   line-height: 1.8;
 }
 
 .adr-list {
   display: flex;
-
   flex-direction: column;
-
   gap: 1.25rem;
 }
 
 .adr-card {
   overflow: hidden;
-
   border: 1px solid var(--border);
-
-  border-radius: 1.25rem;
-
+  border-radius: var(--project-adr-card-radius);
   background: var(--surface);
-
   transition: border-color 0.25s ease;
 }
 
 .adr-card:hover {
-  border-color: rgba(16, 185, 129, 0.3);
+  border-color: var(--project-adr-hover-border);
 }
 
 .adr-card__header {
   width: 100%;
-
   padding: 1.75rem;
-
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
-
   border: none;
-
   background: transparent;
-
   cursor: pointer;
-
   text-align: left;
 }
 
 .adr-card__code {
+  border-radius: var(--project-adr-code-radius);
   display: inline-flex;
-
   margin-bottom: 0.75rem;
-
   padding: 0.4rem 0.8rem;
-
-  border-radius: 999px;
-
   background: rgba(16, 185, 129, 0.12);
-
   color: var(--primary);
-
   font-size: 0.75rem;
-
   font-weight: 700;
 }
 
 .adr-card h3 {
   margin: 0;
-
   color: var(--text-primary);
-
   font-size: 1.2rem;
 }
 
 .adr-card__toggle {
   color: var(--primary);
-
   font-size: 1.75rem;
-
   font-weight: 700;
 }
 
 .adr-card__body {
   padding: 0 1.75rem 1.75rem;
-
   border-top: 1px solid var(--border);
 }
 
@@ -115,25 +85,17 @@
 }
 
 .adr-card__section span {
+  letter-spacing: var(--project-adr-section-label-spacing);
   display: block;
-
   margin-bottom: 0.75rem;
-
   color: var(--primary);
-
   font-size: 0.8rem;
-
   font-weight: 700;
-
-  letter-spacing: 0.08em;
-
   text-transform: uppercase;
 }
 
 .adr-card__section p {
   margin: 0;
-
   color: var(--text-secondary);
-
   line-height: 1.9;
 }

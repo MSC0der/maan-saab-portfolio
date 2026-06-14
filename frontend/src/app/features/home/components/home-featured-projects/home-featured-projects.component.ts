@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-
+import { ThemeService } from '../../../../core/services/theme.service';
+import { THEME_HOME_CONFIG } from '../../../../core/config/theme-home.config';
 import { HomeCardComponent } from '../home-card/home-card.component';
 import { HomeIconComponent } from '../home-icon/home-icon.component';
 import { HomeTechChipComponent } from '../home-tech-chip/home-tech-chip.component';
@@ -16,12 +17,22 @@ interface FeaturedProject {
 @Component({
   selector: 'app-home-featured-projects',
   standalone: true,
-  imports: [HomeCardComponent, HomeIconComponent, HomeTechChipComponent, RouterLink],
+  imports: [
+    HomeCardComponent,
+    HomeIconComponent,
+    HomeTechChipComponent,
+    RouterLink,
+  ],
   templateUrl: './home-featured-projects.component.html',
   styleUrl: './home-featured-projects.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeFeaturedProjectsComponent {
+  private readonly themeService = inject(ThemeService);
+
+  protected get config() {
+    return THEME_HOME_CONFIG[this.themeService.theme()];
+  }
   protected readonly featuredProjects: readonly FeaturedProject[] = [
     {
       title: 'Security Compliance System',

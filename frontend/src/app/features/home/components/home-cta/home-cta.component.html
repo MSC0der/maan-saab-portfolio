@@ -1,11 +1,29 @@
 <div class="cta-card">
   <div class="cta-card__glow" aria-hidden="true"></div>
+
   <div class="cta-card__content">
-    <h2>Let's Build Something Amazing Together</h2>
-    <p>Available for new opportunities and consulting on complex backend architecture.</p>
+    @if (config.cta.eyebrow) {
+      <div class="cta-card__eyebrow">
+        {{ config.cta.eyebrow }}
+      </div>
+    }
+
+    <h2>
+      {{ config.cta.title }}
+    </h2>
+
+    <p>
+      {{ config.cta.description }}
+    </p>
+
     <div class="cta-card__actions">
-      <a class="home-button home-button--primary" routerLink="/contact">Hire Me</a>
-      <a class="home-button home-button--secondary" routerLink="/contact">Get In Touch</a>
+      <a class="home-button home-button--primary" routerLink="/contact">
+        {{ config.cta.primaryButton }}
+      </a>
+
+      <a class="home-button home-button--secondary" routerLink="/contact">
+        {{ config.cta.secondaryButton }}
+      </a>
     </div>
   </div>
 </div>

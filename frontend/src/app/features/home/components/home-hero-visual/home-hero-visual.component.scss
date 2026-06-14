@@ -6,9 +6,9 @@
   position: relative;
   overflow: hidden;
   aspect-ratio: 4 / 3;
-  border: 1px solid var(--home-border);
-  border-radius: var(--home-radius-xl);
-  background: var(--home-surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
   transition: transform 0.2s ease-out;
 }
 
@@ -24,7 +24,11 @@
 
 .hero-image__overlay {
   z-index: 1;
-  background: linear-gradient(to top right, rgba(16, 185, 129, 0.1), transparent);
+  background: linear-gradient(
+    to top right,
+    rgba(242, 202, 80, 0.12),
+    transparent
+  );
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.5s ease;
@@ -44,4 +48,26 @@
 
 .hero-image:hover img {
   filter: grayscale(0);
+}
+
+[data-theme="wayne"] .hero-image {
+  border-color: var(--border-strong);
+
+  background: #0b0d10;
+}
+
+[data-theme="wayne"] .hero-image__overlay {
+  background: linear-gradient(
+    to top right,
+    rgba(242, 202, 80, 0.08),
+    transparent
+  );
+}
+
+[data-theme="wayne"] .hero-image img {
+  filter: grayscale(100%) contrast(1.15) brightness(0.9);
+}
+
+[data-theme="wayne"] .hero-image:hover img {
+  filter: grayscale(20%) contrast(1.2) brightness(1);
 }

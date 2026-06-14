@@ -10,6 +10,8 @@
 .project-security__header h2 {
   color: var(--text-primary);
   margin-bottom: 1rem;
+  max-width: var(--project-security-heading-width);
+  margin-inline: auto;
 }
 
 .project-security__header p {
@@ -20,23 +22,16 @@
 
 .project-security__grid {
   display: grid;
-
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-
   gap: 2rem;
 }
 
 .security-card {
   position: relative;
-
   padding: 2rem;
-
   border: 1px solid var(--border);
-
-  border-radius: 1.25rem;
-
+  border-radius: var(--project-security-card-radius);
   background: var(--surface);
-
   transition:
     transform 0.25s ease,
     border-color 0.25s ease,
@@ -45,9 +40,7 @@
 
 .security-card h3 {
   margin: 0 0 1rem;
-
   color: var(--text-primary);
-
   font-size: 1.2rem;
 }
 
@@ -58,28 +51,19 @@
 
 .security-card:hover {
   transform: translateY(-6px);
-
-  border-color: rgba(16, 185, 129, 0.35);
-
-  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.08);
+  border-color: var(--project-security-hover-border);
+  box-shadow: var(--project-security-hover-shadow);
 }
 
 .security-card::before {
   content: "";
-
   position: absolute;
-
   top: 0;
   left: 0;
-
   width: 100%;
-
-  height: 4px;
-
+  height: var(--project-security-accent-height);
   background: linear-gradient(90deg, transparent, var(--primary), transparent);
-
   opacity: 0;
-
   transition: opacity 0.25s ease;
 }
 

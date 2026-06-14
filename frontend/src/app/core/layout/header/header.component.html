@@ -1,7 +1,7 @@
 <header class="site-header">
   <div class="site-header__inner">
     <a class="site-header__brand" [routerLink]="['/']" [attr.aria-label]="site.brandName + ' home'">
-      <span class="site-header__brand-name">{{ site.brandName }}</span>
+      <span class="site-header__brand-name">{{ themeConfig.brandName }}</span>
     </a>
 
     <nav class="site-header__nav" aria-label="Primary navigation">
@@ -21,6 +21,6 @@
       }
     </nav>
 
-    <a class="site-header__resume" href="/resume.pdf">Resume</a>
+    <a class="site-header__resume" href="/resume.pdf">{{ themeConfig.resumeLabel }}</a>
   </div>
 </header>

@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-
+import { inject, ChangeDetectionStrategy, Component } from '@angular/core';
+import { ThemeService } from '../../../../core/services/theme.service';
+import { THEME_HOME_CONFIG } from '../../../../core/config/theme-home.config';
 import { HomeIconComponent } from '../home-icon/home-icon.component';
 
 interface EngineeringPoint {
@@ -16,6 +17,12 @@ interface EngineeringPoint {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeAboutPreviewComponent {
+  private readonly themeService = inject(ThemeService);
+
+  protected get config() {
+    return THEME_HOME_CONFIG[this.themeService.theme()];
+  }
+
   protected readonly engineeringPoints: readonly EngineeringPoint[] = [
     {
       title: 'REST APIs:',

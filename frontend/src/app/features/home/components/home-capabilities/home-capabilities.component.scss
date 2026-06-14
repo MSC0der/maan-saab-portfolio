@@ -9,28 +9,33 @@
 }
 
 .capability-card {
-  padding: 24px;
+  padding: var(--capability-card-padding);
 }
 
 .capability-card__icon {
   display: block;
-  color: var(--home-primary);
+  color: var(--primary);
   margin-bottom: 16px;
+  width: var(--capability-icon-size);
+  height: var(--capability-icon-size);
 }
 
 .capability-card h2 {
   margin: 0 0 4px;
-  color: var(--home-text-primary);
-  font-family: var(--home-font-display);
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: 0;
-  line-height: 1.4;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+
+  font-size: var(--capability-title-size);
+  font-weight: var(--capability-title-weight);
+
+  text-transform: var(--capability-title-transform);
+
+  line-height: 1.2;
 }
 
 .capability-card p {
   margin: 0;
-  color: var(--home-text-secondary);
+  color: var(--text-secondary);
   font-size: 16px;
   line-height: 1.6;
 }

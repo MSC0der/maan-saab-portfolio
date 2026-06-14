@@ -16,7 +16,7 @@
 
 .about-preview h2 {
   margin: 0;
-  color: var(--home-text-primary);
+  color: var(--text-primary);
   font-family: var(--home-font-display);
   font-size: 32px;
   font-weight: 600;
@@ -26,7 +26,7 @@
 
 .about-preview p {
   margin: 0;
-  color: var(--home-text-secondary);
+  color: var(--text-secondary);
   font-size: 18px;
   line-height: 1.7;
 }
@@ -46,26 +46,26 @@
 }
 
 .engineering-list__icon {
-  color: var(--home-primary);
+  color: var(--primary);
   margin-top: 4px;
 }
 
 .engineering-list strong {
-  color: var(--home-text-primary);
+  color: var(--text-primary);
   font-weight: 500;
 }
 
 .engineering-list span {
-  color: var(--home-text-secondary);
+  color: var(--text-secondary);
 }
 
 .about-preview__visual {
   overflow: hidden;
   width: 100%;
   aspect-ratio: 4 / 5;
-  border: 1px solid var(--home-border);
-  border-radius: var(--home-radius-xl);
-  background: var(--home-surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
 }
 
 .architecture-diagram {

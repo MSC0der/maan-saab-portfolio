@@ -2,116 +2,12 @@
   display: block;
 }
 
-.case-study {
-  width: min(100%, 1180px);
-
-  margin-inline: auto;
-
-  padding: 4rem var(--layout-gutter) 6rem;
-}
-
-.case-study__back {
-  display: inline-block;
-
-  margin-bottom: 2rem;
-
-  color: var(--text-secondary);
-
-  text-decoration: none;
-}
-
-.case-study__hero {
-  margin-bottom: 4rem;
-}
-
-.case-study__category {
-  display: inline-block;
-
-  padding: 0.5rem 0.9rem;
-
-  border-radius: 999px;
-
-  background: var(--primary-soft);
-
-  color: var(--primary);
-
-  margin-bottom: 1rem;
-}
-
-.case-study__hero h1 {
-  color: var(--text-primary);
-
-  font-size: clamp(3rem, 6vw, 5rem);
-
-  margin-bottom: 1rem;
-}
-
-.case-study__hero p {
-  color: var(--text-secondary);
-
-  max-width: 60rem;
-
-  line-height: 1.8;
-}
-
-.case-study__section {
-  margin-bottom: 4rem;
-}
-
-.case-study__section h2 {
-  color: var(--text-primary);
-
-  margin-bottom: 1rem;
-}
-
-.case-study__section p {
-  color: var(--text-secondary);
-
-  line-height: 1.8;
-}
-
-.case-study__chips {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 0.75rem;
-}
-
-.case-study__chips span {
-  padding: 0.5rem 1rem;
-
-  border: 1px solid var(--border);
-
-  border-radius: 999px;
-
-  background: var(--surface);
-
-  color: var(--text-secondary);
-}
-
-.architecture-flow {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 1rem;
-}
-
-.architecture-flow__node {
-  padding: 1rem 1.5rem;
-
-  border: 1px solid var(--primary);
-
-  border-radius: 12px;
-
-  background: var(--surface);
-
-  color: var(--text-primary);
-}
-
 .case-study-empty {
   text-align: center;
-
   padding: 6rem 2rem;
+}
+
+.case-study-empty h1 {
+  max-width: var(--project-not-found-heading);
+  margin-inline: auto;
 }

@@ -3,21 +3,23 @@
     <div class="hero__copy">
       <div class="identity-pill animate-on-load">
         <span class="identity-pill__status" aria-hidden="true"></span>
-        <span>Ranbir Singh Maan</span>
+        <span>{{ heroConfig.preTitle }}</span>
       </div>
 
       <h1 class="hero__title animate-on-load delay-100">
-        Backend-Focused<br />
-        <span>Full Stack Engineer</span>
+        {{ heroConfig.titleLine1 }}<br />
+        <span>{{ heroConfig.titleHighlight }}</span>
       </h1>
 
       <p class="hero__description animate-on-load delay-200">
-        I build secure APIs, scalable backend systems, authentication workflows, and modern web
-        applications using Node.js and Angular.
+        {{ heroConfig.description }}
       </p>
     </div>
 
-    <div class="hero__chips animate-on-load delay-300" aria-label="Core technologies">
+    <div
+      class="hero__chips animate-on-load delay-300"
+      aria-label="Core technologies"
+    >
       @for (technology of technologies; track technology) {
         <app-home-tech-chip [label]="technology" />
       }

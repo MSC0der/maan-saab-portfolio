@@ -4,22 +4,20 @@
 }
 
 .about-page {
-  --about-bg: #0e0e10;
-  --about-bg-deep: #09090b;
-  --about-surface: #131315;
-  --about-surface-low: #1c1b1d;
-  --about-surface-card: #201f22;
-  --about-surface-high: #2a2a2c;
-  --about-surface-bright: #39393b;
-  --about-variant: #18181b;
-  --about-border: #27272a;
-  --about-border-soft: #424754;
-  --about-primary: #10b981;
-  --about-primary-blue: #adc6ff;
-  --about-text: #e5e1e4;
-  --about-text-strong: #ffffff;
-  --about-text-muted: #a1a1aa;
-  --about-chip: #d4d4d8;
+  --about-bg: var(--background);
+  --about-bg-deep: var(--background);
+  --about-surface: var(--surface);
+  --about-surface-low: var(--surface);
+  --about-surface-card: var(--surface);
+  --about-surface-high: var(--surface-elevated);
+  --about-surface-bright: var(--surface-elevated);
+  --about-variant: var(--surface);
+  --about-border: var(--border);
+  --about-border-soft: var(--border-strong, var(--border));
+  --about-primary: var(--primary);
+  --about-text: var(--text-secondary);
+  --about-text-strong: var(--text-primary);
+  --about-text-muted: var(--text-secondary);
   --about-container: 1200px;
   --about-margin-mobile: 20px;
   --about-margin-desktop: 80px;
@@ -27,17 +25,8 @@
   --about-gutter: 24px;
   --about-radius: 0.5rem;
   --about-radius-sm: 0.25rem;
-  --about-font-display: Geist, Inter, ui-sans-serif, system-ui, sans-serif;
-  --about-font-body: Inter, ui-sans-serif, system-ui, sans-serif;
-  --about-font-code: 'JetBrains Mono', 'Courier New', monospace;
-
-  display: grid;
-  gap: var(--about-section-gap);
-  min-height: 100vh;
-  background: var(--about-bg);
-  color: var(--about-text);
-  font-family: var(--about-font-body);
-  padding: 96px var(--about-margin-mobile) var(--about-section-gap);
+  --about-font-display: var(--font-display);
+  --about-font-body: var(--font-body);
 }
 
 @media (min-width: 768px) {

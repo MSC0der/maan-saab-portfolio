@@ -1,8 +1,6 @@
 .projects-cta {
   padding-top: 4rem;
-
   border-top: 1px solid var(--border);
-
   text-align: center;
   max-width: 900px;
   margin: 0 auto;
@@ -10,19 +8,16 @@
 
 .projects-cta h2 {
   margin: 0 0 1.5rem;
-
   color: var(--text-primary);
-
   font-size: clamp(2rem, 4vw, 3rem);
+  max-width: var(--projects-cta-heading-width);
+  margin-inline: auto;
 }
 
 .projects-cta p {
   max-width: 48rem;
-
   margin: 0 auto 2rem;
-
   color: var(--text-secondary);
-
   line-height: 1.8;
 }
 
@@ -38,19 +33,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   padding: 0.9rem 1.5rem;
-
-  border-radius: 0.75rem;
-
+  border-radius: var(--projects-cta-button-radius);
   text-decoration: none;
-
   transition: all 0.25s ease;
 }
 
 .projects-cta__primary {
-  background: var(--primary);
-  color: var(--background);
+  background: var(--projects-cta-primary-bg);
+  color: var(--projects-cta-primary-color);
   font-weight: 600;
 }
 

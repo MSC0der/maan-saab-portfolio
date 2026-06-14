@@ -5,13 +5,15 @@
 .cta-card {
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--home-border);
+  border: 1px solid var(--border);
   border-radius: 1rem;
-  background: var(--home-surface);
+  background: var(--surface);
   padding: 48px;
   text-align: center;
-  transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    background 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cta-card:hover {
@@ -48,7 +50,7 @@
 
 .cta-card h2 {
   margin: 0 0 24px;
-  color: var(--home-text-primary);
+  color: var(--text-primary);
   font-family: var(--home-font-display);
   font-size: 40px;
   font-weight: 700;
@@ -58,7 +60,7 @@
 
 .cta-card p {
   margin: 0 0 32px;
-  color: var(--home-text-secondary);
+  color: var(--text-secondary);
   font-size: 18px;
   line-height: 1.7;
 }
@@ -82,7 +84,9 @@
   line-height: 1.2;
   padding: 16px 32px;
   text-decoration: none;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .home-button:active {
@@ -90,9 +94,9 @@
 }
 
 .home-button--primary {
-  border: 1px solid var(--home-primary);
-  background: var(--home-primary);
-  color: var(--home-text-primary);
+  border: 1px solid var(--primary);
+  background: var(--primary);
+  color: var(--text-primary);
 }
 
 .home-button--primary:hover {
@@ -100,12 +104,59 @@
 }
 
 .home-button--secondary {
-  border: 1px solid var(--home-border);
-  color: var(--home-text-primary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
 }
 
 .home-button--secondary:hover {
-  background: var(--home-surface);
+  background: var(--surface);
+}
+
+[data-theme="wayne"] .cta-card {
+  border-color: var(--border);
+  background: rgba(15, 19, 23, 0.8);
+}
+
+[data-theme="wayne"] .cta-card__eyebrow {
+  margin-bottom: 24px;
+
+  color: var(--primary);
+
+  font-size: 12px;
+
+  letter-spacing: 0.25em;
+
+  text-transform: uppercase;
+}
+
+[data-theme="wayne"] .cta-card h2 {
+  font-family: var(--font-display);
+
+  font-size: 72px;
+
+  font-weight: 700;
+
+  line-height: 0.95;
+
+  text-transform: uppercase;
+}
+
+[data-theme="wayne"] .cta-card__glow {
+  background: rgba(242, 202, 80, 0.08);
+}
+
+[data-theme="wayne"] .home-button--primary {
+  background: var(--primary);
+
+  border-color: var(--primary);
+
+  color: var(--button-primary-text);
+}
+
+[data-theme="wayne"] .home-button--secondary {
+  border-color: var(--border-strong);
+
+  color: var(--text-primary);
 }
 
 @media (min-width: 768px) {

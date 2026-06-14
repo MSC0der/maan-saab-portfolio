@@ -8,7 +8,7 @@
   display: inline-block;
   width: 32px;
   height: 32px;
-  color: var(--home-primary);
+  color: var(--primary);
 }
 
 .home-icon::before,
@@ -99,7 +99,7 @@
 .home-icon--work {
   width: 48px;
   height: 48px;
-  color: var(--home-text-secondary);
+  color: var(--text-secondary);
 }
 
 .home-icon--work::before {

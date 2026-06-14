@@ -59,7 +59,7 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, var(--home-surface), transparent);
-  content: '';
+  content: "";
   opacity: 0.6;
 }
 
@@ -144,6 +144,46 @@
 
 .future-project p {
   color: rgba(156, 163, 175, 0.7);
+}
+
+[data-theme="wayne"] .section-heading {
+  margin-bottom: 72px;
+}
+
+[data-theme="wayne"] .section-heading__eyebrow {
+  color: var(--primary);
+
+  font-size: 12px;
+
+  letter-spacing: 0.25em;
+
+  text-transform: uppercase;
+
+  margin-bottom: 20px;
+}
+
+[data-theme="wayne"] .section-heading h2 {
+  color: var(--text-primary);
+
+  font-family: var(--font-display);
+
+  font-size: 64px;
+
+  font-weight: 700;
+
+  line-height: 0.95;
+
+  text-transform: uppercase;
+
+  margin-bottom: 20px;
+}
+
+[data-theme="wayne"] .section-heading p {
+  max-width: 760px;
+
+  color: var(--text-secondary);
+
+  font-size: 20px;
 }
 
 @media (min-width: 768px) {

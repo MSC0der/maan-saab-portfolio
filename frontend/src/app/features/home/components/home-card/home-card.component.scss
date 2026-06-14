@@ -5,19 +5,19 @@
 
 .glass-card {
   height: 100%;
-  border: 1px solid var(--home-border);
-  border-radius: var(--home-radius-lg);
-  background: var(--home-surface);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  background: var(--card-bg);
   transition:
-    background 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .glass-card:hover {
-  border-color: rgba(255, 255, 255, 0.2);
-  background: var(--home-surface-hover);
-  transform: translateY(-4px);
+  border-color: var(--card-border-hover);
+  background: var(--card-bg-hover);
+  transform: var(--card-hover-transform);
 }
 
 .glass-card--dashed {
@@ -30,4 +30,30 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+[data-theme="wayne"] .glass-card {
+  position: relative;
+}
+
+[data-theme="wayne"] .glass-card::before,
+[data-theme="wayne"] .glass-card::after {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  content: "";
+}
+
+[data-theme="wayne"] .glass-card::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1px solid var(--primary);
+  border-left: 1px solid var(--primary);
+}
+
+[data-theme="wayne"] .glass-card::after {
+  right: -1px;
+  bottom: -1px;
+  border-right: 1px solid var(--primary);
+  border-bottom: 1px solid var(--primary);
 }

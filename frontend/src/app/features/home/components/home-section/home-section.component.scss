@@ -3,10 +3,10 @@
 }
 
 .home-section {
-  width: min(100%, var(--home-container-max));
+  width: min(100%, var(--section-max-width));
   margin-inline: auto;
-  margin-bottom: var(--home-section-gap);
-  padding-inline: var(--home-margin-mobile);
+  margin-bottom: var(--section-gap);
+  padding-inline: var(--section-padding-mobile);
 }
 
 .home-section--reveal {
@@ -15,9 +15,13 @@
   transform: translateY(30px);
 }
 
+[data-theme="wayne"] .home-section--reveal {
+  animation-duration: 1s;
+}
+
 @media (min-width: 768px) {
   .home-section {
-    padding-inline: var(--home-margin-desktop);
+    padding-inline: var(--section-padding-desktop);
   }
 }
 

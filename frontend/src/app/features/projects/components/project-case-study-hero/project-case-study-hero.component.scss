@@ -263,3 +263,39 @@
     font-size: clamp(2.75rem, 10vw, 4rem);
   }
 }
+
+[data-theme="wayne"] .case-study-hero__category {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--primary);
+}
+
+[data-theme="wayne"] .case-study-hero h1 {
+  font-family: var(--home-font-display);
+  line-height: 0.95;
+  max-width: 12ch;
+}
+
+[data-theme="wayne"] .case-study-hero__stack span {
+  border-radius: 2px;
+  font-family: var(--home-font-code);
+  letter-spacing: 0.08em;
+  background: rgba(242, 202, 80, 0.04);
+  border-color: rgba(242, 202, 80, 0.15);
+}
+
+[data-theme="wayne"] .case-study-hero__primary,
+[data-theme="wayne"] .case-study-hero__secondary {
+  border-radius: 2px;
+}
+
+[data-theme="wayne"] .case-study-hero__image-wrapper {
+  box-shadow:
+    0 0 80px rgba(242, 202, 80, 0.05),
+    0 25px 60px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="wayne"] .case-study-hero__status--completed {
+  background: rgba(242, 202, 80, 0.12);
+  color: #f2ca50;
+}

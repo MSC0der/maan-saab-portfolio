@@ -5,17 +5,19 @@
 .tech-chip {
   display: inline-flex;
   align-items: center;
-  border: 1px solid var(--home-border);
-  border-radius: var(--home-radius);
-  background: var(--home-surface);
-  color: var(--home-text-secondary);
-  font-family: var(--home-font-code);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
   font-size: 13px;
   font-weight: 400;
-  letter-spacing: 0;
   line-height: 1.5;
   padding: 6px 12px;
-  transition: transform 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .tech-chip:hover {
@@ -25,4 +27,24 @@
 .tech-chip--compact {
   font-size: 12px;
   padding: 4px 8px;
+}
+
+[data-theme="wayne"] .tech-chip {
+  border-color: var(--border);
+
+  background: rgba(255, 255, 255, 0.02);
+
+  color: var(--text-secondary);
+
+  font-family: "IBM Plex Mono", monospace;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+[data-theme="wayne"] .tech-chip:hover {
+  border-color: var(--border-strong);
+
+  color: var(--primary);
 }

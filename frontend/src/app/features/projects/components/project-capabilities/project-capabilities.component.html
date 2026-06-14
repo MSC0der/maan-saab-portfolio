@@ -12,7 +12,7 @@
       @for (capability of project().capabilities; track capability.title) {
         <article class="capability-card">
           <div class="capability-card__icon">
-            {{ $index + 1 }}
+            {{ ($index + 1).toString().padStart(2, "0") }}
           </div>
 
           <h3>

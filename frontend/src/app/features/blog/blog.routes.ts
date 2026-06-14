@@ -1,7 +1,6 @@
 // blog.routes.ts
 
 import { Routes } from '@angular/router';
-console.log('BLOG ARTICLE PAGE LOADED');
 export const BLOG_ROUTES: Routes = [
   
   {

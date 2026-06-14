@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-
+import { ThemeService } from '../../services/theme.service';
+import { THEME_HEADER_CONFIG } from '../../config/theme.config';
 import { PRIMARY_NAVIGATION } from '../../config/navigation.config';
 import { SITE_CONFIG } from '../../config/site.config';
 import { NavigationItem } from '../../types/navigation.types';
@@ -22,7 +23,16 @@ interface HeaderNavigationItem {
 })
 export class HeaderComponent {
   protected readonly site = SITE_CONFIG;
-  protected readonly navigation = this.buildNavigation();
+
+  protected readonly themeConfig;
+
+  protected readonly navigation: readonly HeaderNavigationItem[];
+
+  constructor(private readonly themeService: ThemeService) {
+    this.themeConfig = THEME_HEADER_CONFIG[this.themeService.theme()];
+
+    this.navigation = this.buildNavigation();
+  }
 
   private buildNavigation(): readonly HeaderNavigationItem[] {
     const navigationByLabel = new Map<string, NavigationItem>(
@@ -30,11 +40,26 @@ export class HeaderComponent {
     );
 
     return [
-      navigationByLabel.get('Home'),
-      navigationByLabel.get('Projects'),
-      navigationByLabel.get('About'),
-      navigationByLabel.get('Blog'),
-      navigationByLabel.get('Contact'),
-    ].filter((item): item is HeaderNavigationItem => item !== undefined);
+      {
+        ...navigationByLabel.get('Home')!,
+        label: this.themeConfig.navigation.home,
+      },
+      {
+        ...navigationByLabel.get('Projects')!,
+        label: this.themeConfig.navigation.projects,
+      },
+      {
+        ...navigationByLabel.get('About')!,
+        label: this.themeConfig.navigation.about,
+      },
+      {
+        ...navigationByLabel.get('Blog')!,
+        label: this.themeConfig.navigation.blog,
+      },
+      {
+        ...navigationByLabel.get('Contact')!,
+        label: this.themeConfig.navigation.contact,
+      },
+    ];
   }
 }

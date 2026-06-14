@@ -196,3 +196,75 @@
 .project-card:hover .project-card__image img {
   transform: scale(1.05);
 }
+
+[data-theme='wayne'] .project-card {
+  border-radius: 4px;
+
+  background: var(--surface);
+
+  border-color: rgba(242, 202, 80, 0.12);
+}
+
+[data-theme='wayne'] .project-card__category {
+  border-radius: 2px;
+
+  font-size: 11px;
+
+  letter-spacing: 0.14em;
+
+  background: rgba(255,255,255,.02);
+}
+
+[data-theme='wayne'] .project-card__status {
+  border-radius: 2px;
+
+  letter-spacing: 0.12em;
+
+  font-size: 11px;
+}
+
+[data-theme='wayne'] .project-card__status--completed {
+  background: rgba(16,185,129,.08);
+
+  color: #00d084;
+}
+
+[data-theme='wayne'] .project-card__status--ongoing {
+  background: rgba(242,202,80,.08);
+
+  color: var(--primary);
+}
+
+[data-theme='wayne'] .project-card__title {
+  font-family: var(--font-display);
+
+  font-weight: 700;
+
+  line-height: 1.1;
+}
+
+[data-theme='wayne'] .project-card__chip {
+  border-radius: 2px;
+
+  background: rgba(255,255,255,.02);
+
+  font-size: 11px;
+}
+
+[data-theme='wayne'] .project-card__link {
+  color: var(--button-primary-text);
+
+  border-radius: 2px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+}
+
+[data-theme='wayne'] .project-card__secondary-link {
+  border-radius: 2px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+}

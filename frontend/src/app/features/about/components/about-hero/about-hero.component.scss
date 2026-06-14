@@ -18,7 +18,7 @@
 
 h1 {
   margin: 0;
-  color: var(--about-text);
+  color: var(--about-text-strong);
   font-family: var(--about-font-display);
   font-size: 40px;
   font-weight: 700;
@@ -39,9 +39,10 @@ p {
   width: fit-content;
   align-items: center;
   gap: 8px;
+  border: 1px solid var(--about-primary);
   border-radius: 0.125rem;
-  background: var(--about-primary-blue);
-  color: #002e6a;
+  background: var(--about-primary);
+  color: var(--button-primary-text);
   font-family: var(--about-font-display);
   font-size: 14px;
   font-weight: 500;
@@ -49,7 +50,11 @@ p {
   margin-top: 16px;
   padding: 12px 24px;
   text-decoration: none;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.about-hero__cta:hover {
+  background: var(--primary-hover);
 }
 
 .about-hero__visual {
@@ -60,7 +65,7 @@ p {
   position: absolute;
   inset: 0;
   border-radius: var(--about-radius);
-  background: rgba(173, 198, 255, 0.05);
+  background: color-mix(in srgb, var(--about-primary) 12%, transparent);
   filter: blur(40px);
 }
 

@@ -37,3 +37,28 @@
   color: var(--background);
   border-color: var(--text-primary);
 }
+
+[data-theme='wayne'] .project-filter-bar__pill {
+  font-family: var(--home-font-code);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+[data-theme='wayne'] .project-filter-bar__pill--active {
+  background: var(--primary);
+
+  border-color: var(--primary);
+
+  color: var(--button-primary-text);
+}
+
+[data-theme='wayne'] .project-filter-bar__pill:hover {
+  border-color: var(--primary);
+
+  color: var(--primary);
+}
+
+[data-theme='wayne'] .project-filter-bar {
+  border-bottom-color: rgba(242, 202, 80, 0.12);
+}
