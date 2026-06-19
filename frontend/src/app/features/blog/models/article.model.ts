@@ -1,3 +1,8 @@
+export interface ArticleMetric {
+  value: string;
+  label: string;
+}
+
 export interface Article {
   slug: string;
   title: string;
@@ -16,4 +21,6 @@ export interface Article {
   heroImage?: string;
 
   content?: string[];
+
+  metrics?: ArticleMetric[];
 }

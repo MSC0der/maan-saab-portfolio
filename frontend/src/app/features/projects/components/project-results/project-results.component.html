@@ -1,11 +1,10 @@
 @if (project().metrics?.length) {
   <section class="project-results">
     <div class="project-results__header">
-      <h2>Results & Impact</h2>
+      <h2>{{ config.results.title }}</h2>
 
       <p>
-        Key outcomes achieved through architectural improvements, security
-        enhancements and engineering optimizations.
+        {{ config.results.description }}
       </p>
     </div>
 

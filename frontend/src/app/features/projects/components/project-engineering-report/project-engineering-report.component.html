@@ -1,11 +1,10 @@
 @if (project().obstacles?.length) {
   <section class="project-engineering-report">
     <div class="project-engineering-report__header">
-      <h2>Engineering Challenges & Solutions</h2>
+      <h2>{{ config.engineeringReport.title }}</h2>
 
       <p>
-        Critical technical obstacles encountered during implementation and the
-        engineering decisions used to overcome them.
+        {{ config.engineeringReport.description }}
       </p>
     </div>
 
@@ -18,7 +17,9 @@
 
           <div class="engineering-timeline__content">
             <div class="engineering-card engineering-card--problem">
-              <span class="engineering-card__label"> Challenge </span>
+              <span class="engineering-card__label">
+                {{ config.engineeringReport.challengeLabel }}
+              </span>
 
               <h3>
                 {{ item.obstacle }}
@@ -35,7 +36,7 @@
               <span
                 class="engineering-card__label engineering-card__label--solution"
               >
-                Solution
+                {{ config.engineeringReport.solutionLabel }}
               </span>
 
               <h3>

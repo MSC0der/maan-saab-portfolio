@@ -1,10 +1,10 @@
 @if (project().capabilities?.length) {
   <section class="project-capabilities">
     <div class="project-capabilities__header">
-      <h2>Core Capabilities</h2>
+      <h2>{{ config.capabilities.title }}</h2>
 
       <p>
-        The key architectural and engineering features that power this system.
+        {{ config.capabilities.description }}
       </p>
     </div>
 

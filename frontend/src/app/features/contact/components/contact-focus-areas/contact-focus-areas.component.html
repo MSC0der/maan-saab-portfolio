@@ -1,8 +1,10 @@
 <section class="focus-areas">
-  <h2>Focus Areas</h2>
+  <h2>
+    {{ config.focusAreas.title }}
+  </h2>
 
   <div class="focus-grid">
-    @for (area of areas; track area.title) {
+    @for (area of config.focusAreas.areas; track area.title) {
       <article class="focus-card">
         <span class="focus-card__number">
           {{ area.number }}

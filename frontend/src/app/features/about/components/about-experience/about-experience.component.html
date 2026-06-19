@@ -3,13 +3,12 @@
     <div class="experience-section__header">
       <div class="experience-pill">
         <span aria-hidden="true"></span>
-        <p>Production Engineering</p>
+        <p>{{ config.experience.eyebrow }}</p>
       </div>
 
-      <h2>Experience Building Production Systems</h2>
+      <h2>{{ config.experience.title }}</h2>
       <p>
-        Building secure, scalable, and maintainable software architecture used in high-stakes
-        real-world business environments at Imminent Ideas.
+        {{ config.experience.description }}
       </p>
     </div>
 
@@ -17,7 +16,11 @@
       @for (card of cards; track card.title) {
         <article class="experience-card">
           <div class="experience-card__media">
-            <img [src]="card.imageUrl" [alt]="card.imageAlt" referrerpolicy="no-referrer" />
+            <img
+              [src]="card.imageUrl"
+              [alt]="card.imageAlt"
+              referrerpolicy="no-referrer"
+            />
             <div class="experience-card__fade" aria-hidden="true"></div>
           </div>
 

@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-
+import { inject } from '@angular/core';
+import { ThemeService } from '../../../../core/services/theme.service';
+import { THEME_ABOUT_CONFIG } from '../../../../core/config/theme-about.config';
 import { AboutIconComponent } from '../about-icon/about-icon.component';
 
 @Component({
@@ -11,7 +13,11 @@ import { AboutIconComponent } from '../about-icon/about-icon.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutHeroComponent {
-  protected readonly heroImageUrl =
-    '/images/about/maan-about-hero.png';
-    
+  private readonly themeService = inject(ThemeService);
+
+  protected get config() {
+    return THEME_ABOUT_CONFIG[this.themeService.theme()];
+  }
+
+  protected readonly heroImageUrl = '/images/about/maan-about-hero.png';
 }

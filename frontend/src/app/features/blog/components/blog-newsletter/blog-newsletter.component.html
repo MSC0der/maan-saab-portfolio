@@ -1,14 +1,17 @@
 <section class="newsletter">
-  <h2>Stay Updated With New Engineering Articles</h2>
+  <h2>
+    {{ config.newsletter.title }}
+  </h2>
 
   <p>
-    Get occasional deep dives into backend architecture, security best practices
-    and performance engineering.
+    {{ config.newsletter.description }}
   </p>
 
   <form class="newsletter-form">
-    <input type="email" placeholder="engineer@domain.com" />
+    <input type="email" [placeholder]="config.newsletter.placeholder" />
 
-    <button type="button">Subscribe</button>
+    <button type="button">
+      {{ config.newsletter.buttonLabel }}
+    </button>
   </form>
 </section>

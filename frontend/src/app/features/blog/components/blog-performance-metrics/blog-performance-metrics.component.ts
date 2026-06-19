@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { Article } from '../../models/article.model';
 
 @Component({
   selector: 'app-blog-performance-metrics',
   standalone: true,
-  imports: [],
   templateUrl: './blog-performance-metrics.component.html',
-  styleUrl: './blog-performance-metrics.component.scss'
+  styleUrl: './blog-performance-metrics.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogPerformanceMetricsComponent {
-
+  readonly article = input.required<Article>();
 }

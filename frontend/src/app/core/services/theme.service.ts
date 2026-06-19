@@ -6,7 +6,7 @@ export type ThemeType = 'technical-dark' | 'wayne';
   providedIn: 'root',
 })
 export class ThemeService {
-  readonly theme = signal<ThemeType>('technical-dark');
+  readonly theme = signal<ThemeType>('wayne');
 
   setTheme(theme: ThemeType): void {
     this.theme.set(theme);

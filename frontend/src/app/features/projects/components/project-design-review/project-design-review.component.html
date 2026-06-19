@@ -1,11 +1,10 @@
 @if (project().engineeringDecisions?.length) {
   <section class="project-design-review">
     <div class="project-design-review__header">
-      <h2>Architecture Decision Records</h2>
+      <h2>{{ config.designReview.title }}</h2>
 
       <p>
-        Key engineering decisions, trade-offs and architectural reasoning that
-        shaped the implementation of this platform.
+        {{ config.designReview.description }}
       </p>
     </div>
 
@@ -39,7 +38,9 @@
           @if (expandedIndex() === index) {
             <div class="adr-card__body">
               <div class="adr-card__section">
-                <span> Decision Rationale </span>
+                <span>
+                  {{ config.designReview.rationaleLabel }}
+                </span>
 
                 <p>
                   {{ decision.explanation }}

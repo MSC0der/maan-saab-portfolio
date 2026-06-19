@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ThemeService } from '../../../../core/services/theme.service';
+import { THEME_BLOG_CONFIG } from '../../../../core/config/theme-blog.config';
 
 interface KnowledgeDomain {
   readonly title: string;
@@ -47,4 +49,9 @@ export class BlogKnowledgeDomainsComponent {
       subtitle: 'Complexity & Efficiency',
     },
   ];
+  private readonly themeService = inject(ThemeService);
+
+  protected get config() {
+    return THEME_BLOG_CONFIG[this.themeService.theme()];
+  }
 }

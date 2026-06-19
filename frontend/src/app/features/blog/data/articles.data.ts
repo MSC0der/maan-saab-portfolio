@@ -21,6 +21,24 @@ export const ARTICLES: readonly Article[] = [
       'Session authentication provides easier revocation and tighter server-side control.',
       'Choosing between JWT and Sessions depends on application architecture and scalability requirements.',
     ],
+    metrics: [
+      {
+        value: '99%',
+        label: 'Security Confidence',
+      },
+      {
+        value: 'O(1)',
+        label: 'JWT Validation',
+      },
+      {
+        value: 'Stateless',
+        label: 'Scaling Profile',
+      },
+      {
+        value: 'HttpOnly',
+        label: 'Best Practice',
+      },
+    ],
   },
   {
     slug: 'building-rbac-in-express',

@@ -4,64 +4,49 @@
 
 .newsletter {
   padding: 4rem 2rem;
-
   margin-bottom: 5rem;
-
+  border-radius: var(--blog-newsletter-radius);
   text-align: center;
-
   border: 1px solid var(--border);
-
-  border-radius: 24px;
-
   background: var(--surface);
 }
 
 .newsletter h2 {
-  margin-bottom: 1rem;
-
   color: var(--text-primary);
+  font-family: var(--blog-newsletter-heading-font);
+  text-transform: var(--blog-newsletter-heading-transform);
+  letter-spacing: var(--blog-newsletter-heading-spacing);
+  max-width: var(--blog-newsletter-heading-width);
+  margin-inline: auto;
+  margin-bottom: 1rem;
 }
 
 .newsletter p {
   max-width: 700px;
-
   margin: 0 auto 2rem;
-
   color: var(--text-secondary);
 }
 
 .newsletter-form {
   display: flex;
-
   justify-content: center;
-
   gap: 1rem;
-
   flex-wrap: wrap;
 }
 
 .newsletter-form input {
   width: 320px;
-
   padding: 1rem;
-
-  border-radius: 10px;
-
+  border-radius: var(--blog-newsletter-input-radius);
   border: 1px solid var(--border);
-
   background: var(--background);
-
   color: var(--text-primary);
 }
 
 .newsletter-form button {
   padding: 1rem 1.5rem;
-
   border: none;
-
-  border-radius: 10px;
-
+  border-radius: var(--blog-newsletter-button-radius);
   background: var(--primary);
-
   cursor: pointer;
 }

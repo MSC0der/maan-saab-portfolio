@@ -1,18 +1,19 @@
 <section class="project-next">
   <div class="project-next__content">
-    <h2>Explore More Engineering Work</h2>
+    <h2>{{ config.nextProject.title }}</h2>
 
     <p>
-      Review additional projects, architectures and backend systems from my
-      portfolio.
+      {{ config.nextProject.description }}
     </p>
 
     <div class="project-next__actions">
       <a routerLink="/projects" class="project-next__primary">
-        View All Projects
+        {{ config.nextProject.primaryButton }}
       </a>
 
-      <a routerLink="/contact" class="project-next__secondary"> Contact Me </a>
+      <a routerLink="/contact" class="project-next__secondary">
+        {{ config.nextProject.secondaryButton }}
+      </a>
     </div>
   </div>
 </section>

@@ -1,25 +1,26 @@
 <section class="availability-card">
   <div class="availability-card__status">
     <span class="availability-dot"></span>
-    <h3>Available Now</h3>
+
+    <h3>
+      {{ config.availability.title }}
+    </h3>
   </div>
 
   <div class="availability-list">
-    <div class="availability-row">
-      <span>Full-Time</span>
-      <strong>Open</strong>
-    </div>
+    @for (
+      item of config.availability.items;
+      track item.label
+    ) {
+      <div class="availability-row">
+        <span>{{ item.label }}</span>
 
-    <div class="availability-row">
-      <span>Freelance / Contract</span>
-      <strong>Open</strong>
-    </div>
-
-    <div class="availability-row">
-      <span>Remote</span>
-      <strong>Preferred</strong>
-    </div>
+        <strong>{{ item.value }}</strong>
+      </div>
+    }
   </div>
 
-  <p class="availability-note">Typically replies within 24 hours.</p>
+  <p class="availability-note">
+    {{ config.availability.responseTime }}
+  </p>
 </section>

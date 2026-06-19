@@ -4,65 +4,45 @@
 
 .blog-hero {
   padding-block: 4rem;
-
   text-align: center;
 }
 
 .blog-hero__eyebrow {
   display: inline-flex;
-
   padding: 0.5rem 1rem;
-
   border-radius: 999px;
-
   background: var(--primary-soft);
-
   color: var(--primary);
-
   font-size: 0.8rem;
-
   letter-spacing: 0.12em;
 }
 
 .blog-hero h1 {
   margin: 2rem 0 1rem;
-
   color: var(--text-primary);
-
   font-size: clamp(3rem, 7vw, 5rem);
-
   font-weight: 800;
-
   line-height: 0.95;
 }
 
 .blog-hero p {
   max-width: 700px;
-
   margin: 0 auto 3rem;
-
   color: var(--text-secondary);
-
   font-size: 1.125rem;
 }
 
 .blog-hero__stats {
   display: grid;
-
   grid-template-columns: repeat(4, 1fr);
-
   gap: 2rem;
-
   margin-top: 3rem;
 }
 
 .blog-hero__stats strong {
   display: block;
-
   margin-bottom: 0.5rem;
-
   color: var(--primary);
-
   font-size: 1.5rem;
 }
 

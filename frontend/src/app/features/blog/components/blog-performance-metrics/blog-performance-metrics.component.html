@@ -1,25 +1,15 @@
-<section class="performance-metrics">
-  <article class="metric-card">
-    <strong> 99% </strong>
+@if (article().metrics?.length) {
+  <section class="performance-metrics">
+    @for (metric of article().metrics; track metric.label) {
+      <article class="metric-card">
+        <strong>
+          {{ metric.value }}
+        </strong>
 
-    <span> Security Confidence </span>
-  </article>
-
-  <article class="metric-card">
-    <strong> O(1) </strong>
-
-    <span> JWT Validation </span>
-  </article>
-
-  <article class="metric-card">
-    <strong> Stateless </strong>
-
-    <span> Scaling Profile </span>
-  </article>
-
-  <article class="metric-card">
-    <strong> HttpOnly </strong>
-
-    <span> Best Practice </span>
-  </article>
-</section>
+        <span>
+          {{ metric.label }}
+        </span>
+      </article>
+    }
+  </section>
+}

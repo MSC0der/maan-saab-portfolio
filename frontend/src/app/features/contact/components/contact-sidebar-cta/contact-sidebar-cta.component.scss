@@ -4,11 +4,8 @@
 
 .sidebar-cta {
   padding: 2rem;
-
-  border-radius: 16px;
-
+  border-radius: var(--contact-sidebar-radius);
   border: 1px solid var(--border);
-
   background: linear-gradient(
     180deg,
     rgba(16, 185, 129, 0.05),
@@ -18,26 +15,20 @@
 
 .sidebar-cta h3 {
   margin: 0 0 1rem;
-
   color: var(--text-primary);
-
-  font-size: 1.75rem;
-
+  font-size: var(--contact-sidebar-heading-size);
+  max-width: var(--contact-sidebar-heading-width);
   line-height: 1.2;
 }
 
 .sidebar-cta p {
   margin-bottom: 2rem;
-
   color: var(--text-secondary);
-
   line-height: 1.8;
 }
 
 .sidebar-cta__terminal {
-  font-family: monospace;
-
+  font-family: var(--contact-sidebar-terminal-font);
   color: var(--primary);
-
   font-size: 0.95rem;
 }

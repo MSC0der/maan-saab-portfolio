@@ -22,6 +22,8 @@
       {{ article().publishedAt }}
     </span>
 
-    <a [routerLink]="['/blog', article().slug]"> Read More → </a>
+    <a [routerLink]="['/blog', article().slug]">
+      {{ config.card.readMoreLabel }}
+    </a>
   </div>
 </article>

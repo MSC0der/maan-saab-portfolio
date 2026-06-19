@@ -1,36 +1,27 @@
 <section class="blog-hero">
-  <span class="blog-hero__eyebrow"> KNOWLEDGE HUB </span>
+  <span class="blog-hero__eyebrow">
+    {{ config.hero.eyebrow }}
+  </span>
 
   <h1>
-    Engineering Insights
-    <br />
-    & Technical Articles
+    {{ config.hero.title }}
   </h1>
 
   <p>
-    Practical backend engineering, scalable architecture, authentication systems
-    and production software lessons.
+    {{ config.hero.description }}
   </p>
 
   <div class="blog-hero__stats">
-    <div>
-      <strong>5+</strong>
-      <span>Articles</span>
-    </div>
+    @for (stat of config.hero.stats; track stat.label) {
+      <div>
+        <strong>
+          {{ stat.value }}
+        </strong>
 
-    <div>
-      <strong>8+</strong>
-      <span>Technologies</span>
-    </div>
-
-    <div>
-      <strong>2</strong>
-      <span>Case Studies</span>
-    </div>
-
-    <div>
-      <strong>100%</strong>
-      <span>Practical</span>
-    </div>
+        <span>
+          {{ stat.label }}
+        </span>
+      </div>
+    }
   </div>
 </section>

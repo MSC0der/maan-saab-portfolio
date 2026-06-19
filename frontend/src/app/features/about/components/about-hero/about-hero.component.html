@@ -1,19 +1,17 @@
 <section class="about-hero">
   <div class="about-hero__content">
-    <h1>Building Software That Solves Real Problems</h1>
+    <h1>{{ config.hero.title }}</h1>
     <p>
-      I am a Backend-Focused Full Stack Engineer specializing in secure APIs, scalable systems,
-      and robust backend architecture. My approach prioritizes clarity, performance, and building
-      systems that can handle real-world demands gracefully.
+      {{ config.hero.description }}
     </p>
     <a class="about-hero__cta" href="#projects">
-      View Work
+      {{ config.hero.ctaLabel }}
       <app-about-icon name="arrow" />
     </a>
   </div>
 
   <div class="about-hero__visual">
     <div class="about-hero__glow" aria-hidden="true"></div>
-    <img [src]="heroImageUrl" alt="Technical backend architecture diagram" />
+    <img [src]="heroImageUrl" [alt]="config.hero.imageAlt" />
   </div>
 </section>

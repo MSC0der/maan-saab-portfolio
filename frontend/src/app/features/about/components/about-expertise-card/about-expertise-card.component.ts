@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
-
 @Component({
   selector: 'app-about-expertise-card',
   standalone: true,

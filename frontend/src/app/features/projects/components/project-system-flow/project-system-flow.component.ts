@@ -1,6 +1,13 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  input,
+} from '@angular/core';
 
 import { Project } from '../../models/project.model';
+import { ThemeService } from '../../../../core/services/theme.service';
+import { THEME_PROJECTS_CONFIG } from '../../../../core/config/theme-projects.config';
 
 @Component({
   selector: 'app-project-system-flow',
@@ -11,4 +18,10 @@ import { Project } from '../../models/project.model';
 })
 export class ProjectSystemFlowComponent {
   readonly project = input.required<Project>();
+
+  private readonly themeService = inject(ThemeService);
+
+  protected get config() {
+    return THEME_PROJECTS_CONFIG[this.themeService.theme()];
+  }
 }

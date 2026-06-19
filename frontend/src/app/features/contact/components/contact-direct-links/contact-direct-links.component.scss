@@ -10,31 +10,20 @@
 
 .direct-links h3 {
   margin: 0;
-
   color: var(--text-secondary);
-
   text-transform: uppercase;
-
-  letter-spacing: 0.15em;
-
-  font-size: 0.85rem;
+  font-size: var(--contact-direct-heading-size);
+  letter-spacing: var(--contact-direct-heading-spacing);
 }
 
 .contact-link {
   display: flex;
-
   align-items: center;
-
   padding: 1rem 1.25rem;
-
-  border-radius: 12px;
-
+  border-radius: var(--contact-direct-link-radius);
   border: 1px solid var(--border);
-
   background: var(--surface);
-
   text-decoration: none;
-
   transition: all 0.2s ease;
 }
 
@@ -44,14 +33,11 @@
 
 .contact-link strong {
   display: block;
-
   margin-bottom: 0.35rem;
-
   color: var(--text-primary);
 }
 
 .contact-link span {
   color: var(--text-secondary);
-
   font-size: 0.9rem;
 }

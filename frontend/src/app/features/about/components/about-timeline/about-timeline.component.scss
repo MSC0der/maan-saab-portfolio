@@ -10,6 +10,7 @@
 }
 
 h2 {
+  max-width: var(--about-timeline-heading-width);
   margin: 0 0 24px;
   color: var(--about-text-strong);
   font-family: var(--about-font-display);

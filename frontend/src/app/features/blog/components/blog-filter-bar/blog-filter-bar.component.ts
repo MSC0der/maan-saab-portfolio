@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ThemeService } from '../../../../core/services/theme.service';
+import { THEME_BLOG_CONFIG } from '../../../../core/config/theme-blog.config';
 
 @Component({
   selector: 'app-blog-filter-bar',
@@ -8,17 +10,15 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogFilterBarComponent {
-  protected readonly filters = [
-    'All',
-    'Backend',
-    'Node.js',
-    'Angular',
-    'MongoDB',
-    'SQL',
-    'Authentication',
-    'System Design',
-    'DSA',
-  ];
+  protected get filters() {
+    return this.config.filterBar.filters;
+  }
 
-  protected activeFilter = 'All';
+  protected activeFilter = this.filters[0];
+
+  private readonly themeService = inject(ThemeService);
+
+  protected get config() {
+    return THEME_BLOG_CONFIG[this.themeService.theme()];
+  }
 }

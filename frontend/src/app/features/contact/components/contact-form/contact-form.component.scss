@@ -4,18 +4,16 @@
 
 .contact-form-card {
   padding: 2rem;
-
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: var(--contact-form-radius);
 }
 
 .contact-form-card h2 {
   margin: 0 0 2rem;
-
   color: var(--text-primary);
-
-  font-size: 2rem;
+  font-size: var(--contact-form-heading-size);
+  max-width: var(--contact-form-heading-width);
   font-weight: 700;
 }
 
@@ -32,7 +30,6 @@
 
 .field label {
   color: var(--text-secondary);
-
   font-size: 0.875rem;
   font-weight: 500;
 }
@@ -41,18 +38,12 @@
 .field select,
 .field textarea {
   width: 100%;
-
   padding: 0.95rem 1rem;
-
   background: rgba(0, 0, 0, 0.2);
-
   border: 1px solid var(--border);
-  border-radius: 10px;
-
+  border-radius: var(--contact-form-input-radius);
   color: var(--text-primary);
-
   font-size: 0.95rem;
-
   transition: all 0.2s ease;
 }
 
@@ -60,9 +51,7 @@
 .field select:focus,
 .field textarea:focus {
   outline: none;
-
   border-color: var(--primary);
-
   box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12);
 }
 
@@ -73,20 +62,14 @@
 
 button {
   width: 100%;
-
   padding: 1rem;
-
   border: none;
-  border-radius: 12px;
-
+  border-radius: var(--contact-form-button-radius);
   background: var(--primary);
   color: #04110d;
-
   font-size: 1.1rem;
   font-weight: 700;
-
   cursor: pointer;
-
   transition: all 0.2s ease;
 }
 
@@ -96,7 +79,6 @@ button:hover {
 }
 
 @media (min-width: 768px) {
-
   .form-grid {
     grid-template-columns: repeat(2, 1fr);
   }

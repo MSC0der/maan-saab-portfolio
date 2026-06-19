@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-
+import { ThemeService } from '../../../../core/services/theme.service';
+import { THEME_BLOG_CONFIG } from '../../../../core/config/theme-blog.config';
 import { ARTICLES } from '../../data/articles.data';
 
 @Component({
@@ -12,6 +13,10 @@ import { ARTICLES } from '../../data/articles.data';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogRelatedArticlesComponent {
-  protected readonly articles =
-    ARTICLES.slice(0, 3);
+  protected readonly articles = ARTICLES.slice(0, 3);
+  private readonly themeService = inject(ThemeService);
+
+  protected get config() {
+    return THEME_BLOG_CONFIG[this.themeService.theme()];
+  }
 }

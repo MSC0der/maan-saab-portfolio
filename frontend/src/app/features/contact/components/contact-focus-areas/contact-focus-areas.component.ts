@@ -1,9 +1,11 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+} from '@angular/core';
 
-interface FocusArea {
-  readonly number: string;
-  readonly title: string;
-}
+import { ThemeService } from '../../../../core/services/theme.service';
+import { THEME_CONTACT_CONFIG } from '../../../../core/config/theme-contact.config';
 
 @Component({
   selector: 'app-contact-focus-areas',
@@ -13,30 +15,9 @@ interface FocusArea {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactFocusAreasComponent {
-  protected readonly areas: readonly FocusArea[] = [
-    {
-      number: '01',
-      title: 'Software Engineer Roles',
-    },
-    {
-      number: '02',
-      title: 'Full Stack Development',
-    },
-    {
-      number: '03',
-      title: 'Backend Architecture',
-    },
-    {
-      number: '04',
-      title: 'Freelance Projects',
-    },
-    {
-      number: '05',
-      title: 'Technical Consulting',
-    },
-    {
-      number: '+',
-      title: 'Open to Discuss',
-    },
-  ];
+  private readonly themeService = inject(ThemeService);
+
+  protected get config() {
+    return THEME_CONTACT_CONFIG[this.themeService.theme()];
+  }
 }

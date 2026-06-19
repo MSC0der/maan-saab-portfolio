@@ -1,4 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { inject } from '@angular/core';
+import { ThemeService } from '../../../../core/services/theme.service';
+import { THEME_ABOUT_CONFIG } from '../../../../core/config/theme-about.config';
 
 interface TimelineItem {
   readonly year: string;
@@ -15,26 +18,35 @@ interface TimelineItem {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutTimelineComponent {
+  private readonly themeService = inject(ThemeService);
+
+  protected get config() {
+    return THEME_ABOUT_CONFIG[this.themeService.theme()];
+  }
   protected readonly timeline: readonly TimelineItem[] = [
     {
       year: '2021',
       title: 'Started Bachelor of Computer Applications',
-      description: 'Learning programming fundamentals, databases, and software development concepts.',
+      description:
+        'Learning programming fundamentals, databases, and software development concepts.',
     },
     {
       year: '2024',
       title: 'Full Stack Development Internship',
-      description: 'Worked with Angular, APIs, debugging, and production workflows.',
+      description:
+        'Worked with Angular, APIs, debugging, and production workflows.',
     },
     {
       year: '2025',
       title: 'Joined Imminent Ideas as Full Stack Developer',
-      description: 'Built REST APIs, authentication systems, Angular integrations, and database solutions.',
+      description:
+        'Built REST APIs, authentication systems, Angular integrations, and database solutions.',
     },
     {
       year: '2026',
       title: 'Focused on Backend Engineering',
-      description: 'Working on scalable APIs, query optimization, authentication systems, DSA, and system design.',
+      description:
+        'Working on scalable APIs, query optimization, authentication systems, DSA, and system design.',
     },
     {
       year: 'Future',

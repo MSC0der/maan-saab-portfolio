@@ -1,5 +1,7 @@
 <section class="featured-article">
-  <div class="featured-article__label">Featured Analysis</div>
+  <div class="featured-article__label">
+    {{ config.featuredArticle.label }}
+  </div>
 
   <article class="featured-card">
     <div class="featured-card__diagram">
@@ -35,9 +37,13 @@
       </p>
 
       <div class="featured-actions">
-        <button class="primary-btn">Read Article</button>
+        <button class="primary-btn">
+          {{ config.featuredArticle.primaryButton }}
+        </button>
 
-        <button class="secondary-btn">Bookmark</button>
+        <button class="secondary-btn">
+          {{ config.featuredArticle.secondaryButton }}
+        </button>
       </div>
     </div>
   </article>

@@ -11,7 +11,7 @@
   flex-direction: column;
   border: 1px solid var(--about-border);
   border-radius: var(--about-radius);
-  background: var(--about-bg-deep);
+  background: var(--about-expertise-card-bg);
   transition: border-color 0.3s ease;
 }
 
@@ -46,7 +46,7 @@
   justify-content: center;
   overflow: hidden;
   border-bottom: 1px solid var(--about-border);
-  background: var(--about-surface);
+  background: var(--about-expertise-media-bg);
 }
 
 .expertise-card__media img {
@@ -88,7 +88,9 @@
 h3 {
   margin: 0 0 24px;
   color: var(--about-text-strong);
-  font-family: var(--about-font-display);
+  font-family: var(--about-expertise-card-heading-font);
+  text-transform: var(--about-expertise-card-heading-transform);
+  letter-spacing: var(--about-expertise-card-heading-spacing);
   font-size: 24px;
   font-weight: 600;
   line-height: 1.4;
@@ -104,34 +106,11 @@ h3 {
 .expertise-card__chips span {
   border: 1px solid var(--about-border);
   border-radius: 0.125rem;
-  background: var(--about-variant);
-  color: var(--about-chip);
+  background: var(--about-expertise-chip-bg);
+  border-color: var(--about-expertise-chip-border);
+  color: var(--about-expertise-chip-color);
   font-family: var(--about-font-code);
   font-size: 13px;
   line-height: 1.5;
   padding: 6px 12px;
-}
-
-[data-theme='wayne'] .expertise-card {
-  background: var(--surface);
-}
-
-[data-theme='wayne'] .expertise-card__media {
-  background: rgba(255, 255, 255, 0.02);
-}
-
-[data-theme='wayne'] h3 {
-  font-family: var(--font-display);
-
-  text-transform: uppercase;
-
-  letter-spacing: 0.05em;
-}
-
-[data-theme='wayne'] .expertise-card__chips span {
-  background: rgba(255, 255, 255, 0.03);
-
-  border-color: var(--border);
-
-  color: var(--text-secondary);
 }

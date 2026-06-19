@@ -4,52 +4,38 @@
 
 .article-final-cta {
   text-align: center;
-
   margin-top: 6rem;
-
   padding-top: 4rem;
-
   border-top: 1px solid var(--border);
 }
 
 .article-final-cta h2 {
   margin-bottom: 1rem;
-
   font-size: 2rem;
 }
 
 .article-final-cta p {
   max-width: 700px;
-
   margin: 0 auto 2rem;
-
   color: var(--text-secondary);
 }
 
 .article-final-cta__actions {
   display: flex;
-
   justify-content: center;
-
   gap: 1rem;
-
   flex-wrap: wrap;
 }
 
 .article-final-cta__actions a {
   padding: 1rem 1.75rem;
-
   border-radius: 12px;
-
   text-decoration: none;
-
   border: 1px solid var(--border);
-
   transition: all 0.25s ease;
 }
 
 .article-final-cta__actions a:hover {
   border-color: var(--primary);
-
   transform: translateY(-2px);
 }

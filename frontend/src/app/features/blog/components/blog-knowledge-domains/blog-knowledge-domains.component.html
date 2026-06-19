@@ -1,5 +1,7 @@
 <section class="knowledge-domains">
-  <h2>Core Knowledge Domains</h2>
+  <h2>
+    {{ config.knowledgeDomains.title }}
+  </h2>
 
   <div class="knowledge-grid">
     @for (domain of domains; track domain.title) {

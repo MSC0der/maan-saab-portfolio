@@ -64,28 +64,20 @@ p {
   }
 }
 
-[data-theme="wayne"] .expertise-section__header {
-  margin-bottom: 80px;
+.expertise-section__header {
+  margin-bottom: var(--about-expertise-header-spacing);
 }
 
-[data-theme="wayne"] h2 {
-  font-family: var(--font-display);
-
-  font-size: 56px;
-
-  line-height: 0.95;
-
-  text-transform: uppercase;
-
-  color: var(--text-primary);
+h2 {
+  font-size: var(--about-expertise-heading-size);
+  line-height: var(--about-expertise-heading-line-height);
+  text-transform: var(--about-expertise-heading-transform);
 }
 
-[data-theme="wayne"] p {
-  color: var(--text-secondary);
-
-  max-width: 720px;
+p {
+  max-width: var(--about-expertise-description-width);
 }
 
-[data-theme="wayne"] .expertise-grid {
-  gap: 32px;
+.expertise-grid {
+  gap: var(--about-expertise-grid-gap);
 }

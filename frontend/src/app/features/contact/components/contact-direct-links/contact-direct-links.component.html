@@ -1,35 +1,25 @@
 <section class="direct-links">
-  <h3>Connect Directly</h3>
+  <h3>
+    {{ config.directLinks.title }}
+  </h3>
 
-  <a href="mailto:contact@maansaab.com" class="contact-link">
-    <div>
-      <strong>Email</strong>
-      <span>contact&#64;maansaab.com</span>
-    </div>
-  </a>
+  @for (link of config.directLinks.links; track link.label) {
+    @if (link.href) {
+      <a [href]="link.href" target="_blank" class="contact-link">
+        <div>
+          <strong>{{ link.label }}</strong>
 
-  <a
-    href="https://linkedin.com/in/ranbirsinghmaan"
-    target="_blank"
-    class="contact-link"
-  >
-    <div>
-      <strong>LinkedIn</strong>
-      <span>/in/ranbirsinghmaan</span>
-    </div>
-  </a>
+          <span>{{ link.value }}</span>
+        </div>
+      </a>
+    } @else {
+      <div class="contact-link">
+        <div>
+          <strong>{{ link.label }}</strong>
 
-  <a href="https://github.com/maansaab" target="_blank" class="contact-link">
-    <div>
-      <strong>GitHub</strong>
-      <span>/maansaab</span>
-    </div>
-  </a>
-
-  <div class="contact-link">
-    <div>
-      <strong>Location</strong>
-      <span>India</span>
-    </div>
-  </div>
+          <span>{{ link.value }}</span>
+        </div>
+      </div>
+    }
+  }
 </section>

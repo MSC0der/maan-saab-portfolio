@@ -4,31 +4,24 @@
 
 .focus-areas h2 {
   margin-bottom: 2rem;
-
   color: var(--text-primary);
-
-  font-size: 2rem;
+  font-size: var(--contact-focus-heading-size);
+  max-width: var(--contact-focus-heading-width);
+  margin-inline: auto;
 }
 
 .focus-grid {
   display: grid;
-
   grid-template-columns: repeat(3, 1fr);
-
   gap: 1rem;
 }
 
 .focus-card {
   padding: 1.75rem;
-
   min-height: 160px;
-
-  border-radius: 16px;
-
+  border-radius: var(--contact-focus-card-radius);
   border: 1px solid var(--border);
-
   background: var(--surface);
-
   transition:
     transform 0.2s ease,
     border-color 0.2s ease;
@@ -36,29 +29,21 @@
 
 .focus-card:hover {
   transform: translateY(-4px);
-
   border-color: var(--primary);
 }
 
 .focus-card__number {
   display: inline-block;
-
   margin-bottom: 1rem;
-
   color: var(--primary);
-
   font-size: 0.875rem;
-
   font-weight: 700;
 }
 
 .focus-card h3 {
   margin: 0;
-
   color: var(--text-primary);
-
   font-size: 1.5rem;
-
   line-height: 1.3;
 }
 

@@ -1,7 +1,9 @@
 <section class="timeline-section">
   <div class="timeline-section__header">
-    <h2>Engineering Journey</h2>
-    <p>The path from student developer to backend-focused software engineer.</p>
+    <h2>{{ config.timeline.title }}</h2>
+    <p>
+      {{ config.timeline.description }}
+    </p>
   </div>
 
   <div class="timeline">
@@ -10,19 +12,33 @@
 
     <div class="timeline__items">
       @for (item of timeline; track item.year; let index = $index) {
-        <article class="timeline-item" [class.timeline-item--reverse]="index % 2 === 1">
+        <article
+          class="timeline-item"
+          [class.timeline-item--reverse]="index % 2 === 1"
+        >
           <div class="timeline-item__year timeline-item__year--desktop">
-            <span [class.timeline-item__badge--future]="item.future">{{ item.year }}</span>
+            <span [class.timeline-item__badge--future]="item.future">{{
+              item.year
+            }}</span>
           </div>
 
-          <span class="timeline-item__dot" [class.timeline-item__dot--future]="item.future" aria-hidden="true"></span>
+          <span
+            class="timeline-item__dot"
+            [class.timeline-item__dot--future]="item.future"
+            aria-hidden="true"
+          ></span>
 
           <div class="timeline-item__year timeline-item__year--mobile">
-            <span [class.timeline-item__badge--future]="item.future">{{ item.year }}</span>
+            <span [class.timeline-item__badge--future]="item.future">{{
+              item.year
+            }}</span>
           </div>
 
           <div class="timeline-item__content">
-            <div class="timeline-card" [class.timeline-card--future]="item.future">
+            <div
+              class="timeline-card"
+              [class.timeline-card--future]="item.future"
+            >
               <div class="timeline-card__glow" aria-hidden="true"></div>
               <h3>{{ item.title }}</h3>
               <p>{{ item.description }}</p>
