@@ -25,33 +25,3 @@
     grid-column: span 12;
   }
 }
-
-[data-theme="wayne"] .projects-grid {
-  gap: 2.5rem;
-}
-
-[data-theme="wayne"] .projects-grid__item--featured {
-  position: relative;
-}
-
-[data-theme="wayne"] .projects-grid__item--featured .project-card {
-  border-color: rgba(242, 202, 80, 0.25);
-}
-
-[data-theme="wayne"] .projects-grid__badge {
-  display: inline-flex;
-
-  margin-bottom: 0.75rem;
-
-  padding: 0.35rem 0.75rem;
-
-  border: 1px solid rgba(242, 202, 80, 0.2);
-
-  color: var(--primary);
-
-  font-size: 11px;
-
-  letter-spacing: 0.18em;
-
-  text-transform: uppercase;
-}

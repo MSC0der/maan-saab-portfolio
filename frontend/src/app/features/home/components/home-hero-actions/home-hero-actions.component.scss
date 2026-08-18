@@ -44,7 +44,10 @@
 
 .home-button--secondary {
   border: 1px solid var(--border);
+  background: none;
   color: var(--text-primary);
+  font: inherit;
+  cursor: pointer;
 }
 
 .home-button--secondary:hover {

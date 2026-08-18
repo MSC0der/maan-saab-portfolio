@@ -3,9 +3,15 @@
     {{ config.heroActions.primary }}
   </a>
 
-  <a class="home-button home-button--secondary" href="/resume.pdf">
-    {{ config.heroActions.secondary }}
-  </a>
+  <button
+    type="button"
+    class="home-button home-button--secondary"
+    [disabled]="isResumeDownloading()"
+    [attr.aria-busy]="isResumeDownloading()"
+    (click)="onResumeClick()"
+  >
+    {{ isResumeDownloading() ? 'Preparing…' : config.heroActions.secondary }}
+  </button>
 
   <a class="home-button home-button--ghost" routerLink="/contact">
     {{ config.heroActions.ghost }}

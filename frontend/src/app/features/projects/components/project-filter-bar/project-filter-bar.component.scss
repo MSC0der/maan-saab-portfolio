@@ -2,25 +2,17 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-
-  padding-bottom: 1.5rem;
-
+  padding-bottom: 1rem;
   border-bottom: 1px solid var(--border);
 }
 
 .project-filter-bar__pill {
   border: 1px solid var(--border);
-
   background: transparent;
-
   color: var(--text-secondary);
-
   padding: 0.65rem 1rem;
-
   border-radius: 999px;
-
   cursor: pointer;
-
   transition:
     background-color 0.2s ease,
     color 0.2s ease,
@@ -38,27 +30,24 @@
   border-color: var(--text-primary);
 }
 
-[data-theme='wayne'] .project-filter-bar__pill {
+[data-theme="wayne"] .project-filter-bar__pill {
   font-family: var(--home-font-code);
   font-size: 11px;
-  letter-spacing: .12em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-[data-theme='wayne'] .project-filter-bar__pill--active {
+[data-theme="wayne"] .project-filter-bar__pill--active {
   background: var(--primary);
-
   border-color: var(--primary);
-
   color: var(--button-primary-text);
 }
 
-[data-theme='wayne'] .project-filter-bar__pill:hover {
+[data-theme="wayne"] .project-filter-bar__pill:hover {
   border-color: var(--primary);
-
   color: var(--primary);
 }
 
-[data-theme='wayne'] .project-filter-bar {
+[data-theme="wayne"] .project-filter-bar {
   border-bottom-color: rgba(242, 202, 80, 0.12);
 }

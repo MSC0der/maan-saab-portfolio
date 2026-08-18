@@ -3,11 +3,11 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  gap: 1.25rem;
+  padding: 2rem;
   min-height: 320px;
-  padding: var(--project-card-padding);
-  gap: var(--project-card-gap);
   border: 1px solid var(--border);
-  border-radius: var(--project-card-radius);
+  border-radius: 1rem;
   background: var(--surface);
   transition:
     transform 0.25s ease,
@@ -50,20 +50,20 @@
 
 .project-card__category {
   display: inline-flex;
-  align-items: center;
-  max-width: 100%;
-  line-height: 1.4;
   padding: 0.35rem 0.75rem;
   border: 1px solid var(--border);
-  border-radius: var(--project-card-pill-radius);
+  border-radius: 999px;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .project-card__top {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   gap: 1rem;
-  flex-wrap: wrap;
 }
 
 .project-card__actions {
@@ -77,10 +77,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  padding: 0.65rem 1rem;
   border-radius: 999px;
   text-decoration: none;
-  font-size: var(--project-card-action-font-size);
-  padding: var(--project-card-action-padding);
+  font-size: 0.85rem;
   font-weight: 600;
   transition: all 0.2s ease;
 }
@@ -94,11 +94,9 @@
 }
 
 .project-card__title {
-  font-family: var(--project-card-title-font);
-  font-size: var(--project-card-title-size);
-  font-weight: var(--project-card-title-weight);
   margin: 0;
   color: var(--text-primary);
+  font-size: 1.5rem;
 }
 
 .project-card__summary {
@@ -113,12 +111,12 @@
 }
 
 .project-card__chip {
+  padding: 0.4rem 0.75rem;
   border: 1px solid var(--border);
+  border-radius: 999px;
   background: var(--surface-elevated);
   color: var(--text-secondary);
-  padding: var(--project-card-chip-padding);
-  border-radius: var(--project-card-chip-radius);
-  font-size: var(--project-card-chip-font-size);
+  font-size: 0.85rem;
 }
 
 .project-card__link {
@@ -150,15 +148,4 @@
 
 .project-card:hover .project-card__image img {
   transform: scale(1.05);
-}
-
-.project-card__category,
-.project-card__status {
-  border-radius: var(--project-card-pill-radius);
-}
-
-.project-card__link,
-.project-card__secondary-link {
-  text-transform: var(--project-card-link-transform);
-  letter-spacing: var(--project-card-link-spacing);
 }
