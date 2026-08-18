@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MAAN SAAB - Projects &amp; Engineering Case Studies</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error-container": "#ffdad6",
+                      "on-secondary": "#2f3131",
+                      "on-background": "#e5e1e4",
+                      "on-secondary-container": "#b4b5b5",
+                      "on-secondary-fixed-variant": "#454747",
+                      "on-error": "#690005",
+                      "primary-fixed-dim": "#adc6ff",
+                      "surface-container-high": "#2a2a2c",
+                      "primary": "#adc6ff",
+                      "surface-bright": "#39393b",
+                      "surface-variant": "#353437",
+                      "inverse-on-surface": "#313032",
+                      "surface-container-lowest": "#0e0e10",
+                      "surface-container-highest": "#353437",
+                      "on-tertiary-fixed": "#1a1b22",
+                      "surface-container-low": "#1c1b1d",
+                      "tertiary-fixed": "#e3e1ec",
+                      "on-surface-variant": "#c2c6d6",
+                      "error": "#ffb4ab",
+                      "secondary-fixed": "#e2e2e2",
+                      "inverse-surface": "#e5e1e4",
+                      "background": "#131315",
+                      "on-tertiary": "#2f3038",
+                      "tertiary-fixed-dim": "#c6c5cf",
+                      "secondary-fixed-dim": "#c6c6c7",
+                      "primary-fixed": "#d8e2ff",
+                      "surface-container": "#201f22",
+                      "surface": "#131315",
+                      "on-primary-fixed": "#001a42",
+                      "on-secondary-fixed": "#1a1c1c",
+                      "primary-container": "#4d8eff",
+                      "on-primary": "#002e6a",
+                      "secondary": "#c6c6c7",
+                      "surface-tint": "#adc6ff",
+                      "error-container": "#93000a",
+                      "tertiary": "#c6c5cf",
+                      "secondary-container": "#454747",
+                      "on-tertiary-fixed-variant": "#46464e",
+                      "inverse-primary": "#005ac2",
+                      "tertiary-container": "#909099",
+                      "surface-dim": "#131315",
+                      "on-surface": "#e5e1e4",
+                      "outline-variant": "#424754",
+                      "on-primary-fixed-variant": "#004395",
+                      "on-primary-container": "#00285d",
+                      "on-tertiary-container": "#282931",
+                      "outline": "#8c909f"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-mobile": "20px",
+                      "gutter": "24px",
+                      "section-gap": "128px",
+                      "margin-desktop": "80px",
+                      "unit": "4px",
+                      "container-max": "1200px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Geist"
+                      ],
+                      "code-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Geist"
+                      ],
+                      "display-lg-mobile": [
+                              "Geist"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Geist"
+                      ],
+                      "headline-sm": [
+                              "Geist"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "64px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "code-sm": [
+                              "13px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "letterSpacing": "0em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "letterSpacing": "0em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.03em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.7",
+                                      "letterSpacing": "0em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-sm": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: #000000; /* Force pure black background */
+            color: #e5e1e4;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .nav-glow {
+            box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .card-border-glow:hover {
+            border-color: #3b82f6; /* Adjusted to blue per design rules, even though prompt mentioned emerald */
+            box-shadow: inset 0 0 40px -20px rgba(59, 130, 246, 0.15);
+        }
+
+        .filter-pill.active {
+            background-color: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
+        }
+
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        
+        /* Architecture Diagram CSS drawing to match the image style */
+        .arch-node {
+            background-color: #18181b; /* Zinc 900 */
+            border: 2px solid #10b981; /* Emerald 500 */
+            border-radius: 0.5rem;
+            padding: 1rem 1.5rem;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .arch-line-v {
+            width: 2px;
+            height: 40px;
+            background-color: transparent;
+            border-left: 2px dashed #10b981;
+            margin: 0 auto;
+        }
+        
+        .arch-line-h {
+            height: 2px;
+            width: 160px;
+            background-color: transparent;
+            border-top: 2px dashed #10b981;
+            margin: 0 auto;
+            position: relative;
+            top: 20px;
+        }
+
+        /* Syntax Highlighting Base */
+        .token.keyword { color: #ff7b72; }
+        .token.function { color: #d2a8ff; }
+        .token.string { color: #a5d6ff; }
+        .token.comment { color: #8b949e; }
+        .token.punctuation { color: #c9d1d9; }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full bg-surface/80 dark:bg-surface/80 border-b border-outline-variant backdrop-blur-xl z-50 flex justify-between items-center h-14 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto left-0 right-0 nav-glow">
+<a class="font-display-lg-mobile text-display-lg-mobile font-bold tracking-tighter text-on-surface" href="#">MAAN SAAB</a>
+<!-- Desktop Nav -->
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md hover:bg-surface-container-high px-3 py-2 rounded-md transition-all duration-200" href="#">Home</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md hover:bg-surface-container-high px-3 py-2 transition-all duration-200" href="#">Projects</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md hover:bg-surface-container-high px-3 py-2 rounded-md transition-all duration-200" href="#">About</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md hover:bg-surface-container-high px-3 py-2 rounded-md transition-all duration-200" href="#">Blog</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md hover:bg-surface-container-high px-3 py-2 rounded-md transition-all duration-200" href="#">Contact</a>
+<a class="bg-white text-black font-label-md text-label-md px-4 py-2 rounded hover:bg-gray-200 transition-colors ml-4 active:scale-95" href="#">Resume</a>
+</div>
+<!-- Mobile Nav Toggle (simplified) -->
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<!-- Hero Section -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-section-gap items-center">
+<div class="md:col-span-6 flex flex-col justify-center">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-white mb-6">Projects &amp; Engineering Case Studies</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-8">A collection of systems, APIs, architectures, and software solutions I've designed and built.</p>
+<div class="flex gap-4">
+<a class="bg-white text-black font-label-md text-label-md px-6 py-3 rounded hover:bg-gray-200 transition-colors inline-flex items-center gap-2" href="#projects">
+                        View Work <span class="material-symbols-outlined text-sm">arrow_downward</span>
+</a>
+</div>
+</div>
+<!-- Abstract Architecture Visual (CSS Based) -->
+<div class="md:col-span-6 relative h-[500px] rounded-xl border border-zinc-800 bg-[#09090b] overflow-hidden flex flex-col items-center justify-center p-8 bg-grid-pattern">
+<div class="absolute inset-0 bg-gradient-to-t from-[#09090b] via-transparent to-transparent z-0"></div>
+<div class="flex flex-col items-center relative z-10 w-full max-w-[400px]">
+<!-- Client -->
+<div class="arch-node w-full max-w-[280px]">
+                        Angular Client
+                    </div>
+<div class="arch-line-v"></div>
+<!-- API -->
+<div class="arch-node w-full max-w-[280px]">
+                        Node.js API Layer
+                    </div>
+<div class="arch-line-v"></div>
+<!-- Auth -->
+<div class="arch-node w-full max-w-[280px]">
+                        JWT Authentication
+                    </div>
+<div class="arch-line-v"></div>
+<!-- RBAC -->
+<div class="arch-node w-full max-w-[280px]">
+                        RBAC
+                    </div>
+<!-- Branching -->
+<div class="flex w-full justify-center">
+<div class="arch-line-v h-5"></div>
+</div>
+<div class="arch-line-h"></div>
+<div class="flex w-[160px] justify-between px-[1px] relative -top-[20px]">
+<div class="arch-line-v h-5 m-0"></div>
+<div class="arch-line-v h-5 m-0"></div>
+</div>
+<!-- Databases -->
+<div class="flex justify-between w-full max-w-[320px] relative -top-[20px]">
+<div class="arch-node w-[140px]">
+                            MongoDB
+                        </div>
+<div class="arch-node w-[140px]">
+                            MySQL
+                        </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Filter Bar -->
+<section class="mb-12" id="projects">
+<div class="flex flex-wrap gap-3 pb-4 border-b border-zinc-800">
+<button class="filter-pill active px-4 py-1.5 rounded-full border border-zinc-700 font-code-sm text-code-sm transition-colors hover:border-zinc-500">All</button>
+<button class="filter-pill px-4 py-1.5 rounded-full border border-zinc-700 bg-transparent text-zinc-400 font-code-sm text-code-sm transition-colors hover:border-zinc-500 hover:text-zinc-200">Backend</button>
+<button class="filter-pill px-4 py-1.5 rounded-full border border-zinc-700 bg-transparent text-zinc-400 font-code-sm text-code-sm transition-colors hover:border-zinc-500 hover:text-zinc-200">Full Stack</button>
+<button class="filter-pill px-4 py-1.5 rounded-full border border-zinc-700 bg-transparent text-zinc-400 font-code-sm text-code-sm transition-colors hover:border-zinc-500 hover:text-zinc-200">Angular</button>
+<button class="filter-pill px-4 py-1.5 rounded-full border border-zinc-700 bg-transparent text-zinc-400 font-code-sm text-code-sm transition-colors hover:border-zinc-500 hover:text-zinc-200">Node.js</button>
+<button class="filter-pill px-4 py-1.5 rounded-full border border-zinc-700 bg-transparent text-zinc-400 font-code-sm text-code-sm transition-colors hover:border-zinc-500 hover:text-zinc-200">MongoDB</button>
+<button class="filter-pill px-4 py-1.5 rounded-full border border-zinc-700 bg-transparent text-zinc-400 font-code-sm text-code-sm transition-colors hover:border-zinc-500 hover:text-zinc-200">Authentication</button>
+<button class="filter-pill px-4 py-1.5 rounded-full border border-zinc-700 bg-transparent text-zinc-400 font-code-sm text-code-sm transition-colors hover:border-zinc-500 hover:text-zinc-200">System Design</button>
+</div>
+</section>
+<!-- Project Grid -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-section-gap">
+<!-- Project 1 (Spans 8 cols - Featured) -->
+<div class="md:col-span-8 group">
+<div class="h-full bg-[#09090b] border border-zinc-800 rounded-xl p-8 flex flex-col justify-between transition-all duration-300 card-border-glow">
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="text-xs font-code-sm text-zinc-400 uppercase tracking-widest border border-zinc-800 px-2 py-1 rounded bg-zinc-900">Enterprise Security Platform</span>
+<a class="text-zinc-500 group-hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">open_in_new</span>
+</a>
+</div>
+<h3 class="font-headline-md text-headline-md text-white mb-4">Security Compliance System</h3>
+<p class="font-body-md text-body-md text-zinc-400 mb-8 max-w-2xl">
+                            A robust enterprise platform designed to manage and enforce security compliance across distributed systems. Features include complex Role-Based Access Control (RBAC), secure JWT authentication flows, and detailed audit logging. Architected for high availability and strict data isolation.
+                        </p>
+</div>
+<div class="flex flex-wrap gap-2 mt-auto pt-6 border-t border-zinc-800">
+<span class="bg-[#18181b] text-[#d4d4d8] border border-[#27272a] px-3 py-1 rounded font-code-sm text-code-sm">Node.js</span>
+<span class="bg-[#18181b] text-[#d4d4d8] border border-[#27272a] px-3 py-1 rounded font-code-sm text-code-sm">Express.js</span>
+<span class="bg-[#18181b] text-[#d4d4d8] border border-[#27272a] px-3 py-1 rounded font-code-sm text-code-sm">Angular</span>
+<span class="bg-[#18181b] text-[#d4d4d8] border border-[#27272a] px-3 py-1 rounded font-code-sm text-code-sm">MongoDB</span>
+<span class="bg-[#18181b] text-[#d4d4d8] border border-[#27272a] px-3 py-1 rounded font-code-sm text-code-sm">JWT / RBAC</span>
+</div>
+</div>
+</div>
+<!-- Project 2 (Spans 4 cols) -->
+<div class="md:col-span-4 group">
+<div class="h-full bg-[#09090b] border border-zinc-800 rounded-xl p-8 flex flex-col justify-between transition-all duration-300 card-border-glow">
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="text-xs font-code-sm text-zinc-400 uppercase tracking-widest">Business Management</span>
+<a class="text-zinc-500 group-hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">folder_open</span>
+</a>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-white mb-3">Garage Management System</h3>
+<p class="font-body-md text-body-md text-zinc-400 mb-6">
+                            A comprehensive SaaS solution for automotive repair shops. Integrates inventory tracking, complex scheduling algorithms, and multi-tenant data architecture using a dual-database strategy for optimal read/write performance.
+                        </p>
+</div>
+<div class="flex flex-wrap gap-2 mt-auto">
+<span class="bg-[#18181b] text-[#d4d4d8] border border-[#27272a] px-3 py-1 rounded font-code-sm text-code-sm">Node.js</span>
+<span class="bg-[#18181b] text-[#d4d4d8] border border-[#27272a] px-3 py-1 rounded font-code-sm text-code-sm">MySQL</span>
+<span class="bg-[#18181b] text-[#d4d4d8] border border-[#27272a] px-3 py-1 rounded font-code-sm text-code-sm">Angular</span>
+</div>
+</div>
+</div>
+<!-- Project 3 (Spans 4 cols) -->
+<div class="md:col-span-4 group">
+<div class="h-full bg-[#09090b] border border-zinc-800 rounded-xl p-8 flex flex-col justify-between transition-all duration-300 card-border-glow relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-zinc-800 text-xs px-3 py-1 rounded-bl-lg font-code-sm text-zinc-300">Planned</div>
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="text-xs font-code-sm text-zinc-400 uppercase tracking-widest">Real-Time Comm.</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-white mb-3">Real-Time Chat Platform</h3>
+<p class="font-body-md text-body-md text-zinc-400 mb-6">
+                            A low-latency messaging infrastructure designed for scale. Utilizing WebSocket connections for bi-directional communication and an event-driven architecture to handle concurrent user state.
+                        </p>
+</div>
+<div class="flex flex-wrap gap-2 mt-auto">
+<span class="bg-[#18181b] text-[#d4d4d8] border border-[#27272a] px-3 py-1 rounded font-code-sm text-code-sm">Socket.IO</span>
+<span class="bg-[#18181b] text-[#d4d4d8] border border-[#27272a] px-3 py-1 rounded font-code-sm text-code-sm">Node.js</span>
+<span class="bg-[#18181b] text-[#d4d4d8] border border-[#27272a] px-3 py-1 rounded font-code-sm text-code-sm">MongoDB</span>
+</div>
+</div>
+</div>
+<!-- Project 4 (Spans 4 cols) -->
+<div class="md:col-span-4 group">
+<div class="h-full bg-[#09090b] border border-zinc-800 rounded-xl p-8 flex flex-col justify-between transition-all duration-300 card-border-glow relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-zinc-800 text-xs px-3 py-1 rounded-bl-lg font-code-sm text-zinc-300">Planned</div>
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="text-xs font-code-sm text-zinc-400 uppercase tracking-widest">Analytics Platform</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-white mb-3">Stock Market Dashboard</h3>
+<p class="font-body-md text-body-md text-zinc-400 mb-6">
+                            High-frequency data visualization dashboard. Focuses on efficient data ingestion pipelines, time-series data aggregation, and optimized rendering of large datasets on the client side.
+                        </p>
+</div>
+<div class="flex flex-wrap gap-2 mt-auto">
+<span class="bg-[#18181b] text-[#d4d4d8] border border-[#27272a] px-3 py-1 rounded font-code-sm text-code-sm">Angular</span>
+<span class="bg-[#18181b] text-[#d4d4d8] border border-[#27272a] px-3 py-1 rounded font-code-sm text-code-sm">Node.js</span>
+<span class="bg-[#18181b] text-[#d4d4d8] border border-[#27272a] px-3 py-1 rounded font-code-sm text-code-sm">MySQL</span>
+</div>
+</div>
+</div>
+<!-- Project 5 (Spans 4 cols) -->
+<div class="md:col-span-4 group">
+<div class="h-full bg-[#09090b] border border-zinc-800 rounded-xl p-8 flex flex-col justify-between transition-all duration-300 card-border-glow relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-zinc-800 text-xs px-3 py-1 rounded-bl-lg font-code-sm text-zinc-300">Planned</div>
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="text-xs font-code-sm text-zinc-400 uppercase tracking-widest">System Design</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-white mb-3">Scalable URL Shortener</h3>
+<p class="font-body-md text-body-md text-zinc-400 mb-6">
+                            A distributed system design implementation handling high read/write ratios. Implements caching layers, distributed ID generation, and sharded database architecture to ensure sub-10ms redirect latency.
+                        </p>
+</div>
+<div class="flex flex-wrap gap-2 mt-auto">
+<span class="bg-[#18181b] text-[#d4d4d8] border border-[#27272a] px-3 py-1 rounded font-code-sm text-code-sm">Redis</span>
+<span class="bg-[#18181b] text-[#d4d4d8] border border-[#27272a] px-3 py-1 rounded font-code-sm text-code-sm">Node.js</span>
+<span class="bg-[#18181b] text-[#d4d4d8] border border-[#27272a] px-3 py-1 rounded font-code-sm text-code-sm">MongoDB</span>
+</div>
+</div>
+</div>
+<!-- Project 6 (Spans 12 cols - Full Width List Style) -->
+<div class="md:col-span-12 group">
+<div class="bg-[#09090b] border border-zinc-800 rounded-xl p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 transition-all duration-300 card-border-glow relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-zinc-800 text-xs px-3 py-1 rounded-bl-lg font-code-sm text-zinc-300 md:hidden">Planned</div>
+<div class="flex-grow">
+<div class="flex items-center gap-4 mb-2">
+<h3 class="font-headline-sm text-headline-sm text-white">Event Booking Platform</h3>
+<span class="hidden md:inline-block bg-zinc-800 text-xs px-2 py-1 rounded font-code-sm text-zinc-300">Planned</span>
+<span class="text-xs font-code-sm text-zinc-500 uppercase tracking-widest ml-auto">Scalable SaaS</span>
+</div>
+<p class="font-body-md text-body-md text-zinc-400 max-w-3xl">
+                            Microservices-based architecture for managing high-concurrency ticket sales. Focuses on transaction integrity, distributed locking to prevent overselling, and eventual consistency for analytical read models.
+                        </p>
+</div>
+<div class="flex flex-wrap gap-2 md:justify-end min-w-[200px]">
+<span class="bg-[#18181b] text-[#d4d4d8] border border-[#27272a] px-3 py-1 rounded font-code-sm text-code-sm">Angular</span>
+<span class="bg-[#18181b] text-[#d4d4d8] border border-[#27272a] px-3 py-1 rounded font-code-sm text-code-sm">Node.js</span>
+<span class="bg-[#18181b] text-[#d4d4d8] border border-[#27272a] px-3 py-1 rounded font-code-sm text-code-sm">MongoDB</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom CTA -->
+<section class="border-t border-zinc-800 pt-16 pb-8 flex flex-col items-center text-center">
+<h2 class="font-headline-md text-headline-md text-white mb-6">Interested in the Architecture Behind These Systems?</h2>
+<p class="font-body-md text-body-md text-zinc-400 mb-8 max-w-2xl">Dive deep into the technical decisions, trade-offs, and system designs that power these applications.</p>
+<a class="bg-transparent text-white border border-zinc-700 font-label-md text-label-md px-8 py-4 rounded hover:border-zinc-500 hover:bg-zinc-900 transition-colors inline-flex items-center gap-2" href="#">
+<span class="material-symbols-outlined">architecture</span> View Engineering Case Studies
+            </a>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap border-t border-outline-variant bg-background dark:bg-background mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto gap-6 md:gap-0">
+<div class="font-headline-sm text-headline-sm text-on-surface">MAAN SAAB</div>
+<div class="font-body-md text-body-md text-primary dark:text-primary text-center md:text-left">
+                © 2024 Ranbir Singh Maan. Built for Scalability.
+            </div>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">GitHub</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">LinkedIn</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Twitter</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple filter pill interaction
+        document.querySelectorAll('.filter-pill').forEach(pill => {
+            pill.addEventListener('click', function() {
+                document.querySelectorAll('.filter-pill').forEach(p => {
+                    p.classList.remove('active', 'bg-white', 'text-black', 'border-white');
+                    p.classList.add('bg-transparent', 'text-zinc-400', 'border-zinc-700');
+                });
+                
+                this.classList.remove('bg-transparent', 'text-zinc-400', 'border-zinc-700');
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body></html>
