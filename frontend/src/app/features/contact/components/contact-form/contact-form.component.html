@@ -3,38 +3,65 @@
     {{ config.contactForm.title }}
   </h2>
 
-  <form>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
     <div class="form-grid">
-      <div class="field">
-        <label>{{ config.contactForm.fields.name }}</label>
+      <div class="field field--honeypot" aria-hidden="true">
+        <label for="contact-website">Website</label>
         <input
+          id="contact-website"
           type="text"
+          formControlName="website"
+          tabindex="-1"
+          autocomplete="off"
+        />
+      </div>
+
+      <div class="field">
+        <label for="contact-name">{{ config.contactForm.fields.name }}</label>
+        <input
+          id="contact-name"
+          type="text"
+          formControlName="name"
           [placeholder]="config.contactForm.placeholders.name"
+          [class.field--invalid]="form.controls.name.invalid && form.controls.name.touched"
         />
+        @if (form.controls.name.invalid && form.controls.name.touched) {
+          <span class="field-error">Please enter your name.</span>
+        }
       </div>
 
       <div class="field">
-        <label>{{ config.contactForm.fields.email }}</label>
+        <label for="contact-email">{{ config.contactForm.fields.email }}</label>
         <input
+          id="contact-email"
           type="email"
+          formControlName="email"
           [placeholder]="config.contactForm.placeholders.email"
+          [class.field--invalid]="form.controls.email.invalid && form.controls.email.touched"
         />
+        @if (form.controls.email.touched && form.controls.email.hasError('required')) {
+          <span class="field-error">Email is required.</span>
+        } @else if (form.controls.email.touched && form.controls.email.hasError('email')) {
+          <span class="field-error">Enter a valid email address.</span>
+        }
       </div>
 
       <div class="field">
-        <label>{{ config.contactForm.fields.company }}</label>
+        <label for="contact-company">{{ config.contactForm.fields.company }}</label>
         <input
+          id="contact-company"
           type="text"
+          formControlName="company"
           [placeholder]="config.contactForm.placeholders.company"
         />
       </div>
 
       <div class="field">
-        <label>{{ config.contactForm.fields.projectType }}</label>
+        <label for="contact-project-type">{{ config.contactForm.fields.projectType }}</label>
 
-        <select>
+        <select id="contact-project-type" formControlName="projectType">
           @for (option of config.contactForm.projectTypes; track option) {
-            <option>
+            <option [value]="option">
               {{ option }}
             </option>
           }
@@ -42,28 +69,69 @@
       </div>
 
       <div class="field field--full">
-        <label>{{ config.contactForm.fields.budget }}</label>
+        <label for="contact-budget">{{ config.contactForm.fields.budget }}</label>
 
         <input
+          id="contact-budget"
           type="text"
+          formControlName="budget"
           [placeholder]="config.contactForm.placeholders.budget"
         />
       </div>
 
       <div class="field field--full">
-        <label>{{ config.contactForm.fields.message }}</label>
+        <label for="contact-message">{{ config.contactForm.fields.message }}</label>
 
         <textarea
+          id="contact-message"
           rows="6"
+          formControlName="message"
           [placeholder]="config.contactForm.placeholders.message"
+          [class.field--invalid]="form.controls.message.invalid && form.controls.message.touched"
         ></textarea>
+        @if (form.controls.message.invalid && form.controls.message.touched) {
+          <span class="field-error">Please share a few details (10+ characters).</span>
+        }
       </div>
 
       <div class="field field--full">
-        <button type="submit">
-          {{ config.contactForm.submitButton }}
+        <div #recaptchaContainer class="recaptcha-container"></div>
+      </div>
+
+      <div class="field field--full">
+        <button
+          type="submit"
+          [disabled]="submitState() === 'submitting' || submitState() === 'success'"
+        >
+          {{ submitState() === 'submitting' ? 'Sending…' : config.contactForm.submitButton }}
         </button>
       </div>
+
+      @if (submitState() === 'success') {
+        <div class="field field--full form-feedback form-feedback--success" role="status">
+          Message sent — thanks for reaching out. I'll get back to you soon.
+        </div>
+      }
+
+      @if (submitState() === 'captcha-required') {
+        <div class="field field--full form-feedback form-feedback--error" role="alert">
+          Please complete the CAPTCHA above before sending.
+        </div>
+      }
+
+      @if (submitState() === 'timeout') {
+        <div class="field field--full form-feedback form-feedback--error" role="alert">
+          That took too long and timed out. Please try again, or email me directly at
+          <a [href]="'mailto:' + fallbackEmail">{{ fallbackEmail }}</a>.
+        </div>
+      }
+
+      @if (submitState() === 'error') {
+        <div class="field field--full form-feedback form-feedback--error" role="alert">
+          Something went wrong sending your message. Please email me directly at
+          <a [href]="'mailto:' + fallbackEmail">{{ fallbackEmail }}</a> instead.
+        </div>
+      }
     </div>
   </form>
 </section>

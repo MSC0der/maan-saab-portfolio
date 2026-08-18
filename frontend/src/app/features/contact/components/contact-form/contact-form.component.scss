@@ -78,6 +78,61 @@ button:hover {
   opacity: 0.95;
 }
 
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.field--invalid {
+  border-color: #ef4444 !important;
+}
+
+.field-error {
+  color: #ef4444;
+  font-size: 0.8rem;
+}
+
+.form-feedback {
+  padding: 0.85rem 1rem;
+  border-radius: var(--contact-form-input-radius);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.form-feedback--success {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid var(--primary);
+  color: var(--text-primary);
+}
+
+.form-feedback--error {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid #ef4444;
+  color: var(--text-primary);
+}
+
+.form-feedback a {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+// Honeypot — off-screen rather than display:none/visibility:hidden, since
+// some bots skip fields hidden that way. Real visitors never see or reach it.
+.field--honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.recaptcha-container {
+  display: flex;
+  justify-content: center;
+}
+
 @media (min-width: 768px) {
   .form-grid {
     grid-template-columns: repeat(2, 1fr);

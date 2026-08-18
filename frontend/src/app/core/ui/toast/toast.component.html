@@ -1,0 +1,15 @@
+<div class="toast-stack" role="status" aria-live="polite">
+  @for (toast of toastService.toasts(); track toast.id) {
+    <div class="toast" [class.toast--error]="toast.variant === 'error'">
+      <span class="toast__message">{{ toast.message }}</span>
+      <button
+        type="button"
+        class="toast__dismiss"
+        aria-label="Dismiss notification"
+        (click)="toastService.dismiss(toast.id)"
+      >
+        &times;
+      </button>
+    </div>
+  }
+</div>
