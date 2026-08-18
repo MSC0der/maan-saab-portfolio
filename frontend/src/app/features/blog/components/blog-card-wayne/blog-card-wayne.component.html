@@ -1,0 +1,33 @@
+<article class="wayne-card">
+  <header class="wayne-card__header">
+    <span class="wayne-card__category">
+      {{ article().category }}
+    </span>
+
+    <span class="wayne-card__verified"> ● VERIFIED </span>
+  </header>
+
+  <h3>
+    {{ article().title }}
+  </h3>
+
+  <p>
+    {{ article().excerpt }}
+  </p>
+
+  <footer class="wayne-card__footer">
+    <div class="wayne-card__meta">
+      <span>
+        {{ article().readTime }}
+      </span>
+
+      <span>
+        {{ article().publishedAt }}
+      </span>
+    </div>
+
+    <a class="wayne-card__button" [routerLink]="['/blog', article().slug]">
+      READ DOSSIER
+    </a>
+  </footer>
+</article>

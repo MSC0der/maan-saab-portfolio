@@ -12,6 +12,14 @@ export interface ThemeBlogConfig {
   };
   card: {
     readMoreLabel: string;
+    articles: {
+      category: string;
+      verified: boolean;
+      title: string;
+      description: string;
+      readTime: string;
+      date: string;
+    }[];
   };
   knowledgeDomains: {
     title: string;
@@ -35,6 +43,7 @@ export interface ThemeBlogConfig {
     eyebrow: string;
     title: string;
     description: string;
+    titleLines: string[];
 
     stats: {
       value: string;
@@ -66,7 +75,99 @@ export const THEME_BLOG_CONFIG: Record<ThemeType, ThemeBlogConfig> = {
       secondaryButton: 'Bookmark',
     },
     card: {
-      readMoreLabel: 'Read More →',
+      readMoreLabel: 'ACCESS REPORT',
+
+      articles: [
+        {
+          category: 'AUTHENTICATION',
+          verified: true,
+          title: 'JWT vs Session Authentication',
+          description:
+            'A comparative analysis of stateful vs stateless architecture. Evaluating scalability constraints and security trade-offs for modern web applications.',
+          readTime: '8 MIN READ',
+          date: 'OCT 12, 2024',
+        },
+
+        {
+          category: 'SECURITY',
+          verified: true,
+          title: 'Building RBAC in Express.js',
+          description:
+            'Implementation guide for Role-Based Access Control middleware. Designing robust authorization schemas for enterprise ecosystems.',
+          readTime: '15 MIN READ',
+          date: 'OCT 08, 2024',
+        },
+
+        {
+          category: 'DATABASE INTELLIGENCE',
+          verified: true,
+          title: 'MongoDB Query Optimization',
+          description:
+            'Analyzing execution plans and indexing strategies to reduce query latency by 80% in large-scale document stores.',
+          readTime: '10 MIN READ',
+          date: 'SEP 29, 2024',
+        },
+
+        {
+          category: 'INFRASTRUCTURE',
+          verified: true,
+          title: 'Scaling Node.js Microservices',
+          description:
+            'Strategic deployment of Docker containers and horizontal scaling using load balancing and service mesh patterns.',
+          readTime: '12 MIN READ',
+          date: 'SEP 15, 2024',
+        },
+
+        {
+          category: 'FRONTEND OPS',
+          verified: true,
+          title: 'Angular State Management Patterns',
+          description:
+            'Mastering reactive programming with RxJS and NgRx for mission-critical dashboards.',
+          readTime: '18 MIN READ',
+          date: 'SEP 04, 2024',
+        },
+
+        {
+          category: 'ALGORITHMIC INTEL',
+          verified: true,
+          title: 'Binary Search Tree Implementations',
+          description:
+            'Deep dive into self-balancing trees and search optimizations.',
+          readTime: '22 MIN READ',
+          date: 'AUG 28, 2024',
+        },
+
+        {
+          category: 'DEVOPS',
+          verified: true,
+          title: 'Dockerizing Production Workloads',
+          description:
+            'Optimizing multi-stage builds and reducing image sizes for rapid deployment.',
+          readTime: '14 MIN READ',
+          date: 'AUG 16, 2024',
+        },
+
+        {
+          category: 'IDENTITY MGMT',
+          verified: true,
+          title: 'OAuth2 Implementation Guide',
+          description:
+            'Authorization Code Flow with PKCE for enterprise systems.',
+          readTime: '25 MIN READ',
+          date: 'AUG 02, 2024',
+        },
+
+        {
+          category: 'STORAGE INTEL',
+          verified: true,
+          title: 'PostgreSQL Indexing Strategies',
+          description:
+            'Mastering B-Tree, GIN and GiST indexes for production systems.',
+          readTime: '12 MIN READ',
+          date: 'JUL 22, 2024',
+        },
+      ],
     },
     knowledgeDomains: {
       title: 'Core Knowledge Domains',
@@ -105,6 +206,8 @@ export const THEME_BLOG_CONFIG: Record<ThemeType, ThemeBlogConfig> = {
 
       description:
         'Practical backend engineering, scalable architecture, authentication systems and production software lessons.',
+
+      titleLines: ['Engineering Insights', '& Technical Articles'],
 
       stats: [
         {
@@ -150,11 +253,103 @@ export const THEME_BLOG_CONFIG: Record<ThemeType, ThemeBlogConfig> = {
     },
     featuredArticle: {
       label: 'PRIORITY INTELLIGENCE BRIEF',
-      primaryButton: 'ACCESS REPORT',
+      primaryButton: 'READ DOSSIER',
       secondaryButton: 'ADD TO ARCHIVE',
     },
     card: {
-      readMoreLabel: 'ACCESS REPORT →',
+      readMoreLabel: 'READ DOSSIER',
+
+      articles: [
+        {
+          category: 'AUTHENTICATION',
+          verified: true,
+          title: 'JWT vs Session Authentication',
+          description:
+            'A comparative analysis of stateful vs stateless architecture. Evaluating scalability constraints and security trade-offs for modern web applications.',
+          readTime: '8 MIN READ',
+          date: 'OCT 12, 2024',
+        },
+
+        {
+          category: 'SECURITY',
+          verified: true,
+          title: 'Building RBAC in Express.js',
+          description:
+            'Implementation guide for Role-Based Access Control middleware. Designing robust authorization schemas for enterprise ecosystems.',
+          readTime: '15 MIN READ',
+          date: 'OCT 08, 2024',
+        },
+
+        {
+          category: 'DATABASE INTELLIGENCE',
+          verified: true,
+          title: 'MongoDB Query Optimization',
+          description:
+            'Analyzing execution plans and indexing strategies to reduce query latency by 80% in large-scale document stores.',
+          readTime: '10 MIN READ',
+          date: 'SEP 29, 2024',
+        },
+
+        {
+          category: 'INFRASTRUCTURE',
+          verified: true,
+          title: 'Scaling Node.js Microservices',
+          description:
+            'Strategic deployment of Docker containers and horizontal scaling using load balancing and service mesh patterns.',
+          readTime: '12 MIN READ',
+          date: 'SEP 15, 2024',
+        },
+
+        {
+          category: 'FRONTEND OPS',
+          verified: true,
+          title: 'Angular State Management Patterns',
+          description:
+            'Mastering reactive programming with RxJS and NgRx for mission-critical dashboards.',
+          readTime: '18 MIN READ',
+          date: 'SEP 04, 2024',
+        },
+
+        {
+          category: 'ALGORITHMIC INTEL',
+          verified: true,
+          title: 'Binary Search Tree Implementations',
+          description:
+            'Deep dive into self-balancing trees and search optimizations.',
+          readTime: '22 MIN READ',
+          date: 'AUG 28, 2024',
+        },
+
+        {
+          category: 'DEVOPS',
+          verified: true,
+          title: 'Dockerizing Production Workloads',
+          description:
+            'Optimizing multi-stage builds and reducing image sizes for rapid deployment.',
+          readTime: '14 MIN READ',
+          date: 'AUG 16, 2024',
+        },
+
+        {
+          category: 'IDENTITY MGMT',
+          verified: true,
+          title: 'OAuth2 Implementation Guide',
+          description:
+            'Authorization Code Flow with PKCE for enterprise systems.',
+          readTime: '25 MIN READ',
+          date: 'AUG 02, 2024',
+        },
+
+        {
+          category: 'STORAGE INTEL',
+          verified: true,
+          title: 'PostgreSQL Indexing Strategies',
+          description:
+            'Mastering B-Tree, GIN and GiST indexes for production systems.',
+          readTime: '12 MIN READ',
+          date: 'JUL 22, 2024',
+        },
+      ],
     },
     knowledgeDomains: {
       title: 'OPERATIONAL KNOWLEDGE BASE',
@@ -190,6 +385,8 @@ export const THEME_BLOG_CONFIG: Record<ThemeType, ThemeBlogConfig> = {
       eyebrow: 'INTELLIGENCE ARCHIVE',
 
       title: 'OPERATIONAL REPORTS & ENGINEERING DOSSIERS',
+
+      titleLines: ['OPERATIONAL REPORTS', '&', 'ENGINEERING DOSSIERS'],
 
       description:
         'Field notes, architecture reviews, deployment reports and engineering intelligence gathered from production systems.',

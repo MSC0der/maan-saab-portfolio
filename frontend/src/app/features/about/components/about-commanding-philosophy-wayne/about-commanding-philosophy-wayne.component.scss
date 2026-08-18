@@ -1,0 +1,120 @@
+.wayne-philosophy {
+  display: grid;
+  gap: 2rem;
+}
+
+.wayne-philosophy__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.wayne-philosophy__header span {
+  color: var(--primary);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.wayne-philosophy__header::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(242, 202, 80, 0.08);
+}
+.wayne-philosophy__panel {
+  padding: 5rem;
+  background: radial-gradient(
+    circle at center,
+    rgba(242, 202, 80, 0.05),
+    transparent 60%
+  );
+  border: 1px solid rgba(242, 202, 80, 0.08);
+  position: relative;
+}
+
+.wayne-philosophy__panel h2 {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: clamp(3rem, 6vw, 6rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.wayne-philosophy__panel h2 span {
+  color: var(--primary);
+  font-style: italic;
+}
+
+.wayne-philosophy__principles {
+  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.wayne-principle h3 {
+  margin-bottom: 1rem;
+  color: var(--primary);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.wayne-principle p {
+  font-size: 13px;
+  line-height: 1.8;
+  opacity: 0.75;
+}
+
+@media (max-width: 992px) {
+  .wayne-philosophy__panel {
+    padding: 2rem;
+  }
+
+  .wayne-philosophy__principles {
+    grid-template-columns: 1fr;
+  }
+}
+
+.wayne-philosophy {
+  position: relative;
+  padding: 8rem 4rem;
+
+  border-top: 1px solid rgba(242, 202, 80, 0.08);
+  border-bottom: 1px solid rgba(242, 202, 80, 0.08);
+
+  overflow: hidden;
+}
+
+.wayne-philosophy__scanline {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(242, 202, 80, 0.2),
+    transparent
+  );
+
+  animation: scanline 8s linear infinite;
+}
+
+@keyframes scanline {
+  from {
+    top: 0;
+  }
+
+  to {
+    top: 100%;
+  }
+}
+
+

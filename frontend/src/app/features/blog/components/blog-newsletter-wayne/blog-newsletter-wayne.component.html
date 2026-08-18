@@ -1,0 +1,35 @@
+<section class="wayne-newsletter">
+  <div class="wayne-newsletter__icon">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="6" cy="18" r="1.7" />
+
+      <path d="M5 11a8 8 0 0 1 8 8" />
+
+      <path d="M5 5a14 14 0 0 1 14 14" />
+    </svg>
+  </div>
+
+  <span class="wayne-newsletter__eyebrow">
+    {{ config.articleNewsletter.eyebrow }}
+  </span>
+
+  <h2>
+    {{ config.articleNewsletter.title }}
+  </h2>
+
+  <p>
+    {{ config.articleNewsletter.description }}
+  </p>
+
+  <form class="wayne-newsletter__form">
+    <input type="email" [placeholder]="config.articleNewsletter.placeholder" />
+
+    <button type="button">
+      {{ config.articleNewsletter.buttonLabel }}
+    </button>
+  </form>
+
+  <span class="wayne-newsletter__status">
+    ENCRYPTED CHANNEL ESTABLISHED // 256-BIT AES
+  </span>
+</section>

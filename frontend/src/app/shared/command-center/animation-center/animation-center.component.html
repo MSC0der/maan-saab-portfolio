@@ -1,0 +1,46 @@
+<div class="animation-panel">
+  <header class="animation-header">
+    <span class="animation-label"> TRANSITION ENGINE </span>
+
+    <h2>Workspace Transitions</h2>
+
+    <p>Configure how the interface changes between engineering environments.</p>
+  </header>
+
+  <section class="transition-list">
+    @for (transition of transitions; track transition.id) {
+      <button
+        type="button"
+        class="transition-card"
+        [class.transition-card--active]="selected().id === transition.id"
+        (click)="select(transition)"
+      >
+        <span class="material-symbols-outlined transition-icon">
+          {{ transition.icon }}
+        </span>
+
+        <div class="transition-content">
+          <h3>{{ transition.title }}</h3>
+
+          <p>{{ transition.description }}</p>
+        </div>
+      </button>
+    }
+  </section>
+
+  <footer class="animation-footer">
+    <label>
+      <input
+        type="checkbox"
+        [checked]="rememberChoice()"
+        (change)="rememberChoice.set($any($event.target).checked)"
+      />
+
+      Remember transition
+    </label>
+
+    <button type="button" class="preview-btn" (click)="preview()">
+      Preview
+    </button>
+  </footer>
+</div>

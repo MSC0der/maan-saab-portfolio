@@ -1,6 +1,7 @@
 :host {
   display: block;
   margin-inline: calc(var(--layout-gutter) * -1);
+  padding-top: 4rem;
 }
 
 .about-page {
@@ -30,7 +31,8 @@
 }
 
 @media (min-width: 768px) {
-  .about-page {
+  .about-page,
+  .about-page-wayne {
     padding-inline: var(--about-margin-desktop);
   }
 }

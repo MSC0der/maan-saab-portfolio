@@ -1,0 +1,128 @@
+:host {
+  display: block;
+}
+
+.wayne-card {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+
+  padding: 1.6rem;
+
+  border: 1px solid var(--border);
+
+  background: var(--surface);
+
+  transition: 0.25s;
+}
+
+.wayne-card:hover {
+  border-color: rgba(242, 202, 80, 0.45);
+
+  transform: translateY(-2px);
+}
+
+.wayne-card__header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 1.25rem;
+}
+
+.wayne-card__category {
+  color: var(--primary);
+
+  font-size: 10px;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  font-family: var(--font-display);
+}
+
+.wayne-card__verified {
+  color: #41d36b;
+
+  font-size: 9px;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+}
+
+h3 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-family: var(--font-display);
+
+  font-size: 1.6rem;
+
+  line-height: 1.05;
+}
+
+p {
+  margin: 1rem 0 auto;
+
+  color: var(--text-secondary);
+
+  line-height: 1.7;
+
+  font-size: 0.95rem;
+}
+
+.wayne-card__footer {
+  margin-top: 2rem;
+}
+
+.wayne-card__meta {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-bottom: 1.4rem;
+
+  color: var(--text-secondary);
+
+  font-size: 10px;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+}
+
+button {
+  width: 100%;
+
+  padding: 0.9rem;
+
+  background: transparent;
+
+  border: 1px solid var(--border);
+
+  color: var(--text-primary);
+
+  cursor: pointer;
+
+  font-family: var(--font-display);
+
+  font-size: 11px;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  transition: 0.2s;
+}
+
+button:hover {
+  border-color: var(--primary);
+
+  color: var(--primary);
+}

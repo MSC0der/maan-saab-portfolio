@@ -1,0 +1,59 @@
+<div class="theme-palette">
+  <header class="theme-header">
+    <span class="theme-label"> Workspace </span>
+
+    <h2>Experience Palette</h2>
+  </header>
+
+  <section class="theme-list">
+    @for (theme of themes; track theme.id) {
+      <button
+        type="button"
+        class="theme-card"
+        [class.theme-card--active]="theme.id === currentTheme()"
+        [disabled]="!theme.available"
+        (click)="selectTheme(theme.id)"
+      >
+        <div class="theme-icon">
+          <span class="material-symbols-outlined">
+            {{ theme.icon }}
+          </span>
+        </div>
+
+        <div class="theme-content">
+          <div class="theme-title-row">
+            <h3>
+              {{ theme.title }}
+            </h3>
+
+            @if (!theme.available) {
+              <span class="coming-soon"> Coming Soon </span>
+            }
+          </div>
+
+          <p class="theme-subtitle">
+            {{ theme.subtitle }}
+          </p>
+
+          <p class="theme-description">
+            {{ theme.description }}
+          </p>
+        </div>
+      </button>
+    }
+  </section>
+
+  <footer class="theme-footer">
+    <label>
+      <input
+        type="checkbox"
+        [checked]="rememberChoice()"
+        (change)="rememberChoice.set($any($event.target).checked)"
+      />
+
+      Remember choice
+    </label>
+
+    <span> v2.5.0 </span>
+  </footer>
+</div>

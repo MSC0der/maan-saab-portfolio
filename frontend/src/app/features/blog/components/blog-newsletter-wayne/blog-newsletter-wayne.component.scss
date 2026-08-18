@@ -1,0 +1,174 @@
+:host {
+  display: block;
+}
+
+.wayne-newsletter {
+  margin: 8rem auto 5rem;
+
+  max-width: 760px;
+
+  text-align: center;
+}
+
+.wayne-newsletter__icon {
+  width: 72px;
+  height: 72px;
+
+  margin: 0 auto 2rem;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid var(--border);
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.015);
+
+  transition: 0.35s;
+}
+
+.wayne-newsletter__icon svg {
+  width: 34px;
+  height: 34px;
+
+  stroke: var(--primary);
+
+  stroke-width: 1.7;
+
+  fill: none;
+
+  transition: 0.35s;
+}
+
+.wayne-newsletter:hover .wayne-newsletter__icon {
+  border-color: var(--primary);
+
+  box-shadow: 0 0 24px rgba(242, 202, 80, 0.08);
+}
+
+.wayne-newsletter:hover svg {
+  transform: scale(1.08);
+}
+
+.wayne-newsletter__eyebrow {
+  display: block;
+
+  margin-bottom: 1rem;
+
+  color: var(--primary);
+
+  font-size: 0.75rem;
+
+  letter-spacing: 0.25em;
+
+  text-transform: uppercase;
+}
+
+.wayne-newsletter h2 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-family: var(--font-display);
+
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
+
+  text-transform: uppercase;
+
+  line-height: 1.1;
+}
+
+.wayne-newsletter p {
+  max-width: 620px;
+
+  margin: 1.75rem auto 3rem;
+
+  color: var(--text-secondary);
+
+  line-height: 1.9;
+}
+
+.wayne-newsletter__form {
+  display: flex;
+
+  gap: 1rem;
+
+  justify-content: center;
+}
+
+.wayne-newsletter__form input {
+  flex: 1;
+
+  max-width: 420px;
+
+  padding: 1rem 1.25rem;
+
+  background: transparent;
+
+  border: 1px solid var(--border);
+
+  color: var(--text-primary);
+
+  font-family: inherit;
+}
+
+.wayne-newsletter__form input:focus {
+  outline: none;
+
+  border-color: var(--primary);
+}
+
+.wayne-newsletter__form button {
+  padding: 1rem 2rem;
+
+  border: none;
+
+  cursor: pointer;
+
+  background: var(--primary);
+
+  color: #111;
+
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  transition: 0.25s;
+}
+
+.wayne-newsletter__form button:hover {
+  transform: translateY(-2px);
+}
+
+.wayne-newsletter__status {
+  display: block;
+
+  margin-top: 2rem;
+
+  color: var(--text-secondary);
+
+  font-size: 0.72rem;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  opacity: 0.65;
+}
+
+@media (max-width: 768px) {
+  .wayne-newsletter__form {
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+  .wayne-newsletter__form input,
+  .wayne-newsletter__form button {
+    width: 100%;
+    max-width: none;
+  }
+}

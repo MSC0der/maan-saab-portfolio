@@ -10,7 +10,4 @@ import { ThemeService } from './core/services/theme.service';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  constructor(private themeService: ThemeService) {
-    this.themeService.setTheme('wayne');
-  }
 }

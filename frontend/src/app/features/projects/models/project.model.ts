@@ -70,4 +70,5 @@ export interface Project {
   readonly obstacles?: readonly EngineeringObstacle[];
 
   readonly metrics?: readonly ProjectMetric[];
+  layout?: 'featured' | 'tall' | 'wide' | 'standard';
 }

@@ -1,0 +1,76 @@
+.projects-intelligence__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--project-intelligence-card-radius);
+  background: var(--surface);
+}
+
+.stat-card__value {
+  display: block;
+  color: var(--primary);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.stat-card__label {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.projects-intelligence__distribution {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  border-radius: var(--project-intelligence-panel-radius);
+  background: var(--surface);
+}
+
+.distribution__header h2 {
+  margin-bottom: 0.5rem;
+}
+
+.distribution__header span {
+  color: var(--text-secondary);
+}
+
+.distribution__metrics {
+  display: flex;
+  gap: 3rem;
+}
+
+.distribution__metrics div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.distribution__metrics strong {
+  color: var(--primary);
+  font-size: 1.5rem;
+}
+
+.distribution__metrics span {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 992px) {
+  .projects-intelligence__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .projects-intelligence__distribution {
+    grid-template-columns: 1fr;
+  }
+  .distribution__metrics {
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,91 @@
+:host {
+  display: block;
+}
+
+.wayne-domains {
+  margin-top: 7rem;
+  margin-bottom: 7rem;
+}
+
+.wayne-domains__header {
+  margin-bottom: 3rem;
+}
+
+.wayne-domains__header h2 {
+  margin: 0;
+
+  font-family: var(--font-display);
+
+  font-size: 2rem;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.wayne-domains__line {
+  width: 48px;
+  height: 2px;
+
+  margin-top: 1rem;
+
+  background: var(--primary);
+}
+
+.wayne-domains__grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 1rem;
+}
+
+.wayne-sector {
+  padding: 2rem;
+
+  min-height: 130px;
+
+  border: 1px solid var(--border);
+
+  background: rgba(255, 255, 255, 0.015);
+
+  transition: 0.3s;
+}
+
+.wayne-sector:hover {
+  border-color: var(--primary);
+
+  transform: translateY(-4px);
+
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.wayne-sector__icon {
+  display: block;
+
+  margin-bottom: 1.5rem;
+
+  color: var(--primary);
+
+  font-size: 1.4rem;
+}
+
+.wayne-sector h3 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: 0.9rem;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .wayne-domains__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,33 @@
+<section class="wayne-blog-hero">
+  <div class="wayne-blog-hero__content">
+    <span class="wayne-blog-hero__eyebrow">
+      {{ config.hero.eyebrow }}
+    </span>
+
+    <h1 class="wayne-blog-title">
+      @for (line of config.hero.titleLines; track line) {
+        <span>{{ line }}</span>
+      }
+    </h1>
+
+    <p>
+      {{ config.hero.description }}
+    </p>
+  </div>
+
+  <div class="wayne-blog-hero__divider"></div>
+
+  <div class="wayne-blog-hero__stats">
+    @for (stat of config.hero.stats; track stat.label) {
+      <div class="wayne-blog-stat">
+        <strong>
+          {{ stat.value }}
+        </strong>
+
+        <span>
+          {{ stat.label }}
+        </span>
+      </div>
+    }
+  </div>
+</section>

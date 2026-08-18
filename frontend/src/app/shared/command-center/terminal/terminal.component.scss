@@ -1,0 +1,242 @@
+:host {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.terminal {
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+
+  height: 100%;
+
+  background: var(--surface-1);
+
+  border: 1px solid var(--border-subtle);
+
+  border-radius: 24px;
+
+  overflow: hidden;
+}
+
+.terminal__header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 1.1rem 2rem 0.15rem;
+
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.terminal__label {
+  display: block;
+
+  color: var(--accent);
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.25em;
+
+  font-size: 0.75rem;
+}
+
+.terminal__header h2 {
+  margin-top: 0.25rem;
+
+  font-size: 1.6rem;
+}
+
+.terminal__status {
+  padding: 0.5rem 1rem;
+
+  border-radius: 999px;
+
+  background: rgba(16, 185, 129, 0.12);
+
+  color: var(--accent);
+
+  font-weight: 600;
+}
+
+.terminal__runtime {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 1rem;
+
+  padding: 0.15rem 2rem;
+
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Single source of truth for the stat cards — this used to be split
+   across a `.terminal__runtime div` tag-selector and a `.runtime-card`
+   class-selector with conflicting min-height/padding, silently
+   resolved by specificity. Merged here and shrunk so the boot log
+   below has enough room to fit without scrolling on shorter
+   viewports. */
+.runtime-card {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 0.3rem;
+
+  min-height: 64px;
+
+  padding: 0.4rem 1.25rem;
+
+  border-radius: 14px;
+
+  background: var(--surface-2);
+
+  border: 1px solid var(--border-subtle);
+}
+
+.terminal__runtime span {
+  color: var(--text-muted);
+
+  font-size: 0.82rem;
+}
+
+.runtime-card strong {
+  font-size: 1.35rem;
+
+  font-weight: 700;
+}
+
+.terminal__screen {
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  min-height: 0;
+
+  padding: 1rem 2rem 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  font-family: monospace;
+}
+
+.terminal__line {
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.terminal__input {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.75rem;
+
+  padding: 0.75rem 2rem 1rem;
+
+  border-top: 1px solid var(--border-subtle);
+
+  font-family: monospace;
+}
+
+.prompt {
+  flex-shrink: 0;
+
+  color: var(--accent);
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  line-height: 1;
+}
+
+.terminal__input input {
+  flex: 1;
+
+  background: transparent;
+
+  border: none;
+
+  outline: none;
+
+  color: var(--text-primary);
+
+  font-family: inherit;
+
+  font-size: 1rem;
+
+  padding: 0;
+}
+
+.terminal__input button {
+  border: none;
+
+  padding: 0.8rem 1.5rem;
+
+  border-radius: 12px;
+
+  background: var(--accent);
+
+  color: #000;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.terminal__banner {
+  margin-bottom: 2rem;
+
+  padding-bottom: 1.5rem;
+
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.terminal__banner-title {
+  color: var(--accent);
+
+  font-family: monospace;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+}
+
+.terminal__banner-subtitle {
+  margin-top: 0.75rem;
+
+  color: var(--text-muted);
+
+  font-family: monospace;
+
+  font-size: 0.9rem;
+}
+
+.cursor {
+  width: 8px;
+
+  height: 20px;
+
+  background: var(--accent);
+
+  display: inline-block;
+
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

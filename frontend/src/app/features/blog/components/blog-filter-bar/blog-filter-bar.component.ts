@@ -10,15 +10,15 @@ import { THEME_BLOG_CONFIG } from '../../../../core/config/theme-blog.config';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogFilterBarComponent {
-  protected get filters() {
-    return this.config.filterBar.filters;
-  }
-
-  protected activeFilter = this.filters[0];
-
   private readonly themeService = inject(ThemeService);
 
   protected get config() {
     return THEME_BLOG_CONFIG[this.themeService.theme()];
   }
+
+  protected get filters() {
+    return this.config.filterBar.filters;
+  }
+
+  protected activeFilter = this.filters[0];
 }

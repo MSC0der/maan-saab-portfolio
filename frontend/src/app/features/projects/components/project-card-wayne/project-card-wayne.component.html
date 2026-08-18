@@ -1,0 +1,54 @@
+<article class="project-card">
+  @if (project().coverImage) {
+    <div class="project-card__image">
+      <img [src]="project().coverImage" [alt]="project().title" />
+    </div>
+  }
+
+  <div class="project-card__top">
+    <span class="project-card__category">
+      {{ project().category }}
+    </span>
+
+    <span
+      class="project-card__status"
+      [class.project-card__status--completed]="project().status === 'completed'"
+      [class.project-card__status--ongoing]="project().status === 'ongoing'"
+      [class.project-card__status--concept]="project().status === 'concept'"
+    >
+      {{ project().status }}
+    </span>
+  </div>
+
+  <h3 class="project-card__title">
+    {{ project().title }}
+  </h3>
+
+  <p class="project-card__summary">
+    {{ project().summary }}
+  </p>
+
+  <div class="project-card__technologies">
+    @for (technology of project().technologies.slice(0, 4); track technology) {
+      <span class="project-card__chip">
+        {{ technology }}
+      </span>
+    }
+  </div>
+
+  <div class="project-card__actions">
+    <a class="project-card__link" [routerLink]="['/projects', project().slug]">
+      Case Study
+    </a>
+
+    @if (project().liveUrl) {
+      <a
+        class="project-card__secondary-link"
+        [href]="project().liveUrl"
+        target="_blank"
+      >
+        Live Site
+      </a>
+    }
+  </div>
+</article>

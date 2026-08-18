@@ -1,0 +1,79 @@
+.wayne-metrics {
+  display: grid;
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.wayne-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.wayne-metric-card {
+  position: relative;
+  padding: 2rem;
+  background: rgba(10, 12, 16, 0.92);
+  border: 1px solid rgba(242, 202, 80, 0.08);
+  min-height: 160px;
+
+  transition: all 0.3s ease;
+}
+
+.wayne-metric-card:hover {
+  border-color: rgba(242, 202, 80, 0.3);
+  transform: translateY(-2px);
+}
+
+.wayne-metric-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 12px;
+  height: 12px;
+
+  border-top: 1px solid var(--primary);
+  border-left: 1px solid var(--primary);
+}
+
+.wayne-metric-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  width: 12px;
+  height: 12px;
+
+  border-bottom: 1px solid var(--primary);
+  border-right: 1px solid var(--primary);
+}
+
+.wayne-metric-card__value {
+  color: var(--primary);
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.wayne-metric-card__label {
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 992px) {
+  .wayne-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .wayne-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}

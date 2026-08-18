@@ -1,0 +1,289 @@
+/* This component now only renders the panel content shown inside
+   `.command-panel` (see command-center.component). The launcher button
+   and its own floating-widget positioning have moved to app-command-dock
+   — no host positioning is needed here. */
+
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+/* ---------------- Palette ---------------- */
+
+/* The overlay, backdrop blur and card chrome (background, border,
+   radius, shadow, entrance animation) all live on the parent
+   `.command-panel` in command-center.component — this only renders the
+   panel's inner content, same as app-animation-center. */
+
+.theme-palette {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+/* ---------------- Header ---------------- */
+
+.theme-header {
+  padding: 1.5rem 1.75rem;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.theme-label {
+  display: block;
+
+  font-size: 0.78rem;
+
+  letter-spacing: 0.25em;
+
+  text-transform: uppercase;
+
+  color: #7f8594;
+
+  margin-bottom: 0.4rem;
+}
+
+.theme-header h2 {
+  font-size: 2rem;
+
+  font-weight: 700;
+
+  color: #fff;
+}
+
+/* ---------------- Body ---------------- */
+
+.theme-list {
+  padding: 1rem;
+
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+/* ---------------- Footer ---------------- */
+
+.theme-footer {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 1.1rem 1.5rem;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+  color: #8a8d98;
+
+  font-size: 0.85rem;
+}
+
+.theme-footer label {
+  display: flex;
+
+  gap: 0.6rem;
+
+  align-items: center;
+}
+
+/* ================================
+   Theme Card
+================================ */
+
+.theme-card {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 1.1rem;
+
+  border: 1px solid transparent;
+  border-radius: 18px;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  position: relative;
+
+  overflow: hidden;
+
+  transition:
+    background 0.25s,
+    border-color 0.25s,
+    transform 0.25s,
+    box-shadow 0.25s;
+
+  margin-bottom: 0.9rem;
+
+  text-align: left;
+
+  color: inherit;
+}
+
+/* left accent */
+
+.theme-card::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+
+  width: 3px;
+
+  background: transparent;
+
+  border-radius: 99px;
+
+  transition: 0.25s;
+}
+
+/* hover */
+
+.theme-card:hover {
+  background: rgba(255, 255, 255, 0.035);
+
+  border-color: rgba(255, 255, 255, 0.08);
+
+  transform: translateX(4px);
+}
+
+/* active */
+
+.theme-card--active {
+  background: rgba(255, 255, 255, 0.045);
+
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.theme-card--active::before {
+  background: var(--color-primary);
+}
+
+.theme-card--active .theme-icon {
+  color: var(--color-primary);
+
+  background: rgba(255, 255, 255, 0.05);
+
+  box-shadow: 0 0 18px rgba(16, 185, 129, 0.2);
+}
+
+/* disabled */
+
+.theme-card:disabled {
+  opacity: 0.45;
+
+  cursor: not-allowed;
+}
+
+.theme-card:disabled:hover {
+  transform: none;
+}
+
+/* ================================
+   Icon
+================================ */
+
+.theme-icon {
+  width: 64px;
+  height: 64px;
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.03);
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  color: #8b8d95;
+
+  transition: 0.25s;
+}
+
+.theme-icon .material-symbols-outlined {
+  font-size: 2rem;
+}
+
+/* ================================
+   Content
+================================ */
+
+.theme-content {
+  flex: 1;
+}
+
+.theme-title-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 0.35rem;
+}
+
+.theme-title-row h3 {
+  margin: 0;
+
+  color: #fff;
+
+  font-size: 1.2rem;
+
+  font-weight: 600;
+}
+
+.theme-subtitle {
+  margin: 0 0 0.35rem;
+
+  color: var(--color-primary);
+
+  font-size: 0.85rem;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.theme-description {
+  margin: 0;
+
+  color: #9094a2;
+
+  font-size: 0.92rem;
+
+  line-height: 1.55;
+}
+
+/* ================================
+   Badge
+================================ */
+
+.coming-soon {
+  font-size: 0.7rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.15em;
+
+  padding: 0.3rem 0.55rem;
+
+  border-radius: 999px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  color: #999;
+}

@@ -1,0 +1,144 @@
+:host {
+  display: block;
+}
+
+.wayne-featured {
+  margin: 5rem 0;
+}
+
+.wayne-featured__label {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.wayne-featured-card {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.wayne-featured-image {
+  background: #090b0d;
+}
+
+.wayne-featured-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wayne-featured-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4.5rem;
+}
+
+.wayne-meta {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.wayne-category {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.wayne-status {
+  color: #4ade80;
+}
+
+.wayne-featured-content h2 {
+  margin: 0 0 1.5rem;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.wayne-featured-content p {
+  margin-bottom: 2.5rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.wayne-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.primary,
+.secondary {
+  padding: 0.9rem 1.6rem;
+  border: 1px solid var(--primary);
+  background: transparent;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.primary {
+  background: var(--primary);
+  color: #111;
+}
+
+.secondary {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.primary:hover {
+  background: var(--primary-hover);
+}
+
+.secondary:hover {
+  border-color: var(--primary);
+}
+
+@media (max-width: 960px) {
+  .wayne-featured-card {
+    grid-template-columns: 1fr;
+  }
+  .wayne-featured-content {
+    padding: 2rem;
+  }
+}
+
+.wayne-featured__label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.wayne-featured__line {
+  width: 32px;
+  height: 1px;
+  background: var(--border-strong);
+}
+
+.wayne-buttons a {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-decoration: none;
+}

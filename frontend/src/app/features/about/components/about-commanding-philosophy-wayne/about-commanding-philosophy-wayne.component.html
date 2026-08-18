@@ -1,0 +1,22 @@
+<section class="wayne-philosophy">
+  <div class="wayne-philosophy__scanline"></div>
+  <div class="wayne-philosophy__header">
+    <span>COMMANDING PHILOSOPHY</span>
+  </div>
+
+  <div class="wayne-philosophy__panel">
+    <h2>
+      "MAINTAINABILITY IS THE <span>FOUNDATION</span>
+      OF SCALE."
+    </h2>
+
+    <div class="wayne-philosophy__principles">
+      @for (principle of principles; track principle.title) {
+        <div class="wayne-principle">
+          <h3>{{ principle.title }}</h3>
+          <p>{{ principle.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

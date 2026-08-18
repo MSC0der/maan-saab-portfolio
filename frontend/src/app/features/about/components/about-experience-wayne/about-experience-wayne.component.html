@@ -1,0 +1,32 @@
+<section class="wayne-experience">
+  <div class="wayne-experience__header">
+    <span class="wayne-experience__eyebrow"> ACTIVE DEPLOYMENT RECORD </span>
+
+    <h2>FIELD EXPERIENCE REPORT</h2>
+
+    <p>
+      Operational experience developing secure infrastructure, authentication
+      systems, APIs and enterprise-grade platforms.
+    </p>
+  </div>
+
+  <div class="wayne-experience__grid">
+    @for (card of cards; track card.title) {
+      <article class="wayne-report-card">
+        <div class="wayne-report-card__image">
+          <img [src]="card.imageUrl" [alt]="card.imageAlt" />
+        </div>
+
+        <div class="wayne-report-card__body">
+          <div class="wayne-report-card__icon">
+            <app-about-icon [name]="card.icon" />
+          </div>
+
+          <h3>{{ card.title }}</h3>
+
+          <p>{{ card.description }}</p>
+        </div>
+      </article>
+    }
+  </div>
+</section>

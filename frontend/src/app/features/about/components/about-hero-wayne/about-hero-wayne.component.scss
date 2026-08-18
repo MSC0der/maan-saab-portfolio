@@ -1,0 +1,83 @@
+:host {
+  display: block;
+}
+
+.about-hero-wayne {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.about-hero-wayne__eyebrow {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: var(--primary);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.about-hero-wayne h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 8vw, 7rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.about-hero-wayne__role {
+  margin-top: 1rem;
+  color: var(--primary);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.about-hero-wayne__summary {
+  max-width: 42rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-top: 1.5rem;
+}
+
+.about-hero-wayne__status {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.status-card {
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  min-width: 180px;
+}
+
+.status-card span {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.status-card strong {
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+}
+
+.about-hero-wayne__visual img {
+  width: 100%;
+  display: block;
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 1024px) {
+  .about-hero-wayne {
+    grid-template-columns: 1fr;
+  }
+}

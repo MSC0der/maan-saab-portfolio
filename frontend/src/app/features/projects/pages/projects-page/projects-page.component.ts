@@ -1,22 +1,18 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ProjectFilterBarComponent } from '../../components/project-filter-bar/project-filter-bar.component';
-import { HomeSectionComponent } from '../../../home/components/home-section/home-section.component';
-import { ProjectsHeroComponent } from '../../components/projects-hero/projects-hero.component';
-import { ProjectsGridComponent } from '../../components/projects-grid/projects-grid.component';
-import { ProjectsCtaComponent } from '../../components/projects-cta/projects-cta.component';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ThemeService } from '../../../../core/services/theme.service';
+import { ProjectsPageDefaultComponent } from '../projects-page-default/projects-page-default.component';
+import { ProjectsPageWayneComponent } from '../projects-page-wayne/projects-page-wayne.component';
 
 @Component({
   selector: 'app-projects-page',
   standalone: true,
-  imports: [
-    HomeSectionComponent,
-    ProjectsHeroComponent,
-    ProjectFilterBarComponent,
-    ProjectsGridComponent,
-    ProjectsCtaComponent
-  ],
+  imports: [ProjectsPageWayneComponent, ProjectsPageDefaultComponent],
   templateUrl: './projects-page.component.html',
   styleUrl: './projects-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProjectsPageComponent {}
+export class ProjectsPageComponent {
+  private readonly themeService = inject(ThemeService);
+
+  protected readonly theme = this.themeService.theme;
+}

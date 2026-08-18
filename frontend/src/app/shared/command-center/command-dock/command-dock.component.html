@@ -1,0 +1,31 @@
+<div class="theme-dock">
+  <button
+    type="button"
+    class="theme-launcher"
+    [class.theme-launcher--active]="activePanel() === 'themes'"
+    (click)="toggle('themes')"
+    aria-label="Workspace"
+  >
+    <span class="material-symbols-outlined"> dashboard_customize </span>
+  </button>
+
+  <button
+    type="button"
+    class="theme-launcher"
+    [class.theme-launcher--active]="activePanel() === 'animations'"
+    (click)="toggle('animations')"
+    aria-label="Animations"
+  >
+    <span class="material-symbols-outlined"> animation </span>
+  </button>
+
+  <button
+    type="button"
+    class="theme-launcher theme-launcher--terminal"
+    [class.theme-launcher--active]="activePanel() === 'terminal'"
+    (click)="toggle('terminal')"
+    aria-label="Developer Terminal"
+  >
+    <span class="material-symbols-outlined"> terminal </span>
+  </button>
+</div>

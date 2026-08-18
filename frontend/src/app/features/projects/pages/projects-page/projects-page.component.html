@@ -1,19 +1,5 @@
-<div class="projects-page">
-
-  <app-home-section [reveal]="false">
-    <app-projects-hero />
-  </app-home-section>
-
-  <app-home-section>
-    <app-project-filter-bar />
-  </app-home-section>
-
-  <app-home-section sectionId="projects-grid">
-    <app-projects-grid />
-  </app-home-section>
-
-  <app-home-section>
-    <app-projects-cta />
-  </app-home-section>
-
-</div>
+@if (theme() === "wayne") {
+  <app-projects-page-wayne />
+} @else {
+  <app-projects-page-default />
+}

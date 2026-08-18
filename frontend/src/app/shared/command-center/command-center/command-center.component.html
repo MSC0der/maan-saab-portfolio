@@ -1,0 +1,25 @@
+<app-command-dock />
+
+@if (activePanel()) {
+  <div class="command-overlay" (click)="close()">
+    <div
+      class="command-panel"
+      [class.command-panel--themes]="activePanel() === 'themes'"
+      [class.command-panel--animations]="activePanel() === 'animations'"
+      [class.command-panel--terminal]="activePanel() === 'terminal'"
+      (click)="$event.stopPropagation()"
+    >
+      @if (activePanel() === "themes") {
+        <app-theme-switcher />
+      }
+
+      @if (activePanel() === "animations") {
+        <app-animation-center />
+      }
+
+      @if (activePanel() === "terminal") {
+        <app-terminal />
+      }
+    </div>
+  </div>
+}

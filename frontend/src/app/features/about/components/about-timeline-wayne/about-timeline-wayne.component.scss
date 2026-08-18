@@ -1,0 +1,141 @@
+:host {
+  display: block;
+  width: min(100%, 1200px);
+  margin-inline: auto;
+}
+
+.wayne-timeline__header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 6rem;
+}
+
+.wayne-timeline__header h2 {
+  margin: 0;
+  color: var(--primary);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 1rem;
+}
+
+.wayne-timeline__header-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.wayne-timeline__header span {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+}
+
+.wayne-timeline__items {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.wayne-timeline__items::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    var(--primary),
+    rgba(242, 202, 80, 0.15)
+  );
+}
+
+.mission {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.mission--reverse {
+  flex-direction: row-reverse;
+}
+
+.mission__meta,
+.mission__card {
+  width: 42%;
+}
+
+.mission__node {
+  position: absolute;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: var(--primary);
+  border: 4px solid var(--background);
+}
+
+.mission__card {
+  padding: 2rem;
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(242,202,80,.12);
+  backdrop-filter: blur(12px);
+  transition: all .3s ease;
+}
+
+.mission__card:hover {
+  border-color: rgba(242,202,80,.4);
+}
+
+.mission__status {
+  display: block;
+  margin-bottom: 1rem;
+
+  color: var(--primary);
+
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.mission__card h3 {
+  margin: 0 0 1rem;
+  color: var(--text-primary);
+}
+
+.mission__card p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.mission__id {
+  display: block;
+
+  font-size: 2rem;
+  font-family: var(--font-display);
+
+  color: rgba(255,255,255,.15);
+
+  transition: .3s ease;
+}
+
+.mission:hover .mission__id {
+  color: var(--primary);
+}
+
+.mission__period {
+  display: block;
+  margin-top: .5rem;
+
+  font-size: 12px;
+  letter-spacing: .12em;
+
+  color: var(--text-secondary);
+}

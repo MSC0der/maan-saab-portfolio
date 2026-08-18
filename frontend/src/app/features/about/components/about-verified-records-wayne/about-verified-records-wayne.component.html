@@ -1,0 +1,21 @@
+<section class="wayne-records">
+  <div class="wayne-section-header">
+    <h2>Verified Records</h2>
+    <div class="wayne-section-header__line"></div>
+  </div>
+
+  <div class="wayne-records-grid">
+    @for (record of records; track record.title) {
+      <article class="wayne-record-card">
+        <div class="wayne-record-card__content">
+          <h3>{{ record.title }}</h3>
+          <p>{{ record.subtitle }}</p>
+        </div>
+
+        <span class="wayne-record-card__status">
+          {{ record.status }}
+        </span>
+      </article>
+    }
+  </div>
+</section>

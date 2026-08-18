@@ -1,0 +1,55 @@
+<div class="terminal">
+  <header class="terminal__header">
+    <div>
+      <span class="terminal__label"> Engineering Console </span>
+
+      <h2>Portfolio Runtime</h2>
+    </div>
+
+    <div class="terminal__status">● LIVE</div>
+  </header>
+
+  <section class="terminal__runtime">
+    <div class="runtime-card">
+      <span>Environment</span>
+      <strong>Production</strong>
+    </div>
+
+    <div class="runtime-card">
+      <span>Theme</span>
+      <strong>{{ currentTheme }}</strong>
+    </div>
+
+    <div class="runtime-card">
+      <span>Version</span>
+      <strong>v2.5.0</strong>
+    </div>
+
+    <div class="runtime-card">
+      <span>Status</span>
+      <strong class="online"> ● Online </strong>
+    </div>
+  </section>
+
+  <section class="terminal__screen" #terminalScreen>
+    @for (line of history(); track line) {
+      <div class="terminal__line">
+        {{ line }}
+      </div>
+    }
+  </section>
+
+  <section class="terminal__input">
+    <span class="cursor"></span>
+
+    <input
+      type="text"
+      placeholder="Type a command..."
+      [value]="command()"
+      (input)="command.set($any($event.target).value)"
+      (keydown.enter)="executeCommand()"
+    />
+
+    <button (click)="executeCommand()">Execute</button>
+  </section>
+</div>

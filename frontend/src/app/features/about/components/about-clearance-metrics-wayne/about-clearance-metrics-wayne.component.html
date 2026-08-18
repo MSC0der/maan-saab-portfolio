@@ -1,0 +1,20 @@
+<section class="wayne-metrics">
+  <div class="wayne-section-header">
+    <h2>Clearance Metrics</h2>
+    <div class="wayne-section-header__line"></div>
+  </div>
+
+  <div class="wayne-metrics-grid">
+    @for (metric of metrics; track metric.label) {
+      <article class="wayne-metric-card">
+        <div class="wayne-metric-card__value">
+          {{ metric.value }}
+        </div>
+
+        <div class="wayne-metric-card__label">
+          {{ metric.label }}
+        </div>
+      </article>
+    }
+  </div>
+</section>

@@ -1,0 +1,48 @@
+<section class="wayne-featured">
+  <div class="wayne-featured__label">
+    <span class="wayne-featured__line"></span>
+
+    {{ config.featuredArticle.label }}
+  </div>
+
+  <article class="wayne-featured-card">
+    <div class="wayne-featured-image">
+      <img
+        src="images/blog/jwt-rbac-wayne.webp"
+        alt="JWT Authentication Architecture"
+      />
+    </div>
+
+    <div class="wayne-featured-content">
+      <div class="wayne-meta">
+        <span class="wayne-category"> SECURITY </span>
+
+        <span class="wayne-status"> VERIFIED </span>
+
+        <span> READ TIME 12 MINUTES </span>
+      </div>
+
+      <h2>Building Secure JWT Authentication & RBAC in Node.js</h2>
+
+      <p>
+        A deep dive into implementing stateless authentication with JSON Web
+        Tokens and granular Role-Based Access Control. This brief covers
+        cryptographically secure key management, token rotation strategies, and
+        middleware architecture for high-stakes mission security.
+      </p>
+
+      <div class="wayne-buttons">
+        <a
+          class="primary"
+          [routerLink]="['/blog', 'jwt-vs-session-authentication']"
+        >
+          {{ config.featuredArticle.primaryButton }}
+        </a>
+
+        <a class="secondary" [routerLink]="['/blog']">
+          {{ config.featuredArticle.secondaryButton }}
+        </a>
+      </div>
+    </div>
+  </article>
+</section>

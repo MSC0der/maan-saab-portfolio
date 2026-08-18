@@ -1,9 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { inject } from '@angular/core';
-
 import { ThemeService } from '../../../../core/services/theme.service';
 import { THEME_ABOUT_CONFIG } from '../../../../core/config/theme-about.config';
-import { AboutIconName } from '../about-icon/about-icon.component';
 import { AboutExpertiseCardComponent } from '../about-expertise-card/about-expertise-card.component';
 
 interface ExpertisePanel {

@@ -38,5 +38,18 @@ export const THEME_HEADER_CONFIG: Record<ThemeType, ThemeHeaderConfig> = {
       blog: 'OPERATIONS',
       contact: 'SECURE CHANNEL',
     },
-  }
+  },
+
+  // pristine: {
+  //   brandName: '3D WEBSITE',
+  //   resumeLabel: 'know me',
+
+  //   navigation: {
+  //     home: 'DOSSIER',
+  //     projects: 'MISSIONS',
+  //     about: 'ARSENAL',
+  //     blog: 'OPERATIONS',
+  //     contact: 'SECURE CHANNEL',
+  //   },
+  // },
 };

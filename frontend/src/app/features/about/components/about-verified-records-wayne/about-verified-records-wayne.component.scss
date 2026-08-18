@@ -1,0 +1,119 @@
+.wayne-records {
+  display: grid;
+  gap: 2rem;
+  margin-top: 5rem;
+}
+
+.wayne-records-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.wayne-record-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem 1.25rem;
+
+  border: 1px solid rgba(242, 202, 80, 0.08);
+  background: rgba(10, 12, 16, 0.92);
+
+  transition: all 0.3s ease;
+}
+
+.wayne-record-card:hover {
+  border-color: rgba(242, 202, 80, 0.25);
+}
+
+.wayne-record-card__left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.wayne-record-card__icon {
+  color: var(--primary);
+  font-size: 0.75rem;
+}
+
+.wayne-record-card h3 {
+  margin: 0 0 0.25rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.wayne-record-card p {
+  margin: 0;
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+.wayne-record-card__status {
+  border: 1px solid rgba(242, 202, 80, 0.25);
+  color: var(--primary);
+
+  padding: 0.3rem 0.7rem;
+
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+}
+
+.wayne-record-card__status.active {
+  border-color: rgba(80, 220, 120, 0.3);
+  color: rgba(80, 220, 120, 1);
+}
+
+@media (max-width: 768px) {
+  .wayne-records-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.wayne-records-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.wayne-record-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem 1.25rem;
+
+  background: rgba(10, 12, 16, 0.9);
+  border: 1px solid rgba(242, 202, 80, 0.08);
+
+  min-height: 72px;
+}
+
+.wayne-record-card:hover {
+  border-color: rgba(242, 202, 80, 0.25);
+}
+
+.wayne-record-card h3 {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.wayne-record-card p {
+  margin-top: 0.25rem;
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+.wayne-record-card__status {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  color: var(--primary);
+
+  border: 1px solid rgba(242, 202, 80, 0.2);
+  padding: 0.25rem 0.5rem;
+}

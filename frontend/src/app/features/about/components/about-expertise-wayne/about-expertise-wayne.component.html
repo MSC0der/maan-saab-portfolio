@@ -1,0 +1,30 @@
+<section class="wayne-expertise">
+  <div class="wayne-expertise__header">
+    <h2>TACTICAL SPECIALIZATIONS</h2>
+
+    <p>
+      Engineering domains, technologies and operational competencies utilized
+      throughout mission deployments.
+    </p>
+  </div>
+
+  <div class="wayne-expertise__grid">
+    @for (panel of panels; track panel.title) {
+      <article class="wayne-skill-card">
+        <div class="wayne-skill-card__image">
+          <img [src]="panel.imageUrl" [alt]="panel.imageAlt" />
+        </div>
+
+        <div class="wayne-skill-card__body">
+          <h3>{{ panel.title }}</h3>
+
+          <div class="wayne-skill-card__skills">
+            @for (skill of panel.skills; track skill) {
+              <span>{{ skill }}</span>
+            }
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+</section>

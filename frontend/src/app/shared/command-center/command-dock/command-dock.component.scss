@@ -1,0 +1,54 @@
+:host {
+  position: fixed;
+  right: 1.75rem;
+  bottom: 2rem;
+  z-index: 5000;
+}
+
+/* ---------------- Dock ---------------- */
+
+.theme-dock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+/* ---------------- Launcher ---------------- */
+
+.theme-launcher {
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  background: #15171c;
+  color: var(--color-primary);
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+
+  .material-symbols-outlined {
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary);
+  }
+}
+
+/* The terminal panel isn't laid out for small screens, so its launcher
+   is hidden below the md breakpoint rather than opening a broken panel. */
+@media (max-width: 768px) {
+  .theme-launcher--terminal {
+    display: none;
+  }
+}

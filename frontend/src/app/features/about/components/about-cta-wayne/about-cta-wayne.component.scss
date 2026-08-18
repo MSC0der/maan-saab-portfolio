@@ -1,0 +1,93 @@
+.wayne-cta {
+  position: relative;
+  margin-top: 7rem;
+  padding: 5rem 2rem;
+  overflow: hidden;
+  border-top: 1px solid rgba(242, 202, 80, 0.08);
+}
+
+.wayne-cta__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.wayne-cta__glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(242, 202, 80, 0.08),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.wayne-cta__status {
+  color: var(--primary);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  opacity: 0.85;
+}
+
+.wayne-cta h2 {
+  margin: 0 auto;
+  max-width: 760px;
+  font-size: 2rem;
+  line-height: 1.5;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.wayne-cta h2 span {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.wayne-cta__button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  padding: 1rem 4rem;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  text-decoration: none;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  transition: 0.35s;
+}
+
+.wayne-cta__button:hover {
+  background: var(--primary);
+  color: #000;
+}
+
+.wayne-cta__footer {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  opacity: 0.55;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .wayne-cta {
+    padding: 4rem 1.5rem;
+  }
+  .wayne-cta h2 {
+    font-size: 1.5rem;
+  }
+  .wayne-cta__button {
+    width: 100%;
+  }
+}

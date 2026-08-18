@@ -26,6 +26,7 @@ export const PROJECTS: readonly Project[] = [
     featured: true,
     status: 'completed',
     projectType: 'enterprise',
+    layout: 'featured',
 
     filters: [
       'Backend',
@@ -167,6 +168,7 @@ export const PROJECTS: readonly Project[] = [
     featured: true,
     status: 'completed',
     projectType: 'enterprise',
+    layout: 'featured',
 
     filters: ['Full Stack', 'Angular', 'Node.js', 'MongoDB'],
     challenge:
@@ -189,6 +191,7 @@ export const PROJECTS: readonly Project[] = [
     featured: false,
     status: 'completed',
     projectType: 'enterprise',
+    layout: 'tall',
 
     filters: ['Backend', 'Node.js', 'Angular', 'Real-Time', 'Socket.IO'],
   },
@@ -209,6 +212,8 @@ export const PROJECTS: readonly Project[] = [
 
     featured: true,
 
+    layout: 'featured',
+
     status: 'ongoing',
 
     projectType: 'portfolio',
@@ -222,6 +227,8 @@ export const PROJECTS: readonly Project[] = [
     title: 'Paradise Getaways',
 
     category: 'Travel Website',
+
+    layout: 'featured',
 
     summary:
       'Travel and tourism website focused on destination discovery, booking inquiries and SEO optimization.',
@@ -247,6 +254,8 @@ export const PROJECTS: readonly Project[] = [
     title: 'Ilica Shopify Store',
 
     category: 'E-Commerce Platform',
+
+    layout: 'featured',
 
     summary:
       'Shopify storefront optimized for product presentation and customer conversion.',
@@ -284,6 +293,8 @@ export const PROJECTS: readonly Project[] = [
 
     projectType: 'client',
 
+    layout: 'standard',
+
     liveUrl: 'https://connexbluetech.com',
 
     filters: ['WordPress', 'Corporate', 'SEO'],
@@ -297,6 +308,8 @@ export const PROJECTS: readonly Project[] = [
     title: 'Imminent Ideas',
 
     category: 'Corporate Website',
+
+    layout: 'standard',
 
     summary:
       'Business website designed for service presentation, branding and customer acquisition.',
@@ -332,6 +345,8 @@ export const PROJECTS: readonly Project[] = [
 
     status: 'completed',
 
+    layout: 'standard',
+
     projectType: 'ecommerce',
 
     liveUrl: 'https://www.adornoliving.com',
@@ -343,6 +358,8 @@ export const PROJECTS: readonly Project[] = [
     slug: 'denstar-dental',
 
     coverImage: '/images/projects/denstardental.png',
+
+    layout: 'standard',
 
     title: 'Denstar Dental',
 
@@ -373,6 +390,8 @@ export const PROJECTS: readonly Project[] = [
 
     category: 'Business Website',
 
+    layout: 'standard',
+
     summary:
       'Brand-focused website emphasizing user experience, content presentation and discoverability.',
 
@@ -398,6 +417,8 @@ export const PROJECTS: readonly Project[] = [
 
     category: 'Business Website',
 
+    layout: 'standard',
+
     summary:
       'Content and business-focused website with responsive design and SEO-friendly architecture.',
 
@@ -419,6 +440,8 @@ export const PROJECTS: readonly Project[] = [
     title: 'Stock Market Dashboard',
     category: 'Analytics Platform',
 
+    layout: 'standard',
+
     summary:
       'Real-time financial dashboard displaying stock data, trends and analytics.',
 
@@ -436,6 +459,8 @@ export const PROJECTS: readonly Project[] = [
     title: 'Scalable URL Shortener',
     category: 'System Design Project',
 
+    layout: 'standard',
+
     summary:
       'A scalable URL shortening service focused on performance and distributed architecture.',
 
@@ -452,6 +477,7 @@ export const PROJECTS: readonly Project[] = [
     slug: 'event-booking-platform',
     title: 'Event Booking Platform',
     category: 'Scalable SaaS Application',
+    layout: 'wide',
 
     summary:
       'Modern booking platform designed for scalability and seamless user experience.',

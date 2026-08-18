@@ -1,0 +1,38 @@
+<section class="wayne-expertise-section">
+  <div class="wayne-section-header">
+    <h2>Operational Expertise</h2>
+
+    <div class="wayne-section-header__line"></div>
+
+    <span class="wayne-section-header__meta"> OPERATIONS_MATRIX_v2.0 </span>
+  </div>
+
+  <div class="wayne-expertise-grid">
+    @for (card of cards; track card.title) {
+      <article class="wayne-expertise-card">
+        <div class="wayne-expertise-card__top">
+          <div class="wayne-expertise-card__icon">
+            <app-about-icon [name]="card.icon" />
+          </div>
+
+          <span class="wayne-expertise-card__code">
+            {{ card.code }}
+          </span>
+        </div>
+
+        <h3>
+          {{ card.title }}
+        </h3>
+
+        <p>
+          {{ card.description }}
+        </p>
+
+        <div class="wayne-expertise-card__indicator">
+          <span></span>
+          <span></span>
+        </div>
+      </article>
+    }
+  </div>
+</section>

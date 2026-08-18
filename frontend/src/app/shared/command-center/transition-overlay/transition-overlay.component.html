@@ -1,0 +1,61 @@
+@if (transition.active()) {
+  <div class="transition">
+    @switch (transition.transition()) {
+      @case ("wayne") {
+        <div class="wayne">
+          <div class="wayne__background"></div>
+
+          <div class="wayne__impact-flash" #impactFlash></div>
+
+          <div class="wayne__impact-anchor">
+            <img
+              #impactCrack
+              class="wayne__impact-crack"
+              src="images/glass-impact.svg"
+              alt=""
+              draggable="false"
+            />
+          </div>
+
+          <div class="wayne__weapon-anchor">
+            <img
+              #weapon
+              class="wayne__weapon"
+              src="images/aru-x1.png"
+              alt=""
+              draggable="false"
+            />
+          </div>
+        </div>
+      }
+
+      @case ("scan") {
+        <div class="scan">
+          <div class="scan__backdrop" #scanBackdrop></div>
+          <div class="scan__grid" #scanGrid></div>
+          <div class="scan__line" #scanLine></div>
+        </div>
+      }
+
+      @case ("glitch") {
+        <div class="glitch">
+          <div class="glitch__backdrop" #glitchBackdrop></div>
+          <div class="glitch__noise"></div>
+          <div class="glitch__slice" #glitchSlice></div>
+          <div class="glitch__slice" #glitchSlice></div>
+          <div class="glitch__slice" #glitchSlice></div>
+          <div class="glitch__slice" #glitchSlice></div>
+          <div class="glitch__slice" #glitchSlice></div>
+          <div class="glitch__slice" #glitchSlice></div>
+          <div class="glitch__flash" #glitchFlash></div>
+        </div>
+      }
+
+      @case ("fade") {
+        <div class="fade">
+          <div class="fade__backdrop" #fadeBackdrop></div>
+        </div>
+      }
+    }
+  </div>
+}

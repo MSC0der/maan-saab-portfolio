@@ -1,0 +1,12 @@
+<section class="projects-grid" id="projects-grid">
+  @for (project of projects(); track project.slug) {
+    <div
+      class="projects-grid__item"
+      [class.projects-grid__item--featured]="project.layout === 'featured'"
+      [class.projects-grid__item--tall]="project.layout === 'tall'"
+      [class.projects-grid__item--wide]="project.layout === 'wide'"
+    >
+      <app-project-card-wayne [project]="project" />
+    </div>
+  }
+</section>

@@ -1,0 +1,156 @@
+.wayne-expertise {
+  display: grid;
+  gap: 3rem;
+  margin-top: 8rem;
+}
+
+.wayne-section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.wayne-section-header h2 {
+  flex-shrink: 0;
+}
+
+.wayne-section-header__line {
+  flex: 1;
+  height: 1px;
+  background: rgba(242, 202, 80, 0.12);
+}
+
+.wayne-section-header__meta {
+  flex-shrink: 0;
+
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.wayne-section-header::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.wayne-expertise__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.wayne-expertise-card__meta {
+  margin-bottom: 1rem;
+}
+
+.wayne-expertise-card__meta span {
+  color: var(--primary);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+@media (max-width: 992px) {
+  .wayne-expertise__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.wayne-expertise-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.wayne-expertise-card:hover {
+  border-color: rgba(242, 202, 80, 0.3);
+  transform: translateY(-2px);
+}
+
+.wayne-expertise-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.wayne-expertise-card__code {
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  opacity: 0.35;
+}
+
+.wayne-expertise-card h3 {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.wayne-expertise-card p {
+  font-size: 13px;
+  line-height: 1.8;
+  opacity: 0.75;
+}
+
+.wayne-expertise-card__indicator {
+  display: flex;
+  gap: 4px;
+  margin-top: 1.5rem;
+}
+
+.wayne-expertise-card__indicator span:first-child {
+  width: 32px;
+  height: 2px;
+  background: var(--primary);
+}
+
+.wayne-expertise-card__indicator span:last-child {
+  width: 8px;
+  height: 2px;
+  background: var(--primary);
+}
+
+.wayne-expertise-card {
+  position: relative;
+  padding: 2rem;
+  background: rgba(18, 20, 20, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(242, 202, 80, 0.08);
+  transition: all 0.3s ease;
+}
+
+.wayne-expertise-card::before,
+.wayne-expertise-card::after {
+  content: "";
+  position: absolute;
+
+  width: 8px;
+  height: 8px;
+
+  border-color: var(--primary);
+  opacity: 0.45;
+}
+
+.wayne-expertise-card::before {
+  top: 0;
+  right: 0;
+
+  border-top: 1px solid;
+  border-right: 1px solid;
+}
+
+.wayne-expertise-card::after {
+  bottom: 0;
+  left: 0;
+
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+}
+
+.wayne-expertise-card:hover::before,
+.wayne-expertise-card:hover::after {
+  opacity: 1;
+}

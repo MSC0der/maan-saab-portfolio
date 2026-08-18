@@ -1,0 +1,70 @@
+:host {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.command-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 2rem 7rem 2rem 2rem;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  z-index: 9998;
+}
+
+.command-panel {
+  width: min(980px, 92vw);
+
+  /* Shrink to fit short content (e.g. the 2-option theme palette) instead
+     of always claiming a fixed 90vh — the old fixed `height` here left a
+     dead gap under short panels. This is a cap, not a floor: panels that
+     need more room still grow up to it, and their own scrollable region
+     (not this element) handles anything taller than that. */
+  max-height: min(90vh, calc(100vh - 4rem));
+
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 22px;
+  background: #181b20;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  animation: commandPanelIn 0.25s ease;
+}
+
+.command-panel--themes {
+  width: 520px;
+}
+
+.command-panel--animations {
+  width: 560px;
+}
+
+.command-panel--terminal {
+  width: 900px;
+
+  /* Unlike the themes/animations panels, the terminal has an internal
+     scroll region (.terminal__screen) that relies on CSS Grid's
+     `minmax(0, 1fr)` row to compute "remaining space". That only works
+     if this panel has a *definite* height to hand down — the shared
+     `max-height` above alone leaves height as `auto`, so the grid row
+     grows to fit all history lines instead of clipping+scrolling them,
+     silently pushing new command output past the panel's clipped edge
+     (looks like nothing happened after pressing Enter). */
+  height: min(90vh, calc(100vh - 4rem));
+}
+
+@keyframes commandPanelIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

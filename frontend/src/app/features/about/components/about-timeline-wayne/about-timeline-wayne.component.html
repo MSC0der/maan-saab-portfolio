@@ -1,0 +1,41 @@
+<section class="wayne-timeline">
+  <div class="wayne-timeline__header">
+    <h2>Engineering Journey</h2>
+
+    <div class="wayne-timeline__header-line"></div>
+
+    <span>TIMELINE_LOG_v3.0</span>
+  </div>
+
+  <div class="wayne-timeline__items">
+    @for (mission of missions; track mission.mission; let index = $index) {
+      <article class="mission" [class.mission--reverse]="index % 2 === 1">
+        <div class="mission__meta">
+          <span class="mission__id">
+            {{ mission.mission }}
+          </span>
+
+          <span class="mission__period">
+            {{ mission.period }}
+          </span>
+        </div>
+
+        <div class="mission__node"></div>
+
+        <div class="mission__card">
+          <span class="mission__status">
+            {{ mission.status }}
+          </span>
+
+          <h3>
+            {{ mission.title }}
+          </h3>
+
+          <p>
+            {{ mission.description }}
+          </p>
+        </div>
+      </article>
+    }
+  </div>
+</section>

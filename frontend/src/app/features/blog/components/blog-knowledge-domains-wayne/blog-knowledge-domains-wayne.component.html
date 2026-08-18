@@ -1,0 +1,21 @@
+<section class="wayne-domains">
+  <header class="wayne-domains__header">
+    <h2>INTELLIGENCE SECTORS</h2>
+
+    <div class="wayne-domains__line"></div>
+  </header>
+
+  <div class="wayne-domains__grid">
+    @for (sector of sectors; track sector.title) {
+      <article class="wayne-sector">
+        <span class="wayne-sector__icon">
+          {{ sector.icon }}
+        </span>
+
+        <h3>
+          {{ sector.title }}
+        </h3>
+      </article>
+    }
+  </div>
+</section>

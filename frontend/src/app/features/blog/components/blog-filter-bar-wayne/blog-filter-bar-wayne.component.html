@@ -1,0 +1,11 @@
+<section class="wayne-filter-bar">
+  @for (filter of config.filterBar.filters; track filter) {
+    <button
+      type="button"
+      class="wayne-filter-chip"
+      [class.wayne-filter-chip--active]="filter === activeFilter"
+    >
+      {{ filter }}
+    </button>
+  }
+</section>
