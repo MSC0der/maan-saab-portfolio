@@ -12,7 +12,8 @@
 }
 
 .app-shell__main {
-  width: min(100%, var(--layout-max-width));
+  width: 100%;
+  max-width: var(--layout-max-width);
   margin-inline: auto;
   padding-inline: var(--layout-gutter);
   padding-block: var(--space-8);

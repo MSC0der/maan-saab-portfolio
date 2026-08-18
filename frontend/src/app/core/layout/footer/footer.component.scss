@@ -11,7 +11,7 @@
   justify-content: space-between;
   gap: 24px;
   margin-inline: auto;
-  padding: 128px 20px;
+  padding: 48px 20px;
 }
 
 .site-footer__brand {
@@ -61,6 +61,6 @@
 @media (max-width: 767px) {
   .site-footer__inner {
     flex-direction: column;
-    padding-block: 64px;
+    padding-block: 40px;
   }
 }
