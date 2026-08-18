@@ -21,6 +21,14 @@
       }
     </nav>
 
-    <a class="site-header__resume" href="/resume.pdf">{{ themeConfig.resumeLabel }}</a>
+    <button
+      type="button"
+      class="site-header__resume"
+      [disabled]="isResumeDownloading()"
+      [attr.aria-busy]="isResumeDownloading()"
+      (click)="onResumeClick()"
+    >
+      {{ isResumeDownloading() ? 'Preparing…' : themeConfig.resumeLabel }}
+    </button>
   </div>
 </header>

@@ -1,0 +1,11 @@
+{
+  "name": "resume-signed-url",
+  "version": "1.0.0",
+  "description": "Lambda that mints a short-lived pre-signed S3 URL for the resume download button.",
+  "type": "module",
+  "main": "index.mjs",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.600.0",
+    "@aws-sdk/s3-request-presigner": "^3.600.0"
+  }
+}

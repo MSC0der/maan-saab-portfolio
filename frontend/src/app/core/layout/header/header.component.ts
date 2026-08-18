@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ThemeService } from '../../services/theme.service';
+import { ResumeService } from '../../services/resume.service';
 import { THEME_HEADER_CONFIG } from '../../config/theme.config';
 import { PRIMARY_NAVIGATION } from '../../config/navigation.config';
 import { SITE_CONFIG } from '../../config/site.config';
@@ -28,10 +29,21 @@ export class HeaderComponent {
 
   protected readonly navigation: readonly HeaderNavigationItem[];
 
-  constructor(private readonly themeService: ThemeService) {
+  protected readonly isResumeDownloading: () => boolean;
+
+  constructor(
+    private readonly themeService: ThemeService,
+    private readonly resumeService: ResumeService,
+  ) {
     this.themeConfig = THEME_HEADER_CONFIG[this.themeService.theme()];
 
     this.navigation = this.buildNavigation();
+
+    this.isResumeDownloading = this.resumeService.isDownloading;
+  }
+
+  protected onResumeClick(): void {
+    void this.resumeService.download();
   }
 
   private buildNavigation(): readonly HeaderNavigationItem[] {
