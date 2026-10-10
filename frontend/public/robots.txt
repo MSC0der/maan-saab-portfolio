@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://maansaab.com/sitemap.xml
+Sitemap: https://maan-saab-portfolio.pages.dev/sitemap.xml

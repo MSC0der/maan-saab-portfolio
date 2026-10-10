@@ -361,7 +361,7 @@ export class TerminalComponent implements AfterViewInit {
       'Interview request received.',
       '',
       'Email:',
-      'ranbirsinghmaan7392@gmail.com',
+      'ranbir.singh.maan.1336@gmail.com',
       '',
       'Looking forward to connecting.',
       '',
@@ -496,14 +496,7 @@ export class TerminalComponent implements AfterViewInit {
   }
   private openGithub(): void {
     this.append('', 'Opening GitHub...', '');
-    window.open('https://github.com/ranbirsinghmaan', '_blank');
-    setTimeout(() => {
-      window.open(
-        'https://github.com/MSC0der',
-        '_blank',
-        'noopener,noreferrer',
-      );
-    }, 250);
+    window.open('https://github.com/MSC0der', '_blank', 'noopener,noreferrer');
   }
 
   private openLinkedIn(): void {

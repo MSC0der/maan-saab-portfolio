@@ -85,18 +85,18 @@ const BASE_CONTACT_CONFIG: Record<ConfiguredTheme, ThemeContactConfig> = {
       links: [
         {
           label: 'Email',
-          value: 'contact@maansaab.com',
-          href: 'mailto:contact@maansaab.com',
+          value: 'ranbir.singh.maan.1336@gmail.com',
+          href: 'mailto:ranbir.singh.maan.1336@gmail.com',
         },
         {
           label: 'LinkedIn',
-          value: '/in/ranbirsinghmaan',
-          href: 'https://linkedin.com/in/ranbirsinghmaan',
+          value: '/in/ranbir-singh-maan-684035277',
+          href: 'https://www.linkedin.com/in/ranbir-singh-maan-684035277/',
         },
         {
           label: 'GitHub',
-          value: '/maansaab',
-          href: 'https://github.com/maansaab',
+          value: '/MSC0der',
+          href: 'https://github.com/MSC0der',
         },
         {
           label: 'Location',
@@ -204,18 +204,18 @@ const BASE_CONTACT_CONFIG: Record<ConfiguredTheme, ThemeContactConfig> = {
       links: [
         {
           label: 'SECURE EMAIL CHANNEL',
-          value: 'contact@maansaab.com',
-          href: 'mailto:contact@maansaab.com',
+          value: 'ranbir.singh.maan.1336@gmail.com',
+          href: 'mailto:ranbir.singh.maan.1336@gmail.com',
         },
         {
           label: 'LINKEDIN NETWORK',
-          value: '/in/ranbirsinghmaan',
-          href: 'https://linkedin.com/in/ranbirsinghmaan',
+          value: '/in/ranbir-singh-maan-684035277',
+          href: 'https://www.linkedin.com/in/ranbir-singh-maan-684035277/',
         },
         {
           label: 'GITHUB REPOSITORY',
-          value: '/maansaab',
-          href: 'https://github.com/maansaab',
+          value: '/MSC0der',
+          href: 'https://github.com/MSC0der',
         },
         {
           label: 'OPERATIONAL REGION',

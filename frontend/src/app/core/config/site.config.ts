@@ -17,11 +17,11 @@ export const SITE_CONFIG: SiteConfig = {
   socialLinks: [
     {
       label: 'GitHub',
-      url: 'https://github.com/maansaab',
+      url: 'https://github.com/MSC0der',
     },
     {
       label: 'LinkedIn',
-      url: 'https://linkedin.com/in/ranbirsinghmaan',
+      url: 'https://www.linkedin.com/in/ranbir-singh-maan-684035277/',
     },
   ],
 };

@@ -31,4 +31,4 @@ export const EMAILJS_CONFIG: EmailjsConfig = {
   publicKey: 'JPlqOK4IvWPOe7ZcF',
 };
 
-export const CONTACT_FALLBACK_EMAIL = 'contact@maansaab.com';
+export const CONTACT_FALLBACK_EMAIL = 'ranbir.singh.maan.1336@gmail.com';

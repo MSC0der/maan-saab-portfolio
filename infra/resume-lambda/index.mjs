@@ -4,7 +4,11 @@ import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 const REGION = process.env.RESUME_BUCKET_REGION;
 const BUCKET = process.env.RESUME_BUCKET_NAME;
 const KEY = process.env.RESUME_OBJECT_KEY;
-const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN;
+// One origin, or several separated by commas (e.g. the live site plus localhost).
+const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGIN ?? '')
+  .split(',')
+  .map((value) => value.trim())
+  .filter(Boolean);
 const EXPIRES_IN_SECONDS = 60;
 
 const s3 = new S3Client({ region: REGION });
@@ -27,7 +31,7 @@ export const handler = async (event) => {
   // Defense in depth: reject any request that didn't come from the allowed
   // origin, even though the Function URL's CORS config already restricts
   // which origins get a usable response in the browser.
-  if (!origin || origin !== ALLOWED_ORIGIN) {
+  if (!origin || !ALLOWED_ORIGINS.includes(origin)) {
     return {
       statusCode: 403,
       headers: JSON_HEADERS,
@@ -35,7 +39,7 @@ export const handler = async (event) => {
     };
   }
 
-  if (!BUCKET || !KEY || !ALLOWED_ORIGIN) {
+  if (!BUCKET || !KEY || ALLOWED_ORIGINS.length === 0) {
     return {
       statusCode: 500,
       headers: JSON_HEADERS,
