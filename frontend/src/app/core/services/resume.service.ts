@@ -2,8 +2,6 @@ import { Injectable, inject, signal } from '@angular/core';
 import { RESUME_SIGNED_URL_ENDPOINT } from '../config/resume.config';
 import { ToastService } from './toast.service';
 
-const RESUME_FILENAME = 'Ranbir_Singh_Maan_Resume.docx';
-
 @Injectable({ providedIn: 'root' })
 export class ResumeService {
   private readonly toastService = inject(ToastService);
@@ -22,9 +20,8 @@ export class ResumeService {
 
     try {
       const { url } = await this.fetchSignedUrl();
-      const blob = await this.fetchFile(url);
 
-      this.triggerDownload(blob);
+      this.triggerDownload(url);
       this.toastService.show('Resume download started.', 'info');
     } catch (error) {
       console.error('Unable to download resume', error);
@@ -50,27 +47,19 @@ export class ResumeService {
     return { url };
   }
 
-  private async fetchFile(url: string): Promise<Blob> {
-    const response = await fetch(url);
-
-    if (!response.ok) {
-      throw new Error(`Resume file request failed with status ${response.status}`);
-    }
-
-    return response.blob();
-  }
-
-  private triggerDownload(blob: Blob): void {
-    const objectUrl = URL.createObjectURL(blob);
+  /**
+   * Hands the short-lived signed link to the browser. The link carries
+   * `Content-Disposition: attachment` (set when the Lambda signs it), so the
+   * browser saves the file instead of navigating. Fetching it into a Blob
+   * first would need CORS on the S3 bucket, which a plain download does not.
+   */
+  private triggerDownload(url: string): void {
     const link = document.createElement('a');
 
-    link.href = objectUrl;
-    link.download = RESUME_FILENAME;
+    link.href = url;
+    link.rel = 'noopener';
     document.body.appendChild(link);
     link.click();
     link.remove();
-
-    // Give the browser a moment to pick up the download before revoking.
-    setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
   }
 }
