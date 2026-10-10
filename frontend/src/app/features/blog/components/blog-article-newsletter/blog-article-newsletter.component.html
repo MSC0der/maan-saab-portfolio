@@ -11,11 +11,14 @@
     {{ config.articleNewsletter.description }}
   </p>
 
-  <form class="article-newsletter__form">
-    <input type="email" [placeholder]="config.articleNewsletter.placeholder" />
-
-    <button type="button">
+  <div class="article-newsletter__form">
+    <a
+      class="article-newsletter__link"
+      [href]="followUrl"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {{ config.articleNewsletter.buttonLabel }}
-    </button>
-  </form>
+    </a>
+  </div>
 </section>

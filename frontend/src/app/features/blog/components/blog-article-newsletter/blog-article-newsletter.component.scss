@@ -3,8 +3,8 @@
 }
 
 .article-newsletter {
-  margin-top: 6rem;
-  padding: 4rem 2rem;
+  margin-top: 4rem;
+  padding: clamp(2rem, 6vw, 4rem) clamp(1.25rem, 4vw, 2rem);
   text-align: center;
   border-radius: 24px;
   border: 1px solid var(--border);
@@ -20,7 +20,7 @@
 
 .article-newsletter h2 {
   margin: 1rem 0;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
 .article-newsletter p {
@@ -36,19 +36,19 @@
   flex-wrap: wrap;
 }
 
-.article-newsletter__form input {
-  width: 320px;
-  padding: 1rem;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: var(--background);
-  color: var(--text-primary);
-}
-
-.article-newsletter__form button {
+.article-newsletter__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 1rem 1.5rem;
-  border: none;
   border-radius: 12px;
   background: var(--primary);
-  cursor: pointer;
+  color: var(--button-primary-text, #04110c);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.article-newsletter__link:hover {
+  transform: translateY(-2px);
 }

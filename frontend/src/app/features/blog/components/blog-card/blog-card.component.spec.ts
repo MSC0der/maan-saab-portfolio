@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
+import { ARTICLES } from '../../data/articles.data';
 
 import { BlogCardComponent } from './blog-card.component';
 
@@ -8,12 +10,14 @@ describe('BlogCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BlogCardComponent]
+      imports: [BlogCardComponent],
+      providers: [provideRouter([])],
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(BlogCardComponent);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('article', ARTICLES[0]);
     fixture.detectChanges();
   });
 

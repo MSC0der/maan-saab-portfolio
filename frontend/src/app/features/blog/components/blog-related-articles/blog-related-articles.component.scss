@@ -3,7 +3,7 @@
 }
 
 .related-articles {
-  margin-top: 6rem;
+  margin-top: 4rem;
 }
 
 .related-articles__header {
@@ -13,7 +13,7 @@
 
 .related-articles__header h2 {
   margin-bottom: 1rem;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
 .related-articles__header p {

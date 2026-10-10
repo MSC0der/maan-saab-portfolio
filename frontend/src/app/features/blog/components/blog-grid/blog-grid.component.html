@@ -1,5 +1,7 @@
-<section class="blog-grid">
-  @for (article of articles; track article.slug) {
+<section class="blog-grid" id="articles" aria-live="polite">
+  @for (article of articles(); track article.slug) {
     <app-blog-card [article]="article" />
+  } @empty {
+    <p class="blog-grid__empty">No articles in this topic yet.</p>
   }
 </section>

@@ -1,26 +1,27 @@
 <div class="blog-page">
-  <!-- <app-blog-hero />
+  @if (theme() === 'wayne') {
+    <app-blog-hero-wayne />
 
-  <app-blog-featured-article />
+    <app-blog-featured-article-wayne />
 
-  <app-blog-filter-bar />
+    <app-blog-filter-bar-wayne />
 
-  <app-blog-grid />
+    <app-blog-grid-wayne />
 
-  <app-blog-knowledge-domains />
+    <app-blog-knowledge-domains-wayne />
 
-  <app-blog-newsletter /> -->
+    <app-blog-newsletter-wayne />
+  } @else {
+    <app-blog-hero />
 
-  <app-blog-hero-wayne />
+    <app-blog-featured-article />
 
-  <app-blog-featured-article-wayne />
+    <app-blog-filter-bar />
 
-  <app-blog-filter-bar-wayne />
+    <app-blog-grid />
 
-  <app-blog-grid-wayne />
+    <app-blog-knowledge-domains />
 
-  <app-blog-knowledge-domains-wayne />
-
-  <app-blog-newsletter-wayne />
-
+    <app-blog-newsletter />
+  }
 </div>

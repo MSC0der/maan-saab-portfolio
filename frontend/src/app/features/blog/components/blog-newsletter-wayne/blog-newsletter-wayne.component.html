@@ -21,15 +21,15 @@
     {{ config.articleNewsletter.description }}
   </p>
 
-  <form class="wayne-newsletter__form">
-    <input type="email" [placeholder]="config.articleNewsletter.placeholder" />
-
-    <button type="button">
+  <div class="wayne-newsletter__form">
+    <a
+      class="wayne-newsletter__link"
+      [href]="followUrl"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {{ config.articleNewsletter.buttonLabel }}
-    </button>
-  </form>
+    </a>
+  </div>
 
-  <span class="wayne-newsletter__status">
-    ENCRYPTED CHANNEL ESTABLISHED // 256-BIT AES
-  </span>
 </section>

@@ -1,88 +1,92 @@
 <section class="article-layout">
-  <!-- Sidebar -->
-
   <aside class="article-layout__sidebar">
-    <div class="toc">
-      <span class="toc__title"> TABLE OF CONTENTS </span>
+    <nav class="toc" aria-label="Table of contents">
+      <span class="toc__title">TABLE OF CONTENTS</span>
 
-      <a href="#intro"> Introduction </a>
+      @for (item of contents(); track item.id) {
+        <a [routerLink]="[]" [fragment]="item.id">{{ item.label }}</a>
+      }
+    </nav>
 
-      <a href="#session"> Session-Based Auth </a>
-
-      <a href="#jwt"> JWT Authentication </a>
-
-      <a href="#comparison"> Architecture Comparison </a>
-
-      <a href="#security"> Security Considerations </a>
-
-      <a href="#decision"> Decision Framework </a>
-    </div>
-
-    <div class="pro-tip">
-      <span> PRO TIP </span>
-
-      <p>
-        Always use HttpOnly and Secure flags for cookies, regardless of whether
-        you use JWTs or Sessions.
-      </p>
-    </div>
+    @if (article().tip; as tip) {
+      <div class="pro-tip">
+        <span>{{ tip.label }}</span>
+        <p>{{ tip.text }}</p>
+      </div>
+    }
   </aside>
 
-  <!-- Content -->
-
   <div class="article-layout__content">
-    <section id="intro">
-      <p>
-        In the modern landscape of distributed systems and microservices,
-        choosing the right authentication mechanism is more than a technical
-        preference—it’s a fundamental architectural decision.
-      </p>
+    @for (section of article().sections; track section.id) {
+      <section [id]="section.id" class="article-section">
+        @if (section.heading) {
+          <h2>{{ section.heading }}</h2>
+        }
 
-      <p>
-        While sessions have been the gold standard for decades, JSON Web Tokens
-        (JWT) have surged in popularity alongside the rise of Single Page
-        Applications and mobile clients.
-      </p>
-    </section>
-
-    <section id="session">
-      <h2>The Case for Stateful Sessions</h2>
-
-      <p>
-        Session-based authentication is inherently stateful. When a user logs
-        in, the server creates a session record and stores a unique session
-        identifier.
-      </p>
-
-      <div class="callout">
-        <strong> SECURITY NOTE </strong>
-
-        <p>
-          Sessions offer instant revocation. If a breach is detected, you can
-          simply delete the session from your database.
-        </p>
-      </div>
-    </section>
-
-    <section id="jwt">
-      <h2>JWT and Stateless Scaling</h2>
-
-      <p>
-        JWTs are stateless. The token itself contains the user data and is
-        validated cryptographically by the server.
-      </p>
-
-      <div class="code-block">
-        <pre>
-const jwt = require('jsonwebtoken');
-
-jwt.verify(
- token,
- process.env.JWT_SECRET
-);
-</pre
-        >
-      </div>
-    </section>
+        @for (block of section.blocks; track $index) {
+          @if (block.type === 'p') {
+            <p>{{ block.text }}</p>
+          } @else if (block.type === 'h3') {
+            <h3>{{ block.text }}</h3>
+          } @else if (block.type === 'list') {
+            @if (block.ordered) {
+              <ol>
+                @for (item of block.items; track $index) {
+                  <li>{{ item }}</li>
+                }
+              </ol>
+            } @else {
+              <ul>
+                @for (item of block.items; track $index) {
+                  <li>{{ item }}</li>
+                }
+              </ul>
+            }
+          } @else if (block.type === 'callout') {
+            <div class="callout">
+              <strong>{{ block.label }}</strong>
+              <p>{{ block.text }}</p>
+            </div>
+          } @else if (block.type === 'code') {
+            <figure class="code-block">
+              <div class="code-block__bar">
+                <span>{{ block.language }}</span>
+                <button
+                  type="button"
+                  (click)="copy(block.code, section.id + '-' + $index)"
+                >
+                  {{ copiedKey() === section.id + '-' + $index ? 'Copied' : 'Copy' }}
+                </button>
+              </div>
+              <pre><code>{{ block.code }}</code></pre>
+              @if (block.caption) {
+                <figcaption>{{ block.caption }}</figcaption>
+              }
+            </figure>
+          } @else if (block.type === 'table') {
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    @for (cell of block.head; track $index) {
+                      <th scope="col">{{ cell }}</th>
+                    }
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (row of block.rows; track $index) {
+                    <tr>
+                      @for (cell of row; track $index) {
+                        <td>{{ cell }}</td>
+                      }
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          }
+        }
+      </section>
+    }
   </div>
 </section>

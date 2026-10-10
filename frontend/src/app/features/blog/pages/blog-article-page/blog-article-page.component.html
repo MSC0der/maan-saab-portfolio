@@ -3,9 +3,9 @@
     <app-blog-article-hero [article]="article" />
 
     <app-blog-article-layout [article]="article" />
-    <app-blog-architecture-comparison />
-    <app-blog-performance-metrics [article]="article" />
-    <app-blog-related-articles />
+
+    <app-blog-related-articles [slug]="article.slug" />
+
     <app-blog-article-newsletter />
 
     <app-blog-article-final-cta />

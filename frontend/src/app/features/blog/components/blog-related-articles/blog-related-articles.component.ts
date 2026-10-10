@@ -1,8 +1,15 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  inject,
+  input,
+} from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ThemeService } from '../../../../core/services/theme.service';
+
 import { THEME_BLOG_CONFIG } from '../../../../core/config/theme-blog.config';
-import { ARTICLES } from '../../data/articles.data';
+import { ThemeService } from '../../../../core/services/theme.service';
+import { ArticleDataService } from '../../services/article-data.service';
 
 @Component({
   selector: 'app-blog-related-articles',
@@ -13,8 +20,15 @@ import { ARTICLES } from '../../data/articles.data';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogRelatedArticlesComponent {
-  protected readonly articles = ARTICLES.slice(0, 3);
+  /** The article being read, so it is never listed as "related" to itself. */
+  readonly slug = input<string>('');
+
   private readonly themeService = inject(ThemeService);
+  private readonly articleService = inject(ArticleDataService);
+
+  protected readonly articles = computed(() =>
+    this.articleService.getRelated(this.slug(), 3),
+  );
 
   protected get config() {
     return THEME_BLOG_CONFIG[this.themeService.theme()];

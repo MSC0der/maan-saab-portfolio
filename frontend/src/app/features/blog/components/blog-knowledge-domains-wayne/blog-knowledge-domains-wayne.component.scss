@@ -3,8 +3,8 @@
 }
 
 .wayne-domains {
-  margin-top: 7rem;
-  margin-bottom: 7rem;
+  margin-top: clamp(3.5rem, 8vw, 7rem);
+  margin-bottom: clamp(3.5rem, 8vw, 7rem);
 }
 
 .wayne-domains__header {
@@ -35,7 +35,7 @@
 .wayne-domains__grid {
   display: grid;
 
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
 
   gap: 1rem;
 }
@@ -82,10 +82,23 @@
   text-transform: uppercase;
 
   line-height: 1.6;
+
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 900px) {
   .wayne-domains__grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .wayne-domains__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .wayne-sector {
+    padding: 1.25rem;
+    min-height: 0;
   }
 }

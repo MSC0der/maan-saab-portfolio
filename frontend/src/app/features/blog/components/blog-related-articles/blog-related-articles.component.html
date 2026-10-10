@@ -10,7 +10,7 @@
   </div>
 
   <div class="related-articles__grid">
-    @for (article of articles; track article.slug) {
+    @for (article of articles(); track article.slug) {
       <a class="related-card" [routerLink]="['/blog', article.slug]">
         <span class="related-card__category">
           {{ article.category }}

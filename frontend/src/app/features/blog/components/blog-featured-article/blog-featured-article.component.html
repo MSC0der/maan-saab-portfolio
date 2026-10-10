@@ -22,28 +22,25 @@
 
     <div class="featured-card__content">
       <div class="featured-meta">
-        <span class="featured-category"> SECURITY </span>
+        <span class="featured-category">{{ article.category }}</span>
 
-        <span> 12 min read </span>
+        <span>{{ article.readTime }}</span>
 
-        <span> Oct 24, 2023 </span>
+        <span>{{ article.publishedAt }}</span>
       </div>
 
-      <h2>Building Secure JWT Authentication & RBAC in Node.js</h2>
+      <h2>{{ article.title }}</h2>
 
-      <p>
-        An in-depth guide on implementing robust security protocols using JSON
-        Web Tokens and Role-Based Access Control.
-      </p>
+      <p>{{ article.excerpt }}</p>
 
       <div class="featured-actions">
-        <button class="primary-btn">
+        <a class="primary-btn" [routerLink]="['/blog', article.slug]">
           {{ config.featuredArticle.primaryButton }}
-        </button>
+        </a>
 
-        <button class="secondary-btn">
+        <a class="secondary-btn" routerLink="/blog" fragment="articles">
           {{ config.featuredArticle.secondaryButton }}
-        </button>
+        </a>
       </div>
     </div>
   </article>

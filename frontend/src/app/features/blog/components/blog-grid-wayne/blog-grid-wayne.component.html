@@ -1,5 +1,7 @@
-<section class="wayne-grid">
-  @for (article of articles; track article.slug) {
+<section class="wayne-grid" id="articles" aria-live="polite">
+  @for (article of articles(); track article.slug) {
     <app-blog-card-wayne [article]="article" />
+  } @empty {
+    <p class="wayne-grid__empty">NO DOSSIERS FILED UNDER THIS SECTOR YET.</p>
   }
 </section>

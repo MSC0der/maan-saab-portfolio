@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
-import { ARTICLES } from '../../data/articles.data';
-
+import { ArticleDataService } from '../../services/article-data.service';
 import { BlogCardWayneComponent } from '../blog-card-wayne/blog-card-wayne.component';
 
 @Component({
@@ -10,7 +9,8 @@ import { BlogCardWayneComponent } from '../blog-card-wayne/blog-card-wayne.compo
   imports: [BlogCardWayneComponent],
   templateUrl: './blog-grid-wayne.component.html',
   styleUrl: './blog-grid-wayne.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogGridWayneComponent {
-  protected readonly articles = ARTICLES;
+  protected readonly articles = inject(ArticleDataService).filteredArticles;
 }

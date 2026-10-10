@@ -1,4 +1,4 @@
-import { ThemeType } from '../services/theme.service';
+import { ConfiguredTheme, ThemeType } from '../services/theme.service';
 
 export interface ThemeBlogConfig {
   articleHero: {
@@ -12,14 +12,6 @@ export interface ThemeBlogConfig {
   };
   card: {
     readMoreLabel: string;
-    articles: {
-      category: string;
-      verified: boolean;
-      title: string;
-      description: string;
-      readTime: string;
-      date: string;
-    }[];
   };
   knowledgeDomains: {
     title: string;
@@ -27,7 +19,6 @@ export interface ThemeBlogConfig {
   newsletter: {
     title: string;
     description: string;
-    placeholder: string;
     buttonLabel: string;
   };
   filterBar: {
@@ -45,8 +36,8 @@ export interface ThemeBlogConfig {
     description: string;
     titleLines: string[];
 
+    /** Labels only; the numbers are computed from the real articles. */
     stats: {
-      value: string;
       label: string;
     }[];
   };
@@ -58,126 +49,32 @@ export interface ThemeBlogConfig {
     eyebrow: string;
     title: string;
     description: string;
-    placeholder: string;
     buttonLabel: string;
   };
 }
 
-export const THEME_BLOG_CONFIG: Record<ThemeType, ThemeBlogConfig> = {
+const BASE_BLOG_CONFIG: Record<ConfiguredTheme, ThemeBlogConfig> = {
   'technical-dark': {
     articleHero: {
       authorName: 'Ranbir Singh Maan',
-      authorRole: 'Backend Architect & Security Consultant',
+      authorRole: 'Backend-Focused Full Stack Engineer',
     },
     featuredArticle: {
       label: 'Featured Analysis',
       primaryButton: 'Read Article',
-      secondaryButton: 'Bookmark',
+      secondaryButton: 'Browse all articles',
     },
     card: {
       readMoreLabel: 'ACCESS REPORT',
-
-      articles: [
-        {
-          category: 'AUTHENTICATION',
-          verified: true,
-          title: 'JWT vs Session Authentication',
-          description:
-            'A comparative analysis of stateful vs stateless architecture. Evaluating scalability constraints and security trade-offs for modern web applications.',
-          readTime: '8 MIN READ',
-          date: 'OCT 12, 2024',
-        },
-
-        {
-          category: 'SECURITY',
-          verified: true,
-          title: 'Building RBAC in Express.js',
-          description:
-            'Implementation guide for Role-Based Access Control middleware. Designing robust authorization schemas for enterprise ecosystems.',
-          readTime: '15 MIN READ',
-          date: 'OCT 08, 2024',
-        },
-
-        {
-          category: 'DATABASE INTELLIGENCE',
-          verified: true,
-          title: 'MongoDB Query Optimization',
-          description:
-            'Analyzing execution plans and indexing strategies to reduce query latency by 80% in large-scale document stores.',
-          readTime: '10 MIN READ',
-          date: 'SEP 29, 2024',
-        },
-
-        {
-          category: 'INFRASTRUCTURE',
-          verified: true,
-          title: 'Scaling Node.js Microservices',
-          description:
-            'Strategic deployment of Docker containers and horizontal scaling using load balancing and service mesh patterns.',
-          readTime: '12 MIN READ',
-          date: 'SEP 15, 2024',
-        },
-
-        {
-          category: 'FRONTEND OPS',
-          verified: true,
-          title: 'Angular State Management Patterns',
-          description:
-            'Mastering reactive programming with RxJS and NgRx for mission-critical dashboards.',
-          readTime: '18 MIN READ',
-          date: 'SEP 04, 2024',
-        },
-
-        {
-          category: 'ALGORITHMIC INTEL',
-          verified: true,
-          title: 'Binary Search Tree Implementations',
-          description:
-            'Deep dive into self-balancing trees and search optimizations.',
-          readTime: '22 MIN READ',
-          date: 'AUG 28, 2024',
-        },
-
-        {
-          category: 'DEVOPS',
-          verified: true,
-          title: 'Dockerizing Production Workloads',
-          description:
-            'Optimizing multi-stage builds and reducing image sizes for rapid deployment.',
-          readTime: '14 MIN READ',
-          date: 'AUG 16, 2024',
-        },
-
-        {
-          category: 'IDENTITY MGMT',
-          verified: true,
-          title: 'OAuth2 Implementation Guide',
-          description:
-            'Authorization Code Flow with PKCE for enterprise systems.',
-          readTime: '25 MIN READ',
-          date: 'AUG 02, 2024',
-        },
-
-        {
-          category: 'STORAGE INTEL',
-          verified: true,
-          title: 'PostgreSQL Indexing Strategies',
-          description:
-            'Mastering B-Tree, GIN and GiST indexes for production systems.',
-          readTime: '12 MIN READ',
-          date: 'JUL 22, 2024',
-        },
-      ],
     },
     knowledgeDomains: {
       title: 'Core Knowledge Domains',
     },
     newsletter: {
-      title: 'Stay Updated With New Engineering Articles',
+      title: 'New articles, as they are published',
       description:
-        'Get occasional deep dives into backend architecture, security best practices and performance engineering.',
-      placeholder: 'engineer@domain.com',
-      buttonLabel: 'Subscribe',
+        'Short, practical write-ups on backend architecture, security and performance. Follow on LinkedIn to see new posts first.',
+      buttonLabel: 'Follow on LinkedIn',
     },
     filterBar: {
       filters: [
@@ -210,22 +107,10 @@ export const THEME_BLOG_CONFIG: Record<ThemeType, ThemeBlogConfig> = {
       titleLines: ['Engineering Insights', '& Technical Articles'],
 
       stats: [
-        {
-          value: '5+',
-          label: 'Articles',
-        },
-        {
-          value: '8+',
-          label: 'Technologies',
-        },
-        {
-          value: '2',
-          label: 'Case Studies',
-        },
-        {
-          value: '100%',
-          label: 'Practical',
-        },
+        { label: 'Articles' },
+        { label: 'Topics' },
+        { label: 'Minutes of reading' },
+        { label: 'Latest post' },
       ],
     },
     relatedArticles: {
@@ -236,14 +121,12 @@ export const THEME_BLOG_CONFIG: Record<ThemeType, ThemeBlogConfig> = {
     articleNewsletter: {
       eyebrow: 'ENGINEERING INSIGHTS',
 
-      title: 'Stay Updated With New Articles',
+      title: 'Enjoyed this? More is on the way',
 
       description:
-        'Backend engineering, architecture reviews, Angular development and production lessons delivered occasionally.',
+        'I publish practical notes on backend architecture, authentication and performance. Follow on LinkedIn to catch the next one.',
 
-      placeholder: 'engineer@domain.com',
-
-      buttonLabel: 'Subscribe',
+      buttonLabel: 'Follow on LinkedIn',
     },
   },
   wayne: {
@@ -254,112 +137,19 @@ export const THEME_BLOG_CONFIG: Record<ThemeType, ThemeBlogConfig> = {
     featuredArticle: {
       label: 'PRIORITY INTELLIGENCE BRIEF',
       primaryButton: 'READ DOSSIER',
-      secondaryButton: 'ADD TO ARCHIVE',
+      secondaryButton: 'BROWSE ARCHIVE',
     },
     card: {
       readMoreLabel: 'READ DOSSIER',
-
-      articles: [
-        {
-          category: 'AUTHENTICATION',
-          verified: true,
-          title: 'JWT vs Session Authentication',
-          description:
-            'A comparative analysis of stateful vs stateless architecture. Evaluating scalability constraints and security trade-offs for modern web applications.',
-          readTime: '8 MIN READ',
-          date: 'OCT 12, 2024',
-        },
-
-        {
-          category: 'SECURITY',
-          verified: true,
-          title: 'Building RBAC in Express.js',
-          description:
-            'Implementation guide for Role-Based Access Control middleware. Designing robust authorization schemas for enterprise ecosystems.',
-          readTime: '15 MIN READ',
-          date: 'OCT 08, 2024',
-        },
-
-        {
-          category: 'DATABASE INTELLIGENCE',
-          verified: true,
-          title: 'MongoDB Query Optimization',
-          description:
-            'Analyzing execution plans and indexing strategies to reduce query latency by 80% in large-scale document stores.',
-          readTime: '10 MIN READ',
-          date: 'SEP 29, 2024',
-        },
-
-        {
-          category: 'INFRASTRUCTURE',
-          verified: true,
-          title: 'Scaling Node.js Microservices',
-          description:
-            'Strategic deployment of Docker containers and horizontal scaling using load balancing and service mesh patterns.',
-          readTime: '12 MIN READ',
-          date: 'SEP 15, 2024',
-        },
-
-        {
-          category: 'FRONTEND OPS',
-          verified: true,
-          title: 'Angular State Management Patterns',
-          description:
-            'Mastering reactive programming with RxJS and NgRx for mission-critical dashboards.',
-          readTime: '18 MIN READ',
-          date: 'SEP 04, 2024',
-        },
-
-        {
-          category: 'ALGORITHMIC INTEL',
-          verified: true,
-          title: 'Binary Search Tree Implementations',
-          description:
-            'Deep dive into self-balancing trees and search optimizations.',
-          readTime: '22 MIN READ',
-          date: 'AUG 28, 2024',
-        },
-
-        {
-          category: 'DEVOPS',
-          verified: true,
-          title: 'Dockerizing Production Workloads',
-          description:
-            'Optimizing multi-stage builds and reducing image sizes for rapid deployment.',
-          readTime: '14 MIN READ',
-          date: 'AUG 16, 2024',
-        },
-
-        {
-          category: 'IDENTITY MGMT',
-          verified: true,
-          title: 'OAuth2 Implementation Guide',
-          description:
-            'Authorization Code Flow with PKCE for enterprise systems.',
-          readTime: '25 MIN READ',
-          date: 'AUG 02, 2024',
-        },
-
-        {
-          category: 'STORAGE INTEL',
-          verified: true,
-          title: 'PostgreSQL Indexing Strategies',
-          description:
-            'Mastering B-Tree, GIN and GiST indexes for production systems.',
-          readTime: '12 MIN READ',
-          date: 'JUL 22, 2024',
-        },
-      ],
     },
     knowledgeDomains: {
       title: 'OPERATIONAL KNOWLEDGE BASE',
     },
     newsletter: {
-      title: 'RECEIVE OPERATIONAL INTELLIGENCE UPDATES',
+      title: 'FOLLOW THE FIELD NOTES',
       description:
-        'Periodic mission briefings covering architecture reviews, security protocols and engineering directives.',
-      placeholder: 'wayne.tech@secure.channel',
-      buttonLabel: 'ENROLL',
+        'New dossiers on architecture, security and performance are filed regularly. Follow on LinkedIn to receive them first.',
+      buttonLabel: 'FOLLOW',
     },
     filterBar: {
       filters: [
@@ -392,22 +182,10 @@ export const THEME_BLOG_CONFIG: Record<ThemeType, ThemeBlogConfig> = {
         'Field notes, architecture reviews, deployment reports and engineering intelligence gathered from production systems.',
 
       stats: [
-        {
-          value: '5+',
-          label: 'DOSSIERS',
-        },
-        {
-          value: '8+',
-          label: 'SYSTEMS',
-        },
-        {
-          value: '2',
-          label: 'OPERATIONS',
-        },
-        {
-          value: '100%',
-          label: 'FIELD TESTED',
-        },
+        { label: 'DOSSIERS' },
+        { label: 'DOMAINS' },
+        { label: 'MINUTES OF INTEL' },
+        { label: 'LAST FILED' },
       ],
     },
     relatedArticles: {
@@ -418,14 +196,18 @@ export const THEME_BLOG_CONFIG: Record<ThemeType, ThemeBlogConfig> = {
     articleNewsletter: {
       eyebrow: 'INTELLIGENCE BRIEFINGS',
 
-      title: 'RECEIVE NEW DOSSIERS',
+      title: 'FOLLOW FOR NEW DOSSIERS',
 
       description:
-        'Operational reports, architecture reviews and engineering intelligence delivered through secure channels.',
+        'Operational reports and architecture reviews as they are filed. Follow on LinkedIn to see them first.',
 
-      placeholder: 'operative@wayne-enterprises.com',
-
-      buttonLabel: 'ENROLL',
+      buttonLabel: 'FOLLOW',
     },
   },
+};
+
+/** Immersive Engineering Core reuses the technical-dark Blog content. */
+export const THEME_BLOG_CONFIG: Record<ThemeType, ThemeBlogConfig> = {
+  ...BASE_BLOG_CONFIG,
+  immersive: BASE_BLOG_CONFIG['technical-dark'],
 };

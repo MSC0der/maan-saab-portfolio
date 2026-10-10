@@ -1,11 +1,13 @@
-<section class="wayne-filter-bar">
-  @for (filter of config.filterBar.filters; track filter) {
+<section class="wayne-filter-bar" role="group" aria-label="Filter dossiers by topic">
+  @for (chip of chips(); track chip.topic) {
     <button
       type="button"
       class="wayne-filter-chip"
-      [class.wayne-filter-chip--active]="filter === activeFilter"
+      [class.wayne-filter-chip--active]="chip.topic === selected()"
+      [attr.aria-pressed]="chip.topic === selected()"
+      (click)="select(chip.topic)"
     >
-      {{ filter }}
+      {{ chip.label }}
     </button>
   }
 </section>

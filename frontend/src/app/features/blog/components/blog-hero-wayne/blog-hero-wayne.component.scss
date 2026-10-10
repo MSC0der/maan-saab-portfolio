@@ -58,17 +58,10 @@
 
 @media (max-width: 900px) {
   .wayne-blog-hero {
-    padding: 5rem 0;
+    padding: 2.5rem 0 3rem;
   }
   .wayne-blog-hero__stats {
     grid-template-columns: repeat(2, 1fr);
-  }
-  .wayne-blog-title span:first-child,
-  .wayne-blog-title span:last-child {
-    font-size: clamp(2.8rem, 9vw, 4.5rem);
-  }
-  .wayne-blog-title span:nth-child(2) {
-    font-size: clamp(2rem, 7vw, 3rem);
   }
 }
 
@@ -83,19 +76,20 @@
 
 .wayne-blog-title span {
   display: block;
-  min-width: max-content;
-}
-
-.wayne-blog-title span {
-  display: block;
-  min-width: max-content;
+  overflow-wrap: anywhere;
 }
 
 .wayne-blog-title span:not(:nth-child(2)) {
-  font-size: clamp(3.8rem, 6.5vw, 6rem);
+  font-size: clamp(2.2rem, 6.5vw, 6rem);
 }
 
 .wayne-blog-title span:nth-child(2) {
-  font-size: clamp(2.6rem, 4vw, 4rem);
+  font-size: clamp(1.6rem, 4vw, 4rem);
   margin: 0.15em 0;
+}
+
+@media (max-width: 480px) {
+  .wayne-blog-hero__stats {
+    gap: 1.25rem;
+  }
 }

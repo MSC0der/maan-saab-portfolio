@@ -3,7 +3,7 @@
 }
 
 .newsletter {
-  padding: 4rem 2rem;
+  padding: clamp(2rem, 6vw, 4rem) clamp(1.25rem, 4vw, 2rem);
   margin-bottom: 5rem;
   border-radius: var(--blog-newsletter-radius);
   text-align: center;
@@ -34,19 +34,19 @@
   flex-wrap: wrap;
 }
 
-.newsletter-form input {
-  width: 320px;
-  padding: 1rem;
-  border-radius: var(--blog-newsletter-input-radius);
-  border: 1px solid var(--border);
-  background: var(--background);
-  color: var(--text-primary);
-}
-
-.newsletter-form button {
+.newsletter-form__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 1rem 1.5rem;
-  border: none;
   border-radius: var(--blog-newsletter-button-radius);
   background: var(--primary);
-  cursor: pointer;
+  color: var(--button-primary-text, #04110c);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.newsletter-form__link:hover {
+  transform: translateY(-2px);
 }

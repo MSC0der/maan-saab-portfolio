@@ -7,11 +7,14 @@
     {{ config.newsletter.description }}
   </p>
 
-  <form class="newsletter-form">
-    <input type="email" [placeholder]="config.newsletter.placeholder" />
-
-    <button type="button">
+  <div class="newsletter-form">
+    <a
+      class="newsletter-form__link"
+      [href]="followUrl"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {{ config.newsletter.buttonLabel }}
-    </button>
-  </form>
+    </a>
+  </div>
 </section>

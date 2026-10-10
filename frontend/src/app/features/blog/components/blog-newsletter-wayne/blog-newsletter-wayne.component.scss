@@ -3,7 +3,7 @@
 }
 
 .wayne-newsletter {
-  margin: 8rem auto 5rem;
+  margin: clamp(4rem, 10vw, 8rem) auto 5rem;
 
   max-width: 760px;
 
@@ -97,78 +97,26 @@
   justify-content: center;
 }
 
-.wayne-newsletter__form input {
-  flex: 1;
-
-  max-width: 420px;
-
-  padding: 1rem 1.25rem;
-
-  background: transparent;
-
-  border: 1px solid var(--border);
-
-  color: var(--text-primary);
-
-  font-family: inherit;
-}
-
-.wayne-newsletter__form input:focus {
-  outline: none;
-
-  border-color: var(--primary);
-}
-
-.wayne-newsletter__form button {
+.wayne-newsletter__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 1rem 2rem;
-
-  border: none;
-
-  cursor: pointer;
-
   background: var(--primary);
-
   color: #111;
-
   font-weight: 700;
-
   letter-spacing: 0.12em;
-
   text-transform: uppercase;
-
+  text-decoration: none;
   transition: 0.25s;
 }
 
-.wayne-newsletter__form button:hover {
+.wayne-newsletter__link:hover {
   transform: translateY(-2px);
 }
 
-.wayne-newsletter__status {
-  display: block;
-
-  margin-top: 2rem;
-
-  color: var(--text-secondary);
-
-  font-size: 0.72rem;
-
-  letter-spacing: 0.18em;
-
-  text-transform: uppercase;
-
-  opacity: 0.65;
-}
-
 @media (max-width: 768px) {
-  .wayne-newsletter__form {
-    flex-direction: column;
-
-    align-items: center;
-  }
-
-  .wayne-newsletter__form input,
-  .wayne-newsletter__form button {
-    width: 100%;
-    max-width: none;
+  .wayne-newsletter {
+    margin-block: 4rem 3rem;
   }
 }

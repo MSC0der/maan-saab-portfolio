@@ -5,8 +5,13 @@
 .blog-article-page {
   width: min(1180px, 100%);
   margin: 0 auto;
-  padding: 0 1.5rem 6rem;
-  padding-top: 3rem;
+  padding: 1.5rem 0 4rem;
+}
+
+@media (min-width: 768px) {
+  .blog-article-page {
+    padding: 3rem 1.5rem 6rem;
+  }
 }
 
 .article-empty {

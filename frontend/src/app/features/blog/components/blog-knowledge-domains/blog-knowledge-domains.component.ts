@@ -18,31 +18,31 @@ export class BlogKnowledgeDomainsComponent {
   protected readonly domains: readonly KnowledgeDomain[] = [
     {
       title: 'Backend Engineering',
-      subtitle: 'Node.js, Go, Python',
+      subtitle: 'Node.js, Express.js',
     },
     {
       title: 'API Design',
-      subtitle: 'GraphQL, REST, gRPC',
+      subtitle: 'REST, validation, pagination',
     },
     {
       title: 'Auth & Security',
-      subtitle: 'OAuth, JWT, RBAC',
+      subtitle: 'JWT, RBAC, OTP',
     },
     {
       title: 'Database Design',
-      subtitle: 'SQL & NoSQL Optimization',
+      subtitle: 'MongoDB, MySQL, indexing',
     },
     {
       title: 'Angular Dev',
-      subtitle: 'Signals, RxJS, NgRx',
+      subtitle: 'Signals, RxJS, OnPush',
     },
     {
       title: 'System Design',
-      subtitle: 'Scalability & Availability',
+      subtitle: 'Caching, scalability',
     },
     {
       title: 'Performance Opt',
-      subtitle: 'Profiling & Benchmarking',
+      subtitle: 'Query tuning, profiling',
     },
     {
       title: 'DSA',

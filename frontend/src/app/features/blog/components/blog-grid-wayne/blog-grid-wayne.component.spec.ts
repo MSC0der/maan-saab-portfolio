@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
 import { BlogGridWayneComponent } from './blog-grid-wayne.component';
 
@@ -8,7 +9,8 @@ describe('BlogGridWayneComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BlogGridWayneComponent]
+      imports: [BlogGridWayneComponent],
+      providers: [provideRouter([])],
     })
     .compileComponents();
 

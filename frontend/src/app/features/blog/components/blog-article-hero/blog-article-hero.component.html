@@ -1,19 +1,17 @@
 <section class="article-hero">
   <div class="article-hero__content">
     <div class="article-hero__meta">
-      <div class="article-hero__meta">
-        <span class="article-hero__category">
-          {{ article().category }}
-        </span>
+      <span class="article-hero__category">
+        {{ article().category }}
+      </span>
 
-        <span>
-          {{ article().publishedAt }}
-        </span>
+      <span>
+        {{ article().publishedAt }}
+      </span>
 
-        <span>
-          {{ article().readTime }}
-        </span>
-      </div>
+      <span>
+        {{ article().readTime }}
+      </span>
     </div>
 
     <h1>
@@ -39,10 +37,13 @@
     </div>
   </div>
 
-  <div class="article-hero__image">
-    <img
-      src="/images/about/sechema_optimization.png"
-      alt="Architecture Diagram"
-    />
-  </div>
+  <aside class="article-hero__visual" aria-label="Key takeaways">
+    <span class="article-hero__visual-title">IN THIS ARTICLE</span>
+
+    <ul>
+      @for (point of article().takeaways; track point) {
+        <li>{{ point }}</li>
+      }
+    </ul>
+  </aside>
 </section>

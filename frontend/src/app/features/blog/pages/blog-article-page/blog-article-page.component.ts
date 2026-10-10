@@ -1,22 +1,12 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
-import { ArticleDataService } from '../../services/article-data.service';
-
-import { BlogArticleHeroComponent } from '../../components/blog-article-hero/blog-article-hero.component';
-
-import { BlogArticleLayoutComponent } from '../../components/blog-article-layout/blog-article-layout.component';
-
-import { BlogArchitectureComparisonComponent } from '../../components/blog-architecture-comparison/blog-architecture-comparison.component';
-
-import { BlogPerformanceMetricsComponent } from '../../components/blog-performance-metrics/blog-performance-metrics.component';
-
-import { BlogRelatedArticlesComponent } from '../../components/blog-related-articles/blog-related-articles.component';
-
-import { BlogArticleNewsletterComponent } from '../../components/blog-article-newsletter/blog-article-newsletter.component';
-
 import { BlogArticleFinalCtaComponent } from '../../components/blog-article-final-cta/blog-article-final-cta.component';
+import { BlogArticleHeroComponent } from '../../components/blog-article-hero/blog-article-hero.component';
+import { BlogArticleLayoutComponent } from '../../components/blog-article-layout/blog-article-layout.component';
+import { BlogArticleNewsletterComponent } from '../../components/blog-article-newsletter/blog-article-newsletter.component';
+import { BlogRelatedArticlesComponent } from '../../components/blog-related-articles/blog-related-articles.component';
+import { ArticleDataService } from '../../services/article-data.service';
 
 @Component({
   selector: 'app-blog-article-page',
@@ -25,8 +15,6 @@ import { BlogArticleFinalCtaComponent } from '../../components/blog-article-fina
     RouterLink,
     BlogArticleHeroComponent,
     BlogArticleLayoutComponent,
-    BlogArchitectureComparisonComponent,
-    BlogPerformanceMetricsComponent,
     BlogRelatedArticlesComponent,
     BlogArticleNewsletterComponent,
     BlogArticleFinalCtaComponent,

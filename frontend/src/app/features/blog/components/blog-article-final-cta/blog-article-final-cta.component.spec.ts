@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
 import { BlogArticleFinalCtaComponent } from './blog-article-final-cta.component';
 
@@ -8,7 +9,8 @@ describe('BlogArticleFinalCtaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BlogArticleFinalCtaComponent]
+      imports: [BlogArticleFinalCtaComponent],
+      providers: [provideRouter([])],
     })
     .compileComponents();
 

@@ -1,88 +1,37 @@
 import { Article } from '../models/article.model';
+import { ANGULAR_PERFORMANCE_ARTICLE } from './articles/angular-performance-tips';
+import { BINARY_SEARCH_ARTICLE } from './articles/binary-search-beyond-sorted-arrays';
+import { BUILDING_RBAC_ARTICLE } from './articles/building-rbac-in-express';
+import { JWT_VS_SESSION_ARTICLE } from './articles/jwt-vs-session-authentication';
+import { MONGODB_QUERY_OPTIMIZATION_ARTICLE } from './articles/mongodb-query-optimization';
+import { REDIS_CACHING_ARTICLE } from './articles/redis-caching-strategies';
+import { SCALABLE_REST_APIS_ARTICLE } from './articles/designing-scalable-rest-apis';
+import { SQL_INDEXING_ARTICLE } from './articles/sql-indexing-and-query-plans';
 
+/** Newest first. Add a new article by creating its file and listing it here. */
 export const ARTICLES: readonly Article[] = [
-  {
-    slug: 'jwt-vs-session-authentication',
-    title: 'JWT vs Session Authentication',
-    excerpt:
-      'A comparative analysis of stateful vs stateless authentication strategies in modern web apps.',
-    category: 'AUTHENTICATION',
-    readTime: '8 min read',
-    publishedAt: 'Sep 12, 2023',
-    featured: true,
+  JWT_VS_SESSION_ARTICLE,
+  BUILDING_RBAC_ARTICLE,
+  ANGULAR_PERFORMANCE_ARTICLE,
+  MONGODB_QUERY_OPTIMIZATION_ARTICLE,
+  SCALABLE_REST_APIS_ARTICLE,
+  REDIS_CACHING_ARTICLE,
+  SQL_INDEXING_ARTICLE,
+  BINARY_SEARCH_ARTICLE,
+];
 
-    heroTitle: 'JWT vs Session Authentication: Choosing the Right Strategy',
-
-    content: [
-      'Authentication is one of the most critical components of any modern application.',
-      'Session-based authentication stores user information on the server and relies on session identifiers.',
-      'JWT authentication stores signed user claims inside tokens and enables stateless authentication.',
-      'JWTs scale better across distributed systems because they remove server-side session storage.',
-      'Session authentication provides easier revocation and tighter server-side control.',
-      'Choosing between JWT and Sessions depends on application architecture and scalability requirements.',
-    ],
-    metrics: [
-      {
-        value: '99%',
-        label: 'Security Confidence',
-      },
-      {
-        value: 'O(1)',
-        label: 'JWT Validation',
-      },
-      {
-        value: 'Stateless',
-        label: 'Scaling Profile',
-      },
-      {
-        value: 'HttpOnly',
-        label: 'Best Practice',
-      },
-    ],
-  },
-  {
-    slug: 'building-rbac-in-express',
-    title: 'Building RBAC in Express.js',
-    excerpt:
-      'Middleware patterns for securing large-scale Express applications with dynamic roles.',
-    category: 'BACKEND',
-    readTime: '15 min read',
-    publishedAt: 'Aug 28, 2023',
-  },
-  {
-    slug: 'mongodb-query-optimization',
-    title: 'MongoDB Query Optimization',
-    excerpt:
-      'Techniques for indexing and aggregation pipelines to reduce latency by 60%.',
-    category: 'DATABASE',
-    readTime: '10 min read',
-    publishedAt: 'Jul 15, 2023',
-  },
-  {
-    slug: 'angular-performance-tips',
-    title: 'Angular Performance Tips',
-    excerpt:
-      'OnPush change detection, lazy loading, and SSR strategies for blazing-fast SPAs.',
-    category: 'FRONTEND',
-    readTime: '12 min read',
-    publishedAt: 'Jun 30, 2023',
-  },
-  {
-    slug: 'designing-scalable-rest-apis',
-    title: 'Designing Scalable REST APIs',
-    excerpt:
-      'Evolution from monolith to microservices using contract-first design with OpenAPI.',
-    category: 'ARCHITECTURE',
-    readTime: '20 min read',
-    publishedAt: 'May 14, 2023',
-  },
-  {
-    slug: 'redis-caching-strategies',
-    title: 'Redis Caching Strategies',
-    excerpt:
-      'How to implement write-through vs write-behind cache patterns for global apps.',
-    category: 'INFRA',
-    readTime: '9 min read',
-    publishedAt: 'Apr 02, 2023',
-  },
+/**
+ * Canonical topic list. The order mirrors each theme's `filterBar.filters`
+ * labels, which are matched to these by position.
+ */
+export const BLOG_FILTERS: readonly string[] = [
+  'All',
+  'Backend',
+  'Node.js',
+  'Angular',
+  'MongoDB',
+  'SQL',
+  'Authentication',
+  'System Design',
+  'DSA',
 ];

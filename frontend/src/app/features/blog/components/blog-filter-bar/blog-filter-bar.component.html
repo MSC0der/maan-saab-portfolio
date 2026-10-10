@@ -1,11 +1,13 @@
-<section class="filter-bar">
-  @for (filter of filters; track filter) {
+<section class="filter-bar" role="group" aria-label="Filter articles by topic">
+  @for (chip of chips(); track chip.topic) {
     <button
       type="button"
       class="filter-chip"
-      [class.filter-chip--active]="filter === activeFilter"
+      [class.filter-chip--active]="chip.topic === selected()"
+      [attr.aria-pressed]="chip.topic === selected()"
+      (click)="select(chip.topic)"
     >
-      {{ filter }}
+      {{ chip.label }}
     </button>
   }
 </section>

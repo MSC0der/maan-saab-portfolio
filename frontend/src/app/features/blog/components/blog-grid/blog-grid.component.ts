@@ -1,8 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
+import { ArticleDataService } from '../../services/article-data.service';
 import { BlogCardComponent } from '../blog-card/blog-card.component';
-
-import { ARTICLES } from '../../data/articles.data';
 
 @Component({
   selector: 'app-blog-grid',
@@ -13,5 +12,5 @@ import { ARTICLES } from '../../data/articles.data';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogGridComponent {
-  protected readonly articles = ARTICLES;
+  protected readonly articles = inject(ArticleDataService).filteredArticles;
 }

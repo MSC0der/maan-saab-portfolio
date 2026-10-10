@@ -44,7 +44,7 @@
 }
 
 .diagram-node {
-  width: 220px;
+  width: min(220px, 100%);
   padding: 0.9rem;
   text-align: center;
   border: 1px solid var(--border);
@@ -85,7 +85,7 @@
 .featured-card h2 {
   margin-bottom: 1rem;
   color: var(--text-primary);
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
   line-height: 1.2;
 }
 
@@ -97,11 +97,16 @@
 
 .featured-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
 .primary-btn,
 .secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
   padding: 0.85rem 1.5rem;
   border-radius: var(--blog-featured-button-radius);
   cursor: pointer;
@@ -127,6 +132,18 @@
 
 @media (max-width: 900px) {
   .featured-card {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .featured-card__diagram,
+  .featured-card__content {
+    padding: 1.5rem;
+  }
+
+  .featured-meta {
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
   }
 }
