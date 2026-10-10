@@ -10,6 +10,7 @@ import { ProjectDesignReviewComponent } from '../../components/project-design-re
 import { ProjectEngineeringReportComponent } from '../../components/project-engineering-report/project-engineering-report.component';
 import { ProjectResultsComponent } from '../../components/project-results/project-results.component';
 import { ProjectSecurityArchitectureComponent } from '../../components/project-security-architecture/project-security-architecture.component';
+import { ProjectAccessSimulatorComponent } from '../../components/project-access-simulator/project-access-simulator.component';
 import { ProjectNextProjectComponent } from '../../components/project-next-project/project-next-project.component';
 
 @Component({
@@ -25,6 +26,7 @@ import { ProjectNextProjectComponent } from '../../components/project-next-proje
     ProjectEngineeringReportComponent,
     ProjectResultsComponent,
     ProjectSecurityArchitectureComponent,
+    ProjectAccessSimulatorComponent,
     ProjectNextProjectComponent,
   ],
   templateUrl: './project-case-study-page.component.html',

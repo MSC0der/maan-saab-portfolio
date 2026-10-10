@@ -45,6 +45,12 @@ export interface Project {
     | 'ecommerce'
     | 'portfolio'
     | 'concept';
+  /**
+   * Whether the delivered site can still be visited. `retired` = closed or
+   * taken down by the client (shown as a tag, never as a dead link);
+   * `private` = client-confidential. A project with `liveUrl` is `live`.
+   */
+  readonly availability?: 'live' | 'retired' | 'private';
   readonly liveUrl?: string;
   readonly githubUrl?: string;
   readonly coverImage?: string;

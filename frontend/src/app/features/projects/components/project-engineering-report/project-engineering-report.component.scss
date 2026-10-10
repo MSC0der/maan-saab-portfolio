@@ -112,7 +112,7 @@
 
 @media (max-width: 900px) {
   .engineering-timeline__content {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .engineering-card__arrow {

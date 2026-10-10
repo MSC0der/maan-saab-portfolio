@@ -15,6 +15,10 @@
 
   <app-project-security-architecture [project]="project" />
 
+  @if (project.slug === 'security-compliance-system') {
+    <app-project-access-simulator />
+  }
+
   <app-project-next-project />
 } @else {
   <section class="case-study-empty">

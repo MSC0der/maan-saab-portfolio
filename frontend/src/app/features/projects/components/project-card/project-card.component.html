@@ -1,7 +1,12 @@
 <article class="project-card">
   @if (project().coverImage) {
     <div class="project-card__image">
-      <img [src]="project().coverImage" [alt]="project().title" />
+      <img
+        [src]="project().coverImage"
+        [alt]="project().title"
+        loading="lazy"
+        decoding="async"
+      />
     </div>
   }
 
@@ -49,6 +54,13 @@
       >
         Live Site
       </a>
+    } @else if (project().availability === 'retired') {
+      <span
+        class="project-card__secondary-link project-card__retired"
+        title="This site has been retired by the client"
+      >
+        Site retired
+      </span>
     }
   </div>
 </article>

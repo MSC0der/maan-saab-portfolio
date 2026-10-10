@@ -3,6 +3,23 @@ import { Injectable, signal, computed } from '@angular/core';
 import { PROJECTS } from '../data/projects.data';
 import { Project } from '../models/project.model';
 
+/** Flagship work first, then sites you can still visit, then retired client
+ * work, with unbuilt concepts last. Array.sort is stable, so the authored order
+ * is kept within each group. */
+function displayRank(project: Project): number {
+  if (project.featured) {
+    return 0;
+  }
+  if (project.status === 'concept') {
+    return 3;
+  }
+  return project.availability === 'live' ? 1 : 2;
+}
+
+const RANKED_PROJECTS: readonly Project[] = [...PROJECTS].sort(
+  (a, b) => displayRank(a) - displayRank(b),
+);
+
 @Injectable({
   providedIn: 'root',
 })
@@ -13,10 +30,10 @@ export class ProjectDataService {
     const filter = this.selectedFilter();
 
     if (filter === 'All') {
-      return PROJECTS;
+      return RANKED_PROJECTS;
     }
 
-    return PROJECTS.filter((project) => project.filters.includes(filter));
+    return RANKED_PROJECTS.filter((project) => project.filters.includes(filter));
   });
 
   getProjectBySlug(slug: string): Project | undefined {

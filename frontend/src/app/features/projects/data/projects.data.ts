@@ -4,9 +4,9 @@ export const PROJECTS: readonly Project[] = [
   {
     slug: 'security-compliance-system',
 
-    coverImage: '/images/projects/people_vault.jpeg',
+    coverImage: '/images/projects/people_vault.webp',
 
-    title: 'Security Compliance System',
+    title: 'PeopleFern',
 
     category: 'Enterprise Security Platform',
 
@@ -27,6 +27,8 @@ export const PROJECTS: readonly Project[] = [
     status: 'completed',
     projectType: 'enterprise',
     layout: 'featured',
+    availability: 'live',
+    liveUrl: 'https://peoplefern.imminentideas.in/home',
 
     filters: [
       'Backend',
@@ -156,8 +158,8 @@ export const PROJECTS: readonly Project[] = [
   {
     slug: 'garage-management-system',
 
-    coverImage: 'images/projects/garage_futurist.png',
-    title: 'Garage Management System',
+    coverImage: 'images/projects/garage_futurist.webp',
+    title: 'Garage Futurist',
     category: 'Business Management Platform',
 
     summary:
@@ -166,9 +168,11 @@ export const PROJECTS: readonly Project[] = [
     technologies: ['Node.js', 'Angular', 'MongoDB', 'MySQL'],
 
     featured: true,
-    status: 'completed',
+    status: 'ongoing',
     projectType: 'enterprise',
     layout: 'featured',
+    availability: 'live',
+    liveUrl: 'https://garagefuturist.com/',
 
     filters: ['Full Stack', 'Angular', 'Node.js', 'MongoDB'],
     challenge:
@@ -188,8 +192,8 @@ export const PROJECTS: readonly Project[] = [
 
     technologies: ['Socket.IO', 'Node.js', 'SQL', 'Angular'],
 
-    featured: false,
-    status: 'completed',
+    featured: true,
+    status: 'ongoing',
     projectType: 'enterprise',
     layout: 'tall',
 
@@ -201,7 +205,7 @@ export const PROJECTS: readonly Project[] = [
 
     title: 'MAAN SAAB Portfolio',
 
-    coverImage: '/images/projects/maan_saab_portfolio.png',
+    coverImage: '/images/projects/maan_saab_portfolio.webp',
 
     category: 'Personal Engineering Platform',
 
@@ -235,13 +239,13 @@ export const PROJECTS: readonly Project[] = [
 
     technologies: ['WordPress', 'Elementor', 'SEO'],
 
-    featured: true,
+    featured: false,
 
     status: 'completed',
 
     projectType: 'client',
 
-    liveUrl: 'https://paradisegetaways.co.nz',
+    availability: 'retired',
 
     filters: ['WordPress', 'SEO', 'Travel'],
   },
@@ -249,7 +253,7 @@ export const PROJECTS: readonly Project[] = [
   {
     slug: 'ilica-shopify-store',
 
-    coverImage: '/images/projects/ilica.png',
+    coverImage: '/images/projects/ilica.webp',
 
     title: 'Ilica Shopify Store',
 
@@ -262,13 +266,13 @@ export const PROJECTS: readonly Project[] = [
 
     technologies: ['Shopify', 'Liquid', 'E-Commerce'],
 
-    featured: true,
+    featured: false,
 
     status: 'completed',
 
     projectType: 'ecommerce',
 
-    liveUrl: 'https://ilica-shop.myshopify.com',
+    availability: 'retired',
 
     filters: ['Shopify', 'E-Commerce'],
   },
@@ -278,7 +282,7 @@ export const PROJECTS: readonly Project[] = [
 
     title: 'Connex Blue Tech',
 
-    coverImage: '/images/projects/connex_bluetech.png',
+    coverImage: '/images/projects/connex_bluetech.webp',
 
     category: 'Corporate Website',
 
@@ -296,6 +300,7 @@ export const PROJECTS: readonly Project[] = [
     layout: 'standard',
 
     liveUrl: 'https://connexbluetech.com',
+    availability: 'live',
 
     filters: ['WordPress', 'Corporate', 'SEO'],
   },
@@ -303,7 +308,7 @@ export const PROJECTS: readonly Project[] = [
   {
     slug: 'imminent-ideas',
 
-    coverImage: '/images/projects/imminent_ideas.png',
+    coverImage: '/images/projects/imminent_ideas.webp',
 
     title: 'Imminent Ideas',
 
@@ -323,6 +328,7 @@ export const PROJECTS: readonly Project[] = [
     projectType: 'client',
 
     liveUrl: 'https://imminentideas.com',
+    availability: 'live',
 
     filters: ['WordPress', 'Corporate'],
   },
@@ -332,7 +338,7 @@ export const PROJECTS: readonly Project[] = [
 
     title: 'Adorno Living',
 
-    coverImage: '/images/projects/adorno_living.png',
+    coverImage: '/images/projects/adorno_living.webp',
 
     category: 'Luxury Interior Brand',
 
@@ -350,6 +356,7 @@ export const PROJECTS: readonly Project[] = [
     projectType: 'ecommerce',
 
     liveUrl: 'https://www.adornoliving.com',
+    availability: 'live',
 
     filters: ['E-Commerce', 'WordPress'],
   },
@@ -357,7 +364,7 @@ export const PROJECTS: readonly Project[] = [
   {
     slug: 'denstar-dental',
 
-    coverImage: '/images/projects/denstardental.png',
+    coverImage: '/images/projects/denstardental.webp',
 
     layout: 'standard',
 
@@ -376,7 +383,8 @@ export const PROJECTS: readonly Project[] = [
 
     projectType: 'client',
 
-    liveUrl: 'https:///denstardental.in/denstardental.in',
+    liveUrl: 'https://denstardental.in',
+    availability: 'live',
 
     filters: ['Healthcare', 'WordPress'],
   },
@@ -384,7 +392,7 @@ export const PROJECTS: readonly Project[] = [
   {
     slug: 'divine-shiva',
 
-    coverImage: '/images/projects/divine_shiva.png',
+    coverImage: '/images/projects/divine_shiva.webp',
 
     title: 'Divine Shiva',
 
@@ -404,6 +412,7 @@ export const PROJECTS: readonly Project[] = [
     projectType: 'client',
 
     liveUrl: 'https://divineshiva.in',
+    availability: 'live',
 
     filters: ['WordPress', 'Business'],
   },
@@ -411,7 +420,7 @@ export const PROJECTS: readonly Project[] = [
   {
     slug: 'paperscraft',
 
-    coverImage: '/images/projects/papercrafts.png',
+    coverImage: '/images/projects/papercrafts.webp',
 
     title: 'PapersCraft',
 
@@ -430,7 +439,7 @@ export const PROJECTS: readonly Project[] = [
 
     projectType: 'client',
 
-    liveUrl: 'https://www.paperscraft.in',
+    availability: 'retired',
 
     filters: ['WordPress', 'Business', 'SEO'],
   },

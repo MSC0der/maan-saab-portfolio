@@ -254,7 +254,7 @@
   }
 
   .case-study-hero__content {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
 
     gap: 3rem;
   }
@@ -298,4 +298,11 @@
 [data-theme="wayne"] .case-study-hero__status--completed {
   background: rgba(242, 202, 80, 0.12);
   color: #f2ca50;
+}
+
+.case-study-hero__retired,
+.case-study-hero__retired:hover {
+  opacity: 0.6;
+  cursor: default;
+  transform: none;
 }

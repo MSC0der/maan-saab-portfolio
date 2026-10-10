@@ -53,6 +53,13 @@
           >
             Live Site
           </a>
+        } @else if (project().availability === 'retired') {
+          <span
+            class="case-study-hero__secondary case-study-hero__retired"
+            title="This site has been retired by the client"
+          >
+            Site retired by client
+          </span>
         }
 
         @if (project().githubUrl) {

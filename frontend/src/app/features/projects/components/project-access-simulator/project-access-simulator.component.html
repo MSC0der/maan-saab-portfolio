@@ -1,0 +1,102 @@
+<section class="sim" aria-labelledby="sim-title">
+  <div class="sim__header">
+    <p class="sim__eyebrow">Interactive</p>
+    <h2 id="sim-title">Try the access-control flow</h2>
+    <p>
+      Pick a role and a request. The pipeline below mirrors the design: a
+      lightweight signed token, role inheritance, permission groups resolved
+      server-side, then an audit record. It is an illustrative model of the
+      architecture, not production data.
+    </p>
+  </div>
+
+  <div class="sim__controls">
+    <div role="radiogroup" aria-label="Role" class="sim__group">
+      <span class="sim__label">1 · Signed-in role</span>
+      @for (r of roles; track r.id) {
+        <button
+          type="button"
+          role="radio"
+          class="sim__chip"
+          [attr.aria-checked]="roleId() === r.id"
+          [class.is-on]="roleId() === r.id"
+          (click)="selectRole(r.id)"
+        >
+          {{ r.label }}
+        </button>
+      }
+    </div>
+
+    <div role="radiogroup" aria-label="Request" class="sim__group">
+      <span class="sim__label">2 · Request</span>
+      @for (a of actions; track a.id) {
+        <button
+          type="button"
+          role="radio"
+          class="sim__chip"
+          [attr.aria-checked]="actionId() === a.id"
+          [class.is-on]="actionId() === a.id"
+          (click)="selectAction(a.id)"
+        >
+          {{ a.label }}
+        </button>
+      }
+    </div>
+  </div>
+
+  <div class="sim__flow" aria-live="polite">
+    <article class="sim__step">
+      <h3><span>A</span> Token</h3>
+      <p>Stateless JWT. Only identity and a high-level role travel in the token.</p>
+      <pre>{{ claims() }}</pre>
+    </article>
+
+    <article class="sim__step">
+      <h3><span>B</span> Resolve</h3>
+      <p>Roles inherit upward; permissions come from cached groups, not the token.</p>
+      <ul>
+        @for (r of roleChain(); track r.id) {
+          <li>{{ r.label }}</li>
+        }
+      </ul>
+      <p class="sim__groups">
+        @for (g of effectiveGroups(); track g) {
+          <code [class.is-needed]="g === action().needs">{{ g }}</code>
+        }
+      </p>
+    </article>
+
+    <article class="sim__step">
+      <h3><span>C</span> Decide</h3>
+      <p>
+        <code>{{ action().method }} {{ action().path }}</code> requires
+        <code>{{ action().needs }}</code>.
+      </p>
+      <p class="sim__verdict" [class.is-allow]="allowed()" [class.is-deny]="!allowed()">
+        {{ allowed() ? 'ALLOW' : 'DENY · 403' }}
+      </p>
+      <button type="button" class="sim__send" (click)="send()">
+        Send request
+      </button>
+    </article>
+  </div>
+
+  <div class="sim__audit">
+    <h3>Audit trail <small>append-only</small></h3>
+    @if (audit().length) {
+      <ol>
+        @for (e of audit(); track e.seq) {
+          <li [class.is-deny]="!e.allowed">
+            <span>#{{ e.seq }}</span>
+            <span>{{ e.time }}</span>
+            <span>{{ e.role }}</span>
+            <span>{{ e.request }}</span>
+            <b>{{ e.allowed ? 'ALLOW' : 'DENY' }}</b>
+          </li>
+        }
+      </ol>
+    } @else {
+      <p class="sim__empty">No requests yet. Send one to see it recorded.</p>
+    }
+  </div>
+</section>

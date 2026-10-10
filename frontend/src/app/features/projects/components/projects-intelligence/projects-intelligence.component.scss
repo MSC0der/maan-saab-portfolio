@@ -68,7 +68,7 @@
     grid-template-columns: repeat(2, 1fr);
   }
   .projects-intelligence__distribution {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .distribution__metrics {
     flex-wrap: wrap;

@@ -19,9 +19,17 @@
 }
 
 @media (max-width: 1024px) {
+  // 12 columns means 11 gutters; below desktop just stack the cards.
+  .projects-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .projects-grid__item,
   .projects-grid__item--featured,
+  .projects-grid__item--tall,
+  .projects-grid__item--wide,
   .projects-grid__item--full-width {
-    grid-column: span 12;
+    grid-column: auto;
+    grid-row: auto;
   }
 }

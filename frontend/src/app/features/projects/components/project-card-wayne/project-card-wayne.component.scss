@@ -226,3 +226,16 @@
   text-transform: var(--project-card-link-transform);
   letter-spacing: var(--project-card-link-spacing);
 }
+
+.project-card__retired,
+.project-card__retired:hover {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  opacity: 0.6;
+  cursor: default;
+}
