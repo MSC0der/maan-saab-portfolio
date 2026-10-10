@@ -1,4 +1,4 @@
-import { ThemeType } from '../services/theme.service';
+import { ConfiguredTheme, ThemeType } from '../services/theme.service';
 
 export interface ThemeContactConfig {
   availability: {
@@ -58,7 +58,7 @@ export interface ThemeContactConfig {
   };
 }
 
-export const THEME_CONTACT_CONFIG: Record<ThemeType, ThemeContactConfig> = {
+const BASE_CONTACT_CONFIG: Record<ConfiguredTheme, ThemeContactConfig> = {
   'technical-dark': {
     availability: {
       title: 'Available Now',
@@ -281,4 +281,10 @@ export const THEME_CONTACT_CONFIG: Record<ThemeType, ThemeContactConfig> = {
       submitButton: 'TRANSMIT BRIEFING',
     },
   },
+};
+
+/** Immersive Engineering Core reuses the technical-dark Contact content. */
+export const THEME_CONTACT_CONFIG: Record<ThemeType, ThemeContactConfig> = {
+  ...BASE_CONTACT_CONFIG,
+  immersive: BASE_CONTACT_CONFIG['technical-dark'],
 };

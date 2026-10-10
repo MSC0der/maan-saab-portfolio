@@ -2,13 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { inject } from '@angular/core';
 import { ThemeService } from '../../../../core/services/theme.service';
 import { THEME_ABOUT_CONFIG } from '../../../../core/config/theme-about.config';
-
-interface TimelineItem {
-  readonly year: string;
-  readonly title: string;
-  readonly description: string;
-  readonly future?: boolean;
-}
+import { ENGINEERING_TIMELINE } from '../../data/timeline.data';
 
 @Component({
   selector: 'app-about-timeline',
@@ -23,36 +17,6 @@ export class AboutTimelineComponent {
   protected get config() {
     return THEME_ABOUT_CONFIG[this.themeService.theme()];
   }
-  protected readonly timeline: readonly TimelineItem[] = [
-    {
-      year: '2021',
-      title: 'Started Bachelor of Computer Applications',
-      description:
-        'Learning programming fundamentals, databases, and software development concepts.',
-    },
-    {
-      year: '2024',
-      title: 'Full Stack Development Internship',
-      description:
-        'Worked with Angular, APIs, debugging, and production workflows.',
-    },
-    {
-      year: '2025',
-      title: 'Joined Imminent Ideas as Full Stack Developer',
-      description:
-        'Built REST APIs, authentication systems, Angular integrations, and database solutions.',
-    },
-    {
-      year: '2026',
-      title: 'Focused on Backend Engineering',
-      description:
-        'Working on scalable APIs, query optimization, authentication systems, DSA, and system design.',
-    },
-    {
-      year: 'Future',
-      title: 'Software Engineer at a Product Company',
-      description: 'Building large-scale products used by thousands of users.',
-      future: true,
-    },
-  ];
+
+  protected readonly timeline = ENGINEERING_TIMELINE;
 }

@@ -21,6 +21,16 @@
       }
     </nav>
 
+    @if (canExperience) {
+      <button
+        type="button"
+        class="site-header__experience"
+        (click)="onExperienceClick()"
+      >
+        3D Experience
+      </button>
+    }
+
     <button
       type="button"
       class="site-header__resume"
@@ -30,5 +40,46 @@
     >
       {{ isResumeDownloading() ? 'Preparing…' : themeConfig.resumeLabel }}
     </button>
+
+    <button
+      type="button"
+      class="site-header__menu"
+      aria-controls="mobile-nav"
+      aria-label="Toggle navigation menu"
+      [attr.aria-expanded]="menuOpen()"
+      [class.is-open]="menuOpen()"
+      (click)="toggleMenu()"
+    >
+      <span aria-hidden="true"></span>
+    </button>
   </div>
+
+  @if (menuOpen()) {
+    <nav id="mobile-nav" class="site-mobile-nav" aria-label="Mobile navigation">
+      @for (item of navigation; track item.path) {
+        @if (item.fragmentOnly) {
+          <a class="site-mobile-nav__link" [href]="item.path" (click)="closeMenu()">{{ item.label }}</a>
+        } @else {
+          <a
+            class="site-mobile-nav__link"
+            [routerLink]="item.path"
+            routerLinkActive="site-mobile-nav__link--active"
+            [routerLinkActiveOptions]="{ exact: item.exact }"
+            (click)="closeMenu()"
+          >
+            {{ item.label }}
+          </a>
+        }
+      }
+      <button
+        type="button"
+        class="site-mobile-nav__resume"
+        [disabled]="isResumeDownloading()"
+        [attr.aria-busy]="isResumeDownloading()"
+        (click)="onResumeClick(); closeMenu()"
+      >
+        {{ isResumeDownloading() ? 'Preparing…' : themeConfig.resumeLabel }}
+      </button>
+    </nav>
+  }
 </header>

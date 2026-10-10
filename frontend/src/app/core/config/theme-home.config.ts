@@ -1,4 +1,4 @@
-import { ThemeType } from '../services/theme.service';
+import { ConfiguredTheme, ThemeType } from '../services/theme.service';
 
 export interface ThemeHomeConfig {
   hero: {
@@ -41,7 +41,7 @@ export interface ThemeHomeConfig {
   };
 }
 
-export const THEME_HOME_CONFIG: Record<ThemeType, ThemeHomeConfig> = {
+const BASE_HOME_CONFIG: Record<ConfiguredTheme, ThemeHomeConfig> = {
   'technical-dark': {
     hero: {
       preTitle: 'Ranbir Singh Maan',
@@ -123,4 +123,11 @@ export const THEME_HOME_CONFIG: Record<ThemeType, ThemeHomeConfig> = {
       ghost: 'OPEN CHANNEL',
     },
   },
+};
+
+/** The immersive Engineering Core theme replaces the home hero with a 3D
+ * experience and keeps the technical-dark copy for every text-driven section. */
+export const THEME_HOME_CONFIG: Record<ThemeType, ThemeHomeConfig> = {
+  ...BASE_HOME_CONFIG,
+  immersive: BASE_HOME_CONFIG['technical-dark'],
 };

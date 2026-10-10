@@ -1,0 +1,17 @@
+@if (testimonials.length) {
+  <section class="testimonials" aria-labelledby="testimonials-title">
+    <h2 id="testimonials-title">What people I've worked with say</h2>
+
+    <div class="testimonials__grid">
+      @for (item of testimonials; track item.name) {
+        <figure class="testimonials__card">
+          <blockquote>{{ item.quote }}</blockquote>
+          <figcaption>
+            <strong>{{ item.name }}</strong>
+            <span>{{ item.role }}</span>
+          </figcaption>
+        </figure>
+      }
+    </div>
+  </section>
+}

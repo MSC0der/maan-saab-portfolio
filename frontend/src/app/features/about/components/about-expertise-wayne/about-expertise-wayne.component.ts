@@ -29,7 +29,7 @@ export class AboutExpertiseWayneComponent {
     {
       title: 'Backend Engineering',
       imageAlt: 'Backend architecture visualization',
-      imageUrl: '/images/about/sechema_optimization.png',
+      imageUrl: '/images/about/sechema_optimization.webp',
       skills: [
         'Node.js',
         'Express.js',
@@ -43,7 +43,7 @@ export class AboutExpertiseWayneComponent {
     {
       title: 'Frontend Engineering',
       imageAlt: 'Frontend architecture visualization',
-      imageUrl: '/images/about/frontend_engineering_technical_architecture.png',
+      imageUrl: '/images/about/frontend_engineering_technical_architecture.webp',
       skills: [
         'Angular',
         'TypeScript',
@@ -55,7 +55,7 @@ export class AboutExpertiseWayneComponent {
     {
       title: 'Database Systems',
       imageAlt: 'Database topology visualization',
-      imageUrl: '/images/about/rest_api_structure.png',
+      imageUrl: '/images/about/rest_api_structure.webp',
       skills: [
         'MongoDB',
         'MySQL',
@@ -67,13 +67,13 @@ export class AboutExpertiseWayneComponent {
     {
       title: 'Cloud & Dev Tools',
       imageAlt: 'Engineering toolkit visualization',
-      imageUrl: '/images/about/cloud_dev_tools.png',
+      imageUrl: '/images/about/cloud_dev_tools.webp',
       skills: ['Docker', 'AWS S3', 'Git', 'GitHub', 'Postman', 'VS Code'],
     },
     {
       title: 'Software Engineering',
       imageAlt: 'Engineering process flow visualization',
-      imageUrl: '/images/about/sofware_engineering_techincal_architecture.png',
+      imageUrl: '/images/about/sofware_engineering_techincal_architecture.webp',
       skills: [
         'Debugging',
         'Optimization',
@@ -85,7 +85,7 @@ export class AboutExpertiseWayneComponent {
     {
       title: 'Problem Solving & DSA',
       imageAlt: 'Algorithm roadmap dashboard',
-      imageUrl: '/images/about/problem_solving_dsa.png',
+      imageUrl: '/images/about/problem_solving_dsa.webp',
       skills: [
         'Arrays',
         'Binary Search',

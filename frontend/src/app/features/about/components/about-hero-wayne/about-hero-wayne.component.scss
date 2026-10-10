@@ -21,8 +21,9 @@
 .about-hero-wayne h1 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(4rem, 8vw, 7rem);
-  line-height: 0.9;
+  font-size: clamp(2.5rem, 9vw, 7rem);
+  line-height: 0.95;
+  overflow-wrap: anywhere;
   text-transform: uppercase;
   color: var(--text-primary);
 }
@@ -44,6 +45,7 @@
 
 .about-hero-wayne__status {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-top: 2rem;
 }
@@ -52,7 +54,7 @@
   padding: 1rem 1.25rem;
   border: 1px solid var(--border);
   background: var(--surface);
-  min-width: 180px;
+  min-width: min(180px, 100%);
 }
 
 .status-card span {
@@ -78,6 +80,6 @@
 
 @media (max-width: 1024px) {
   .about-hero-wayne {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }

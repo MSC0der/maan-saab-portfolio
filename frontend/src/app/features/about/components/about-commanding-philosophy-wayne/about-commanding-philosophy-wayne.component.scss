@@ -37,8 +37,9 @@
   max-width: 900px;
   margin: 0 auto;
   text-align: center;
-  font-size: clamp(3rem, 6vw, 6rem);
-  line-height: 0.95;
+  font-size: clamp(1.75rem, 6vw, 6rem);
+  line-height: 1;
+  overflow-wrap: anywhere;
   text-transform: uppercase;
   font-weight: 300;
 }
@@ -51,7 +52,7 @@
 .wayne-philosophy__principles {
   margin-top: 5rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 2rem;
 }
 
@@ -75,7 +76,7 @@
   }
 
   .wayne-philosophy__principles {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -117,4 +118,16 @@
   }
 }
 
+@media (max-width: 600px) {
+  .wayne-philosophy {
+    padding: 3rem 0;
+  }
 
+  .wayne-philosophy__panel {
+    padding: 1.25rem;
+  }
+
+  .wayne-philosophy__principles {
+    margin-top: 2.5rem;
+  }
+}

@@ -67,7 +67,7 @@ h2 {
 .experience-grid {
   display: grid;
   gap: var(--about-gutter);
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   margin-top: 32px;
 }
 

@@ -1,0 +1,143 @@
+// Phone navigation for the site header. Lives in a global partial (not the
+// header component's SCSS) to stay under the per-component style budget.
+
+.site-header__menu {
+  display: none;
+  position: relative;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.site-header__menu span,
+.site-header__menu span::before,
+.site-header__menu span::after {
+  position: absolute;
+  left: 50%;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  transform: translateX(-50%);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.site-header__menu span {
+  top: 50%;
+  margin-top: -1px;
+}
+
+.site-header__menu span::before,
+.site-header__menu span::after {
+  content: "";
+  left: 0;
+  transform: none;
+}
+
+.site-header__menu span::before {
+  top: -6px;
+}
+
+.site-header__menu span::after {
+  top: 6px;
+}
+
+.site-header__menu.is-open span {
+  background: transparent;
+}
+
+.site-header__menu.is-open span::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.site-header__menu.is-open span::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.site-mobile-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  padding: 0.5rem 20px 1.25rem;
+  border-bottom: 1px solid var(--border);
+  // Solid, so page content never shows through the open menu.
+  background: var(--background);
+  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.45);
+}
+
+.site-mobile-nav__link {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.site-mobile-nav__link--active {
+  color: var(--primary);
+}
+
+.site-mobile-nav__resume {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  border: 0;
+  border-radius: 0.25rem;
+  background: var(--primary);
+  color: var(--button-primary-text);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+// Compact header: phones for every theme, and up to 1279px for Wayne, whose
+// wide letter-spaced nav and brand do not fit a tablet or small laptop.
+@mixin compact-header {
+  .site-header__menu {
+    display: block;
+    margin-left: auto;
+  }
+
+  .site-mobile-nav {
+    display: flex;
+  }
+}
+
+@media (max-width: 767px) {
+  @include compact-header;
+
+  header.site-header .site-header__resume {
+    display: none;
+  }
+
+  .site-header__inner {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 1279px) {
+  [data-theme="wayne"] {
+    @include compact-header;
+
+    header.site-header .site-header__nav,
+    header.site-header .site-header__resume {
+      display: none;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header__menu span,
+  .site-header__menu span::before,
+  .site-header__menu span::after {
+    transition: none;
+  }
+}

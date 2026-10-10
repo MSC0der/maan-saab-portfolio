@@ -14,7 +14,7 @@
     @for (card of cards; track card.title) {
       <article class="wayne-report-card">
         <div class="wayne-report-card__image">
-          <img [src]="card.imageUrl" [alt]="card.imageAlt" />
+          <img [src]="card.imageUrl" [alt]="card.imageAlt" loading="lazy" decoding="async" />
         </div>
 
         <div class="wayne-report-card__body">

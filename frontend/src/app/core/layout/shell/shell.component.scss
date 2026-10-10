@@ -6,6 +6,9 @@
 .app-shell {
   display: grid;
   min-height: 100vh;
+  // Without an explicit column the implicit `auto` track grows to the widest
+  // descendant, so one wide element stretched every page past the viewport.
+  grid-template-columns: minmax(0, 1fr);
   grid-template-rows: auto 1fr auto;
   background: var(--background);
   color: var(--text-primary);
@@ -13,6 +16,7 @@
 
 .app-shell__main {
   width: 100%;
+  min-width: 0;
   max-width: var(--layout-max-width);
   margin-inline: auto;
   padding-inline: var(--layout-gutter);
@@ -21,4 +25,9 @@
 
 .app-shell__main:focus {
   outline: none;
+}
+
+// The immersive world is full-bleed and supplies its own chrome.
+.app-shell--immersive .app-shell__main {
+  padding-block: 0;
 }

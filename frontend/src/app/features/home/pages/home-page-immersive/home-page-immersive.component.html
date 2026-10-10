@@ -1,0 +1,256 @@
+<div
+  class="immersive"
+  [class.immersive--fallback]="!webglSupported()"
+  [class.immersive--entered]="entered()"
+  [class.immersive--deep]="deep()"
+  [class.immersive--cursor]="cursorEnabled && webglSupported()"
+>
+  <div class="immersive__track" #track [style.height.vh]="trackVh">
+    <div class="immersive__stage">
+      @if (webglSupported()) {
+        @defer (on immediate) {
+          <app-immersive-core
+            [scrollTrack]="track"
+            [reducedMotion]="reducedMotion"
+            (activeNode)="onActiveNode($event)"
+            (hoverNode)="onHoverNode($event)"
+            (activeProject)="onActiveProject($event)"
+            (hoverProject)="onHoverProject($event)"
+            (activeMilestone)="onActiveMilestone($event)"
+            (hoverMilestone)="onHoverMilestone($event)"
+            (progress)="onProgress($event)"
+            (phase)="onPhase($event)"
+            (world)="onWorld($event)"
+            (renderFailed)="onRenderFailed()"
+          />
+        } @placeholder {
+          <div class="immersive__atmos" aria-hidden="true"></div>
+        }
+      } @else {
+        <div class="immersive__atmos" aria-hidden="true"></div>
+      }
+
+      <app-immersive-chrome
+        [world]="world()"
+        (worldSelect)="goToWorld($event)"
+      />
+
+      <div class="immersive__overlay">
+        <div class="immersive__hero">
+          <p class="immersive__eyebrow">{{ hero.brand }}</p>
+          <h1 class="immersive__title">{{ hero.role }}</h1>
+          <p class="immersive__lede">{{ hero.line }}</p>
+          <p class="immersive__status"><i aria-hidden="true"></i>{{ hero.status }}</p>
+
+          <div class="immersive__cta">
+            <button
+              type="button"
+              class="immersive__btn immersive__btn--primary"
+              (click)="exploreSystem()"
+            >
+              EXPLORE SYSTEM
+            </button>
+            <button
+              type="button"
+              class="immersive__btn"
+              [disabled]="isResumeDownloading()"
+              [attr.aria-busy]="isResumeDownloading()"
+              (click)="downloadResume()"
+            >
+              {{ isResumeDownloading() ? 'PREPARING…' : 'VIEW RESUME' }}
+            </button>
+          </div>
+
+          <ul class="immersive__metrics">
+            @for (metric of metrics; track metric.label) {
+              <li>
+                <b>{{ metric.value }}</b>
+                <span>{{ metric.label }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <dl class="immersive__hud" aria-label="System status">
+          @for (row of hud(); track row.label) {
+            <div>
+              <dt>{{ row.label }}</dt>
+              <dd>{{ row.value }}</dd>
+            </div>
+          }
+          <div class="immersive__hud-entry">
+            <dt>PROGRESS</dt>
+            <dd>{{ progress() }}%</dd>
+          </div>
+        </dl>
+
+        <div
+          class="immersive__cue"
+          [class.is-hidden]="progress() > 1"
+          aria-hidden="true"
+        >
+          <span>SCROLL TO ENTER</span>
+          <i></i>
+        </div>
+
+        @if (atJourney()) {
+          <div class="immersive-world-title">
+            <p class="immersive-world-title__eyebrow">04 / ENGINEERING JOURNEY</p>
+            <h2 class="immersive-world-title__h">ENGINEERING JOURNEY</h2>
+            <p class="immersive-world-title__sub">
+              The systems, work and experience that shaped the engineer.
+            </p>
+          </div>
+        }
+
+        @if (milestoneHint()) {
+          <p class="immersive-milestone-hint" aria-hidden="true">
+            <i></i> CLICK THE MILESTONE TO OPEN
+          </p>
+        }
+      </div>
+
+      @if (activeNode(); as node) {
+        <aside class="immersive-panel" aria-live="polite">
+          <div class="immersive-panel__head">
+            <span class="immersive-panel__id">[ {{ node.label }} ]</span>
+            <button
+              type="button"
+              (click)="closeNodePanel()"
+              aria-label="Close node details"
+            >
+              ✕
+            </button>
+          </div>
+          <p class="immersive-panel__kind">{{ node.kind }}</p>
+          <p class="immersive-panel__blurb">{{ node.blurb }}</p>
+          @if (node.details.length) {
+            <ul class="immersive-panel__list">
+              @for (item of node.details; track item) {
+                <li>{{ item }}</li>
+              }
+            </ul>
+          }
+          @if (node.connections.length) {
+            <p class="immersive-panel__links">
+              LINKS · {{ node.connections.join(' · ') }}
+            </p>
+          }
+        </aside>
+      }
+
+      @if (activeProject(); as project) {
+        <aside class="immersive-panel immersive-panel--project" aria-live="polite">
+          <div class="immersive-panel__head">
+            <span class="immersive-panel__id">[ {{ project.title }} ]</span>
+            <button
+              type="button"
+              (click)="closeProjectPanel()"
+              aria-label="Close project details"
+            >
+              ✕
+            </button>
+          </div>
+          <p class="immersive-panel__kind">{{ project.category }}</p>
+          <p class="immersive-panel__blurb">{{ project.summary }}</p>
+          @if (project.role) {
+            <p class="immersive-panel__meta">ROLE · {{ project.role }}</p>
+          }
+          @if (project.architecture.length) {
+            <ul class="immersive-panel__list">
+              @for (item of project.architecture; track item) {
+                <li>{{ item }}</li>
+              }
+            </ul>
+          }
+          <p class="immersive-panel__links">
+            STACK · {{ project.technologies.join(' · ') }}
+          </p>
+          @if (project.routePath) {
+            <a class="immersive-panel__cta" [routerLink]="project.routePath">
+              VIEW PROJECT →
+            </a>
+          }
+        </aside>
+      }
+
+      @if (activeMilestone(); as milestone) {
+        <aside
+          class="immersive-panel immersive-panel--milestone"
+          aria-live="polite"
+        >
+          <div class="immersive-panel__head">
+            <span class="immersive-panel__id">[ {{ milestone.year }} ]</span>
+            <button
+              type="button"
+              (click)="closeMilestonePanel()"
+              aria-label="Close milestone details"
+            >
+              ✕
+            </button>
+          </div>
+          <p class="immersive-panel__kind">
+            {{ milestone.future ? 'TRAJECTORY' : 'MILESTONE' }}
+          </p>
+          <p class="immersive-panel__blurb immersive-panel__blurb--lead">
+            {{ milestone.title }}
+          </p>
+          <p class="immersive-panel__blurb">{{ milestone.detail }}</p>
+        </aside>
+      }
+
+      @if (atContact()) {
+        <section class="immersive-contact" aria-label="Contact">
+          <p class="immersive-contact__eyebrow">06 / CONTACT</p>
+          <h2 class="immersive-contact__title">ESTABLISH CONNECTION</h2>
+          <p class="immersive-contact__line">
+            Open to full-time roles. {{ responseTime }}
+          </p>
+          <div class="immersive-contact__links">
+            @for (link of contactLinks; track link.label) {
+              <a
+                class="immersive-contact__link"
+                [class.immersive-contact__link--primary]="$first"
+                [href]="link.href"
+                [attr.target]="link.external ? '_blank' : null"
+                [attr.rel]="link.external ? 'noopener noreferrer' : null"
+              >
+                {{ link.label }}
+              </a>
+            }
+            <button
+              type="button"
+              class="immersive-contact__link"
+              [disabled]="isResumeDownloading()"
+              [attr.aria-busy]="isResumeDownloading()"
+              (click)="downloadResume()"
+            >
+              {{ isResumeDownloading() ? 'PREPARING…' : 'RÉSUMÉ' }}
+            </button>
+          </div>
+          <a class="immersive-contact__form" routerLink="/contact">
+            OR SEND A MESSAGE →
+          </a>
+        </section>
+      }
+    </div>
+  </div>
+
+  @if (!webglSupported()) {
+    <p class="immersive__sr" role="status">
+      Interactive 3D view unavailable in this browser — the standard hero and all
+      navigation remain available.
+    </p>
+  }
+
+  @if (cursorEnabled && webglSupported()) {
+    <div
+      class="immersive-cursor immersive-cursor--{{ cursorState() }}"
+      [class.immersive-cursor--still]="reducedMotion"
+      aria-hidden="true"
+    >
+      <i class="immersive-cursor__dot"></i>
+      <i class="immersive-cursor__ring"></i>
+    </div>
+  }
+</div>

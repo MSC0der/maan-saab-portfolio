@@ -1,4 +1,4 @@
-import { ThemeType } from '../services/theme.service';
+import { ConfiguredTheme, ThemeType } from '../services/theme.service';
 
 export interface ThemeAboutConfig {
   hero: {
@@ -22,7 +22,7 @@ export interface ThemeAboutConfig {
   };
 }
 
-export const THEME_ABOUT_CONFIG: Record<ThemeType, ThemeAboutConfig> = {
+const BASE_ABOUT_CONFIG: Record<ConfiguredTheme, ThemeAboutConfig> = {
   'technical-dark': {
     hero: {
       title: 'Building Software That Solves Real Problems',
@@ -74,4 +74,10 @@ export const THEME_ABOUT_CONFIG: Record<ThemeType, ThemeAboutConfig> = {
         'Engineering domains, technologies and operational competencies utilized throughout mission deployments.',
     },
   },
+};
+
+/** Immersive Engineering Core reuses the technical-dark About content. */
+export const THEME_ABOUT_CONFIG: Record<ThemeType, ThemeAboutConfig> = {
+  ...BASE_ABOUT_CONFIG,
+  immersive: BASE_ABOUT_CONFIG['technical-dark'],
 };

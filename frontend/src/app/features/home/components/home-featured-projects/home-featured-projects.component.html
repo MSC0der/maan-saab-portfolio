@@ -18,7 +18,16 @@
     <app-home-card>
       <article class="project-card">
         <div class="project-card__visual">
-          <span>{{ project.visualLabel }}</span>
+          @if (project.coverImage) {
+            <img
+              [src]="project.coverImage"
+              [alt]="project.title + ' preview'"
+              loading="lazy"
+              decoding="async"
+            />
+          } @else {
+            <span>{{ project.visualLabel }}</span>
+          }
         </div>
 
         <div class="project-card__body">
@@ -42,12 +51,9 @@
       </article>
     </app-home-card>
   }
-
-  <app-home-card [dashed]="true" [centered]="true">
-    <article class="future-project">
-      <app-home-icon class="future-project__icon" name="work" />
-      <h3>Future Enterprise Project</h3>
-      <p>Currently building the next scalable solution.</p>
-    </article>
-  </app-home-card>
 </div>
+
+<a class="projects-all" routerLink="/projects">
+  View all projects
+  <span aria-hidden="true">-&gt;</span>
+</a>

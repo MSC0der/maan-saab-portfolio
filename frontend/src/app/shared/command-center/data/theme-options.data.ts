@@ -23,13 +23,14 @@ export const THEME_OPTIONS: readonly ThemeOption[] = [
     accent: '#d4af37',
   },
 
-//   {
-//     id: 'pristine',
-//     title: 'Pristine',
-//     subtitle: 'Interactive Experience',
-//     description: 'Immersive 3D portfolio currently under construction.',
-//     icon: 'auto_awesome',
-//     available: false,
-//     accent: '#ffffff',
-//   },
+  {
+    id: 'immersive',
+    title: 'Engineering Core',
+    subtitle: 'Immersive System',
+    description:
+      'A living 3D engineering system — technology nodes, connections and data flow around a procedural core.',
+    icon: 'blur_on',
+    available: true,
+    accent: '#22d3ee',
+  },
 ];

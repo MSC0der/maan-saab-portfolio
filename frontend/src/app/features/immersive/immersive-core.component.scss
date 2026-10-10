@@ -1,0 +1,17 @@
+:host {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  // Non-interactive regions of the overlay let pointer + scroll through to the
+  // canvas; the canvas itself opts back in for raycasting.
+  pointer-events: none;
+}
+
+.immersive-core__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+  touch-action: pan-y;
+}

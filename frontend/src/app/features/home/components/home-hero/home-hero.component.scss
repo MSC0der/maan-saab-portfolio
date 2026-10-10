@@ -136,6 +136,10 @@
   .hero {
     flex-direction: column;
   }
+
+  .hero__title {
+    font-size: clamp(2.25rem, 10.5vw, 3.5rem);
+  }
 }
 
 @keyframes fadeUp {

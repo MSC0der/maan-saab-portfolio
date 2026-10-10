@@ -1,0 +1,28 @@
+// Full-bleed break-out from the centred .app-shell__main container. The rest of
+// the immersive overlay is themed globally in styles/themes/_immersive.scss
+// (scoped to [data-theme="immersive"]) to stay within the component style
+// budget — consistent with how the other themes are declared.
+:host {
+  display: block;
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+}
+
+.immersive {
+  position: relative;
+}
+
+.immersive__track {
+  position: relative;
+  width: 100%;
+}
+
+.immersive__stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--immersive-void, #05070b);
+}

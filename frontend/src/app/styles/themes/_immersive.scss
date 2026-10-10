@@ -1,0 +1,1072 @@
+// ── MAAN SAAB — Immersive Engineering Core theme ──────────────────────────────
+// Inherits every token from the technical-dark theme (see _technical-dark.scss,
+// where [data-theme="immersive"] is added to the selector list) and overrides
+// only the identity: a near-black engineering void and an electric-cyan energy
+// accent with a restrained violet secondary. Loaded after _technical-dark.scss.
+
+[data-theme="immersive"] {
+  // Engineering void
+  --background: #05070b;
+  --surface: #0b1118;
+  --surface-elevated: #0f1720;
+
+  // Energy — cyan behaves like illumination
+  --primary: #22d3ee;
+  --primary-hover: #38bdf8;
+  --primary-soft: rgba(34, 211, 238, 0.12);
+  --button-primary-text: #04070a;
+
+  --text-primary: #eaf6f8;
+  --text-secondary: #8fa3ad;
+
+  --border: rgba(140, 190, 200, 0.14);
+  --border-strong: rgba(34, 211, 238, 0.35);
+  --focus-ring: #22d3ee;
+
+  --header-bg: rgba(5, 7, 11, 0.72);
+
+  --hero-highlight-color: var(--primary);
+
+  // Architecture diagram accents (used by shared themed components)
+  --diagram-node-border: #22d3ee;
+  --diagram-node-bg: #0b1118;
+  --diagram-grid: rgba(34, 211, 238, 0.14);
+  --diagram-connection: #22d3ee;
+  --diagram-panel-bg: #070b11;
+
+  // Immersive overlay namespace — consumed by the 3D hero HTML layer
+  --immersive-cyan: #22d3ee;
+  --immersive-violet: #8b5cf6;
+  --immersive-void: #05070b;
+  --immersive-panel: rgba(9, 14, 20, 0.66);
+  --immersive-panel-border: rgba(34, 211, 238, 0.22);
+  --immersive-text: #eaf6f8;
+  --immersive-text-dim: #7f96a1;
+  --immersive-grid-line: rgba(34, 211, 238, 0.08);
+  --immersive-font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular",
+    "Courier New", monospace;
+}
+
+// ── Immersive home overlay ───────────────────────────────────────────────────
+// The HTML hero / HUD / status layer that sits above the WebGL canvas. Scoped
+// to the theme and kept here (not in the component) to stay inside Angular's
+// per-component style budget, matching how _wayne.scss is structured.
+[data-theme="immersive"] {
+  --im-cyan: var(--immersive-cyan);
+  --im-violet: var(--immersive-violet);
+  --im-void: var(--immersive-void);
+  --im-panel: var(--immersive-panel);
+  --im-border: var(--immersive-panel-border);
+  --im-text: var(--immersive-text);
+  --im-dim: var(--immersive-text-dim);
+  --im-mono: var(--immersive-font-mono);
+
+  .immersive__atmos {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(60% 50% at 50% 45%, rgba(34, 211, 238, 0.12), transparent 70%),
+      radial-gradient(45% 45% at 62% 60%, rgba(139, 92, 246, 0.1), transparent 70%),
+      var(--im-void);
+  }
+
+  .immersive__atmos::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--immersive-grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--immersive-grid-line) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(65% 60% at 50% 55%, #000, transparent 80%);
+  }
+
+  .immersive__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    font-family: var(--im-mono);
+    color: var(--im-text);
+  }
+
+  // Readability scrim — a soft darkening under the hero text and along the
+  // bottom, so the UI stays legible without becoming an opaque panel over the
+  // scene. The 3D world still reads through it.
+  .immersive__overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(
+        100deg,
+        rgba(5, 7, 11, 0.82) 0%,
+        rgba(5, 7, 11, 0.42) 26%,
+        transparent 52%
+      ),
+      linear-gradient(
+        to top,
+        rgba(5, 7, 11, 0.6) 0%,
+        transparent 22%
+      );
+  }
+
+  // ── Immersive chrome (replaces the conventional header for this theme) ────
+  .immersive-chrome__identity {
+    position: fixed;
+    top: clamp(18px, 3vh, 30px);
+    left: clamp(20px, 5vw, 56px);
+    z-index: 40;
+    display: grid;
+    gap: 5px;
+    font-family: var(--im-mono);
+    text-transform: uppercase;
+    pointer-events: none;
+  }
+
+  .immersive-chrome__brand {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--im-text);
+  }
+
+  .immersive-chrome__status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 9px;
+    letter-spacing: 0.24em;
+    color: var(--im-dim);
+  }
+
+  .immersive-chrome__status i {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--im-cyan);
+    box-shadow: 0 0 8px var(--im-cyan);
+    animation: im-pulse 2.4s ease-in-out infinite;
+  }
+
+  .immersive-chrome__world {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--im-cyan);
+  }
+
+  .immersive-chrome__toggle {
+    position: fixed;
+    top: clamp(18px, 3vh, 30px);
+    right: clamp(20px, 5vw, 56px);
+    z-index: 40;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 14px;
+    border: 1px solid var(--im-border);
+    background: rgba(7, 11, 17, 0.5);
+    backdrop-filter: blur(7px);
+    color: var(--im-text);
+    font-family: var(--im-mono);
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+  }
+
+  .immersive-chrome__brief {
+    position: fixed;
+    top: clamp(18px, 3vh, 30px);
+    right: calc(clamp(20px, 5vw, 56px) + 112px);
+    z-index: 40;
+    padding: 9px 14px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--im-dim);
+    font-family: var(--im-mono);
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .immersive-chrome__brief:hover,
+  .immersive-chrome__brief:focus-visible {
+    color: var(--im-text);
+    border-color: var(--im-border);
+  }
+
+  @media (max-width: 600px) {
+    .immersive-chrome__brief {
+      top: clamp(62px, 9vh, 76px);
+      right: clamp(20px, 5vw, 56px);
+    }
+  }
+
+  .immersive-chrome__toggle:hover,
+  .immersive-chrome__toggle.is-open {
+    border-color: var(--im-cyan);
+  }
+
+  .immersive-chrome__toggle i {
+    position: relative;
+    width: 14px;
+    height: 8px;
+  }
+
+  .immersive-chrome__toggle i::before,
+  .immersive-chrome__toggle i::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transition: transform 0.2s ease;
+  }
+
+  .immersive-chrome__toggle i::before {
+    top: 0;
+  }
+  .immersive-chrome__toggle i::after {
+    bottom: 0;
+  }
+  .immersive-chrome__toggle.is-open i::before {
+    transform: translateY(3.5px) rotate(45deg);
+  }
+  .immersive-chrome__toggle.is-open i::after {
+    transform: translateY(-3.5px) rotate(-45deg);
+  }
+
+  .immersive-chrome__overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 39;
+    display: grid;
+    place-items: center;
+  }
+
+  .immersive-chrome__scrim {
+    position: absolute;
+    inset: 0;
+    border: 0;
+    padding: 0;
+    background: rgba(5, 7, 11, 0.94);
+    backdrop-filter: blur(12px);
+    cursor: pointer;
+  }
+
+  .immersive-chrome__panel {
+    position: relative;
+    width: min(38rem, 90vw);
+    padding: clamp(28px, 5vw, 52px);
+    font-family: var(--im-mono);
+    animation: im-panel-in 0.32s ease both;
+  }
+
+  .immersive-chrome__heading {
+    margin: 0 0 22px;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--im-dim);
+  }
+
+  .immersive-chrome__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .immersive-chrome__item {
+    display: grid;
+    grid-template-columns: 3ch 1fr auto;
+    align-items: baseline;
+    gap: 18px;
+    width: 100%;
+    padding: 14px 0;
+    border: 0;
+    border-top: 1px solid var(--im-border);
+    background: none;
+    color: var(--im-dim);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+  }
+
+  .immersive-chrome__list li:last-child .immersive-chrome__item {
+    border-bottom: 1px solid var(--im-border);
+  }
+
+  .immersive-chrome__item:hover:not(:disabled) {
+    color: var(--im-text);
+    padding-left: 8px;
+  }
+
+  .immersive-chrome__item:disabled {
+    opacity: 0.32;
+    cursor: default;
+  }
+
+  .immersive-chrome__item.is-active {
+    color: var(--im-cyan);
+  }
+
+  .immersive-chrome__num {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+
+  .immersive-chrome__label {
+    font-size: clamp(1rem, 2.6vw, 1.5rem);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--im-text);
+  }
+
+  .immersive-chrome__item:disabled .immersive-chrome__label {
+    color: inherit;
+  }
+
+  .immersive-chrome__item.is-active .immersive-chrome__label {
+    color: var(--im-cyan);
+  }
+
+  .immersive-chrome__stage {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--im-dim);
+  }
+
+  .immersive-chrome__here {
+    color: var(--im-cyan);
+    font-size: 8px;
+  }
+
+  .immersive-chrome__note {
+    margin: 22px 0 0;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--im-dim);
+  }
+
+  .immersive__hero {
+    --hero-ty: -50%;
+    position: absolute;
+    top: 50%;
+    left: clamp(20px, 6vw, 76px);
+    width: min(36rem, 86vw);
+    transform: translate(0, var(--hero-ty));
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  // Once the viewer has scrolled into the ARCHITECTURE phase the giant hero
+  // recedes so the engineering core + architecture stay the priority read and
+  // technology labels are never obscured. The MAAN SAAB identity persists in
+  // the status strip.
+  .immersive--entered .immersive__hero {
+    opacity: 0.1;
+    transform: translate(-40px, var(--hero-ty));
+    pointer-events: none;
+  }
+
+  // Past the architecture the hero is gone entirely — the world is the content.
+  .immersive--deep .immersive__hero {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .immersive--deep .immersive__cue {
+    opacity: 0;
+  }
+
+  .immersive__eyebrow {
+    margin: 0 0 14px;
+    font-size: 12px;
+    letter-spacing: 0.34em;
+    color: var(--im-cyan);
+  }
+
+  .immersive__title {
+    margin: 0;
+    font-family: var(--font-display, inherit);
+    font-size: clamp(2rem, 4.6vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+  }
+
+  .immersive__lede {
+    margin: 18px 0 18px;
+    max-width: 29rem;
+    font-family: var(--font-body, inherit);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--im-dim);
+  }
+
+  // Availability line — the one fact a recruiter scans for.
+  .immersive__status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 26px;
+    font-family: var(--im-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.2em;
+    color: var(--im-text);
+  }
+
+  .immersive__status i {
+    flex: none;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #34d399;
+    box-shadow: 0 0 10px 2px rgba(52, 211, 153, 0.55);
+  }
+
+  .immersive__cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .immersive__btn {
+    pointer-events: auto;
+    padding: 12px 22px;
+    border: 1px solid var(--im-border);
+    border-radius: 2px;
+    background: rgba(9, 14, 20, 0.5);
+    color: var(--im-text);
+    font-family: var(--im-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease;
+  }
+
+  .immersive__btn:hover {
+    border-color: var(--im-cyan);
+    background: rgba(34, 211, 238, 0.1);
+  }
+
+  .immersive__btn:active {
+    transform: scale(0.97);
+  }
+
+  .immersive__btn:disabled {
+    opacity: 0.6;
+    cursor: progress;
+  }
+
+  .immersive__btn--primary {
+    border-color: var(--im-cyan);
+    background: rgba(34, 211, 238, 0.14);
+  }
+
+  .immersive__metrics {
+    display: flex;
+    gap: 26px;
+    margin: 34px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .immersive__metrics li {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .immersive__metrics b {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--im-cyan);
+  }
+
+  .immersive__metrics span {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--im-dim);
+  }
+
+  // Phones: keep the stats clear of the floating command dock (bottom-right)
+  // and let the labels wrap instead of running underneath it.
+  @media (max-width: 600px) {
+    .immersive__metrics {
+      gap: 18px;
+      max-width: calc(100% - 72px);
+    }
+
+    .immersive__metrics span {
+      letter-spacing: 0.14em;
+    }
+
+    .immersive__status {
+      letter-spacing: 0.14em;
+    }
+
+    // The 3D core sits directly behind the copy on a phone; lift the lede.
+    .immersive__lede {
+      color: var(--im-text);
+      text-shadow: 0 1px 14px #05070b, 0 0 4px #05070b;
+    }
+  }
+
+  // Fixed to the top-right UI-safe corner, below the MENU control — never
+  // chases nodes. Kept compact and low-contrast so it stays supporting UI.
+  .immersive__hud {
+    position: absolute;
+    top: clamp(74px, 11vh, 98px);
+    right: clamp(16px, 4vw, 44px);
+    margin: 0;
+    display: grid;
+    gap: 7px;
+    padding: 12px 14px;
+    min-width: 172px;
+    border: 1px solid var(--im-border);
+    background: rgba(7, 11, 17, 0.5);
+    backdrop-filter: blur(7px);
+  }
+
+  .immersive__hud > div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+  }
+
+  .immersive__hud dt {
+    color: var(--im-dim);
+  }
+
+  .immersive__hud dd {
+    margin: 0;
+    text-align: right;
+  }
+
+  .immersive__hud-entry {
+    margin-top: 4px;
+    padding-top: 10px;
+    border-top: 1px solid var(--im-border);
+  }
+
+  .immersive__hud-entry dd {
+    color: var(--im-cyan);
+  }
+
+  .immersive__cue {
+    position: absolute;
+    left: 50%;
+    bottom: 26px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--im-dim);
+    transition: opacity 0.5s ease;
+  }
+
+  .immersive__cue.is-hidden {
+    opacity: 0;
+  }
+
+  .immersive__cue i {
+    width: 10px;
+    height: 10px;
+    border-right: 1px solid var(--im-cyan);
+    border-bottom: 1px solid var(--im-cyan);
+    transform: rotate(45deg);
+    animation: im-bob 1.8s ease-in-out infinite;
+  }
+
+  // ── World title — a restrained label; the 3D world stays dominant ────────
+  .immersive-world-title {
+    position: absolute;
+    left: clamp(20px, 6vw, 76px);
+    top: clamp(96px, 15vh, 150px);
+    max-width: min(22rem, 72vw);
+    font-family: var(--im-mono);
+    animation: im-panel-in 0.5s ease both;
+  }
+
+  .immersive-world-title__eyebrow {
+    margin: 0 0 10px;
+    font-size: 10px;
+    letter-spacing: 0.34em;
+    color: var(--im-cyan);
+  }
+
+  .immersive-world-title__h {
+    margin: 0;
+    font-family: var(--font-display, inherit);
+    font-size: clamp(1.5rem, 4vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--im-text);
+  }
+
+  .immersive-world-title__sub {
+    margin: 10px 0 0;
+    font-family: var(--font-body, inherit);
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--im-dim);
+  }
+
+  // Discoverability affordance — appears only while the cursor is on / near a
+  // milestone and its readout isn't open yet.
+  .immersive-milestone-hint {
+    position: absolute;
+    left: 50%;
+    bottom: clamp(58px, 10vh, 92px);
+    transform: translateX(-50%);
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border: 1px solid var(--im-border);
+    background: rgba(7, 11, 17, 0.55);
+    backdrop-filter: blur(7px);
+    font-family: var(--im-mono);
+    font-size: 9px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--im-text);
+    white-space: nowrap;
+    animation: im-panel-in 0.28s ease both;
+  }
+
+  .immersive-milestone-hint i {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--im-cyan);
+    box-shadow: 0 0 8px var(--im-cyan);
+    animation: im-pulse 1.6s ease-in-out infinite;
+  }
+
+  // Inspector readout — a slim floating panel for reading one node, not a card.
+  .immersive-panel {
+    position: absolute;
+    left: clamp(20px, 6vw, 76px);
+    bottom: 76px;
+    z-index: 3;
+    width: min(19rem, 82vw);
+    pointer-events: auto;
+    padding: 14px 16px;
+    border: 1px solid var(--im-border);
+    border-left: 2px solid var(--im-cyan);
+    background: var(--im-panel);
+    backdrop-filter: blur(12px);
+    font-family: var(--im-mono);
+    animation: im-panel-in 0.28s ease both;
+  }
+
+  .immersive-panel__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+
+  .immersive-panel__id {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--im-text);
+  }
+
+  .immersive-panel__head button {
+    border: 0;
+    background: none;
+    color: var(--im-dim);
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  .immersive-panel__kind {
+    margin: 0 0 8px;
+    font-size: 9px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--im-cyan);
+  }
+
+  .immersive-panel__blurb {
+    margin: 0 0 10px;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--im-dim);
+  }
+
+  .immersive-panel__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 3px;
+  }
+
+  .immersive-panel__list li {
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--im-text);
+  }
+
+  .immersive-panel__list li::before {
+    content: "› ";
+    color: var(--im-cyan);
+  }
+
+  .immersive-panel__links {
+    margin: 10px 0 0;
+    padding-top: 8px;
+    border-top: 1px solid var(--im-border);
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    color: var(--im-dim);
+  }
+
+  // World 04 — project inspector: a slightly wider variant of the slim panel,
+  // bottom-left like the node inspector and clear of the command dock.
+  .immersive-panel--project {
+    width: min(21rem, 84vw);
+  }
+
+  // World 05 — milestone inspector: an information readout attached to the
+  // journey, not a resume card. Year / kind / one headline / one paragraph.
+  .immersive-panel--milestone {
+    width: min(20rem, 84vw);
+  }
+
+  .immersive-panel__blurb--lead {
+    color: var(--im-text);
+    font-size: 0.82rem;
+  }
+
+  .immersive-panel__meta {
+    margin: 8px 0 0;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    color: var(--im-cyan);
+  }
+
+  .immersive-panel__meta + .immersive-panel__list {
+    margin-top: 8px;
+  }
+
+  .immersive-panel__cta {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 14px;
+    border: 1px solid var(--im-cyan);
+    background: rgba(34, 211, 238, 0.12);
+    color: var(--im-text);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .immersive-panel__cta:hover {
+    background: rgba(34, 211, 238, 0.22);
+  }
+
+  .immersive__sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  // ── World 08 — Contact (the immersive equivalent of the footer) ──────────
+  .immersive-contact {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    text-align: center;
+    padding: 24px;
+    font-family: var(--im-mono);
+    pointer-events: none;
+    background: radial-gradient(
+      46% 42% at 50% 46%,
+      rgba(5, 7, 11, 0.82),
+      transparent 76%
+    );
+    animation: im-panel-in 0.5s ease both;
+  }
+
+  .immersive-contact__eyebrow {
+    margin: 0 0 18px;
+    font-size: 10px;
+    letter-spacing: 0.34em;
+    color: var(--im-cyan);
+  }
+
+  .immersive-contact__title {
+    margin: 0;
+    font-family: var(--font-display, inherit);
+    font-size: clamp(2rem, 6vw, 3.4rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--im-text);
+  }
+
+  .immersive-contact__line {
+    margin: 14px 0 32px;
+    font-family: var(--font-body, inherit);
+    font-size: 1rem;
+    color: var(--im-dim);
+  }
+
+  .immersive-contact__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+  }
+
+  .immersive-contact__link {
+    pointer-events: auto;
+    padding: 12px 24px;
+    border: 1px solid var(--im-border);
+    background: rgba(9, 14, 20, 0.5);
+    color: var(--im-text);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+
+  button.immersive-contact__link {
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  button.immersive-contact__link:disabled {
+    opacity: 0.6;
+    cursor: progress;
+  }
+
+  .immersive-contact__link:hover {
+    border-color: var(--im-cyan);
+    background: rgba(34, 211, 238, 0.1);
+  }
+
+  .immersive-contact__link--primary {
+    border-color: var(--im-cyan);
+    background: rgba(34, 211, 238, 0.14);
+  }
+
+  .immersive-contact__form {
+    pointer-events: auto;
+    display: inline-block;
+    margin-top: 22px;
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    color: var(--im-dim);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .immersive-contact__form:hover {
+    color: var(--im-cyan);
+  }
+
+  // ── Custom immersive cursor ─────────────────────────────────────────────
+  // A luminous point with a trailing, context-aware ring. Rendered by the
+  // component only for fine pointers; the native cursor is hidden over the
+  // whole immersive surface so this is the only pointer the visitor sees.
+  &.immersive--cursor,
+  &.immersive--cursor * {
+    cursor: none !important;
+  }
+
+  .immersive-cursor {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+  }
+
+  .immersive-cursor__dot,
+  .immersive-cursor__ring {
+    position: fixed;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    transform: translate3d(var(--im-cx, -100px), var(--im-cy, -100px), 0)
+      translate(-50%, -50%);
+  }
+
+  .immersive-cursor__dot {
+    width: 5px;
+    height: 5px;
+    margin: 0;
+    background: var(--im-cyan);
+    box-shadow: 0 0 10px rgba(34, 211, 238, 0.9);
+    transition: width 0.18s ease, height 0.18s ease, opacity 0.18s ease;
+  }
+
+  // The ring transitions its transform, so it trails the dot for a cinematic,
+  // physical feel — the cursor has mass.
+  .immersive-cursor__ring {
+    width: 26px;
+    height: 26px;
+    border: 1px solid rgba(140, 190, 200, 0.5);
+    transition:
+      transform 0.19s cubic-bezier(0.22, 1, 0.36, 1),
+      width 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+      height 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.28s ease;
+  }
+
+  .immersive-cursor--explore .immersive-cursor__ring {
+    width: 34px;
+    height: 34px;
+    border-color: rgba(34, 211, 238, 0.42);
+  }
+
+  .immersive-cursor--project .immersive-cursor__dot {
+    width: 7px;
+    height: 7px;
+  }
+
+  .immersive-cursor--project .immersive-cursor__ring {
+    width: 46px;
+    height: 46px;
+    border-color: var(--im-cyan);
+  }
+
+  .immersive-cursor--clickable .immersive-cursor__dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .immersive-cursor--clickable .immersive-cursor__ring {
+    width: 19px;
+    height: 19px;
+    border-width: 1.5px;
+    border-color: var(--im-cyan);
+  }
+
+  .immersive-cursor--still .immersive-cursor__ring {
+    transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+  }
+
+  @media (pointer: coarse) {
+    .immersive-cursor {
+      display: none;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .immersive__hud {
+      display: none;
+    }
+
+    .immersive-chrome__world {
+      display: none;
+    }
+
+    .immersive__hero {
+      --hero-ty: 0;
+      top: auto;
+      bottom: 96px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .immersive-chrome__status i,
+    .immersive__cue i,
+    .immersive-milestone-hint i {
+      animation: none;
+    }
+
+    .immersive__hero,
+    .immersive-chrome__item {
+      transition: none;
+    }
+
+    .immersive-chrome__panel,
+    .immersive-contact,
+    .immersive-world-title,
+    .immersive-milestone-hint {
+      animation: none;
+    }
+
+    .immersive-cursor__ring {
+      transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+    }
+  }
+}
+
+@keyframes im-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes im-bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(45deg);
+  }
+  50% {
+    transform: translateY(4px) rotate(45deg);
+  }
+}
+
+@keyframes im-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="immersive"] .immersive-panel {
+    animation: none;
+  }
+}
+
+// The full-bleed stage is 100vw, which includes the vertical scrollbar and
+// would add a few pixels of sideways scroll. `clip` (unlike `hidden`) does not
+// create a scroll container, so the sticky 3D stage keeps working.
+.app-shell--immersive {
+  overflow-x: clip;
+}

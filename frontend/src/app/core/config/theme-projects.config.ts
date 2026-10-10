@@ -1,4 +1,4 @@
-import { ThemeType } from '../services/theme.service';
+import { ConfiguredTheme, ThemeType } from '../services/theme.service';
 
 export interface ThemeProjectsConfig {
   hero: {
@@ -67,7 +67,7 @@ export interface ThemeProjectsConfig {
   };
 }
 
-export const THEME_PROJECTS_CONFIG: Record<ThemeType, ThemeProjectsConfig> = {
+const BASE_PROJECTS_CONFIG: Record<ConfiguredTheme, ThemeProjectsConfig> = {
   'technical-dark': {
     hero: {
       eyebrow: '',
@@ -215,4 +215,10 @@ export const THEME_PROJECTS_CONFIG: Record<ThemeType, ThemeProjectsConfig> = {
       secondaryButton: 'OPEN CHANNEL',
     },
   },
+};
+
+/** Immersive Engineering Core reuses the technical-dark Projects content. */
+export const THEME_PROJECTS_CONFIG: Record<ThemeType, ThemeProjectsConfig> = {
+  ...BASE_PROJECTS_CONFIG,
+  immersive: BASE_PROJECTS_CONFIG['technical-dark'],
 };

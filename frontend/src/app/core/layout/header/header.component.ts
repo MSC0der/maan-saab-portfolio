@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  HostListener,
+  signal,
+} from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ThemeService } from '../../services/theme.service';
 import { ResumeService } from '../../services/resume.service';
@@ -31,6 +36,11 @@ export class HeaderComponent {
 
   protected readonly isResumeDownloading: () => boolean;
 
+  protected readonly canExperience: boolean;
+
+  /** Phone-width navigation drawer. */
+  protected readonly menuOpen = signal(false);
+
   constructor(
     private readonly themeService: ThemeService,
     private readonly resumeService: ResumeService,
@@ -40,6 +50,21 @@ export class HeaderComponent {
     this.navigation = this.buildNavigation();
 
     this.isResumeDownloading = this.resumeService.isDownloading;
+
+    this.canExperience = this.themeService.canExperience;
+  }
+
+  protected toggleMenu(): void {
+    this.menuOpen.update((open) => !open);
+  }
+
+  @HostListener('document:keydown.escape')
+  protected closeMenu(): void {
+    this.menuOpen.set(false);
+  }
+
+  protected onExperienceClick(): void {
+    this.themeService.setTheme('immersive');
   }
 
   protected onResumeClick(): void {

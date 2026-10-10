@@ -12,7 +12,7 @@
     @for (panel of panels; track panel.title) {
       <article class="wayne-skill-card">
         <div class="wayne-skill-card__image">
-          <img [src]="panel.imageUrl" [alt]="panel.imageAlt" />
+          <img [src]="panel.imageUrl" [alt]="panel.imageAlt" loading="lazy" decoding="async" />
         </div>
 
         <div class="wayne-skill-card__body">

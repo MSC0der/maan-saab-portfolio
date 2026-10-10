@@ -52,3 +52,27 @@
     display: none;
   }
 }
+
+/* On phones the dock sat on top of content: shrink it and tuck it into the
+   corner so buttons and text underneath stay reachable. */
+@media (max-width: 600px) {
+  :host {
+    right: 0.75rem;
+    bottom: 0.75rem;
+  }
+
+  .theme-dock {
+    gap: 0.5rem;
+  }
+
+  .theme-launcher {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    opacity: 0.85;
+
+    .material-symbols-outlined {
+      font-size: 1.25rem;
+    }
+  }
+}

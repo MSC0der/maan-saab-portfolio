@@ -1,4 +1,4 @@
-import { ThemeType } from '../services/theme.service';
+import { ConfiguredTheme, ThemeType } from '../services/theme.service';
 
 export interface ThemeHeaderConfig {
   brandName: string;
@@ -13,7 +13,7 @@ export interface ThemeHeaderConfig {
   };
 }
 
-export const THEME_HEADER_CONFIG: Record<ThemeType, ThemeHeaderConfig> = {
+const BASE_HEADER_CONFIG: Record<ConfiguredTheme, ThemeHeaderConfig> = {
   'technical-dark': {
     brandName: 'MAAN SAAB',
     resumeLabel: 'Resume',
@@ -39,17 +39,14 @@ export const THEME_HEADER_CONFIG: Record<ThemeType, ThemeHeaderConfig> = {
       contact: 'SECURE CHANNEL',
     },
   },
+};
 
-  // pristine: {
-  //   brandName: '3D WEBSITE',
-  //   resumeLabel: 'know me',
-
-  //   navigation: {
-  //     home: 'DOSSIER',
-  //     projects: 'MISSIONS',
-  //     about: 'ARSENAL',
-  //     blog: 'OPERATIONS',
-  //     contact: 'SECURE CHANNEL',
-  //   },
-  // },
+/** Immersive Engineering Core keeps the standard brand + navigation labels; the
+ * theme identity is expressed through the 3D home experience, not the chrome. */
+export const THEME_HEADER_CONFIG: Record<ThemeType, ThemeHeaderConfig> = {
+  ...BASE_HEADER_CONFIG,
+  immersive: {
+    ...BASE_HEADER_CONFIG['technical-dark'],
+    brandName: 'MAAN SAAB',
+  },
 };

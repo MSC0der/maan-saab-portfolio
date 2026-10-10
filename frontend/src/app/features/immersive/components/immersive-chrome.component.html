@@ -1,0 +1,65 @@
+<div class="immersive-chrome__identity">
+  <span class="immersive-chrome__brand">RANBIR SINGH MAAN</span>
+  <span class="immersive-chrome__status">
+    <i aria-hidden="true"></i> SYSTEM ONLINE
+  </span>
+  <span class="immersive-chrome__world">
+    {{ current().index }} / {{ current().worldName }}
+  </span>
+</div>
+
+<button type="button" class="immersive-chrome__brief" (click)="briefView()">
+  BRIEF VIEW
+</button>
+
+<button
+  type="button"
+  class="immersive-chrome__toggle"
+  [class.is-open]="open()"
+  [attr.aria-expanded]="open()"
+  aria-controls="immersive-menu"
+  (click)="toggle()"
+>
+  <span>{{ open() ? 'CLOSE' : 'MENU' }}</span>
+  <i aria-hidden="true"></i>
+</button>
+
+@if (open()) {
+  <div class="immersive-chrome__overlay">
+    <button
+      type="button"
+      class="immersive-chrome__scrim"
+      aria-label="Close menu"
+      (click)="close()"
+    ></button>
+
+    <nav id="immersive-menu" class="immersive-chrome__panel" aria-label="World navigation">
+      <p class="immersive-chrome__heading">NAVIGATION // SYSTEM MAP</p>
+
+      <ol class="immersive-chrome__list">
+        @for (item of items; track item.world) {
+          <li>
+            <button
+              type="button"
+              class="immersive-chrome__item"
+              [class.is-active]="isActive(item.world)"
+              [disabled]="!isReady(item.world)"
+              (click)="pick(item.world)"
+            >
+              <span class="immersive-chrome__num">{{ item.index }}</span>
+              <span class="immersive-chrome__label">{{ item.label }}</span>
+              <span class="immersive-chrome__stage">{{ item.worldName }}</span>
+              @if (isActive(item.world)) {
+                <span class="immersive-chrome__here" aria-hidden="true">●</span>
+              }
+            </button>
+          </li>
+        }
+      </ol>
+
+      <p class="immersive-chrome__note">
+        One continuous system — navigation moves you through it.
+      </p>
+    </nav>
+  </div>
+}

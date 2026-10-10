@@ -5,6 +5,7 @@
 }
 
 .about-page {
+  padding-inline: var(--about-margin-mobile);
   --about-bg: var(--background);
   --about-bg-deep: var(--background);
   --about-surface: var(--surface);

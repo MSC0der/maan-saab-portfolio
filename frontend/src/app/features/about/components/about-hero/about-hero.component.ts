@@ -19,5 +19,5 @@ export class AboutHeroComponent {
     return THEME_ABOUT_CONFIG[this.themeService.theme()];
   }
 
-  protected readonly heroImageUrl = '/images/about/maan-about-hero.png';
+  protected readonly heroImageUrl = '/images/about/maan-about-hero.webp';
 }

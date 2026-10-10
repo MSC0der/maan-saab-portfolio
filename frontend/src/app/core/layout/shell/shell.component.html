@@ -1,13 +1,17 @@
 <a class="skip-link" href="#main-content">Skip to content</a>
 
-<div class="app-shell">
-  <app-header />
+<div class="app-shell" [class.app-shell--immersive]="theme() === 'immersive'">
+  @if (theme() !== 'immersive') {
+    <app-header />
+  }
 
   <main id="main-content" class="app-shell__main" tabindex="-1">
     <router-outlet />
   </main>
 
-  <app-footer />
+  @if (theme() !== 'immersive') {
+    <app-footer />
+  }
 
   <app-command-center />
 

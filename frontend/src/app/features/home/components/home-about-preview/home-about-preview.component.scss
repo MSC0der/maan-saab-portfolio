@@ -6,7 +6,7 @@
   display: grid;
   align-items: center;
   gap: 48px;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .about-preview__content {

@@ -19,6 +19,13 @@
   animation-duration: 1s;
 }
 
+@media (max-width: 600px) {
+  // Wayne's 24px section padding stacks on the page gutter; keep phones roomy.
+  [data-theme="wayne"] .home-section {
+    padding-inline: 12px;
+  }
+}
+
 @media (min-width: 768px) {
   .home-section {
     padding-inline: var(--section-padding-desktop);

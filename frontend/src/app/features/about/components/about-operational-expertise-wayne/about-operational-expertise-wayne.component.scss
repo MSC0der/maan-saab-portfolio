@@ -22,7 +22,8 @@
 }
 
 .wayne-section-header__meta {
-  flex-shrink: 0;
+  flex-shrink: 1;
+  text-align: right;
 
   color: rgba(255, 255, 255, 0.4);
   font-size: 10px;
@@ -39,7 +40,7 @@
 
 .wayne-expertise__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
 
@@ -55,14 +56,26 @@
 
 @media (max-width: 992px) {
   .wayne-expertise__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
 .wayne-expertise-grid {
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 992px) {
+  .wayne-expertise-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .wayne-expertise-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .wayne-expertise-card:hover {

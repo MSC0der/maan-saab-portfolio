@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router';
 import { ThemeService } from '../../../../core/services/theme.service';
 import { THEME_HOME_CONFIG } from '../../../../core/config/theme-home.config';
 import { HomeCardComponent } from '../home-card/home-card.component';
-import { HomeIconComponent } from '../home-icon/home-icon.component';
+import { PROJECTS } from '../../../projects/data/projects.data';
 import { HomeTechChipComponent } from '../home-tech-chip/home-tech-chip.component';
 
 interface FeaturedProject {
@@ -12,6 +12,7 @@ interface FeaturedProject {
   readonly visualLabel: string;
   readonly technologies: readonly string[];
   readonly slug: string;
+  readonly coverImage?: string;
 }
 
 @Component({
@@ -19,7 +20,6 @@ interface FeaturedProject {
   standalone: true,
   imports: [
     HomeCardComponent,
-    HomeIconComponent,
     HomeTechChipComponent,
     RouterLink,
   ],
@@ -33,22 +33,20 @@ export class HomeFeaturedProjectsComponent {
   protected get config() {
     return THEME_HOME_CONFIG[this.themeService.theme()];
   }
-  protected readonly featuredProjects: readonly FeaturedProject[] = [
-    {
-      title: 'Security Compliance System',
-      summary:
-        'An enterprise-grade compliance monitoring tool built with a focus on audit logging and data integrity.',
-      visualLabel: 'System Architecture Diagram',
-      technologies: ['Node.js', 'TypeScript'],
-      slug: 'security-compliance-system',
-    },
-    {
-      title: 'Garage Management System',
-      summary:
-        'A comprehensive SaaS platform for automotive repair shops handling inventory, booking, and invoicing.',
-      visualLabel: 'Dashboard Interface',
-      technologies: ['Angular', 'Node.js'],
-      slug: 'garage-management-system',
-    },
-  ];
+  /** Flagship work comes from the single project dataset, never a copy. */
+  protected readonly featuredProjects: readonly FeaturedProject[] = PROJECTS.filter(
+    (project) =>
+      project.featured &&
+      project.projectType !== 'portfolio' &&
+      project.availability !== 'retired',
+  )
+    .slice(0, 3)
+    .map((project) => ({
+      title: project.title,
+      summary: project.summary,
+      visualLabel: project.category,
+      technologies: project.technologies.slice(0, 3),
+      slug: project.slug,
+      coverImage: project.coverImage,
+    }));
 }

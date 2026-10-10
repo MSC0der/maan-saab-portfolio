@@ -6,6 +6,7 @@ import {
   ViewChild,
   ViewChildren,
   effect,
+  NgZone,
   inject,
 } from '@angular/core';
 import { ThemeService } from '../../../core/services/theme.service';
@@ -28,6 +29,7 @@ export class TransitionOverlayComponent implements AfterViewInit {
   protected readonly transition = inject(TransitionService);
 
   private readonly themeService = inject(ThemeService);
+  private readonly zone = inject(NgZone);
 
   private readonly wayneTransition = inject(WayneTransitionService);
   private readonly scanTransition = inject(ScanTransitionService);
@@ -80,9 +82,36 @@ export class TransitionOverlayComponent implements AfterViewInit {
   @ViewChild('fadeBackdrop')
   private fadeBackdrop?: ElementRef<HTMLElement>;
 
-  ngAfterViewInit(): void {}
+  ngAfterViewInit(): void {
+    this.warmWayneAssets();
+  }
+
+  /**
+   * The Wayne `<img>`s only exist once the transition starts, so the first
+   * throw used to fetch + rasterise a 300KB SVG on its opening frame. Decode
+   * both ahead of time so they're in the image cache when the animation begins.
+   */
+  private warmWayneAssets(): void {
+    for (const src of ['images/aru-x1.png', 'images/glass-impact.svg']) {
+      const img = new Image();
+      img.src = src;
+      void img.decode().catch(() => undefined);
+    }
+  }
 
   private playFor(type: TransitionType): void {
+    // GSAP ticks every frame; inside the zone each tick triggers a full
+    // change-detection pass. Run the timelines outside Angular and re-enter
+    // only for the two callbacks that touch signals.
+    this.zone.runOutsideAngular(() => this.dispatch(type));
+  }
+
+  private applyTheme = (): void =>
+    this.zone.run(() => this.themeService.applyPendingTheme());
+
+  private finish = (): void => this.zone.run(() => this.transition.finish());
+
+  private dispatch(type: TransitionType): void {
     switch (type) {
       case 'wayne':
         this.playWayne();
@@ -99,8 +128,8 @@ export class TransitionOverlayComponent implements AfterViewInit {
       case 'instant':
         // No animation by design: apply the new theme and drop the
         // overlay immediately.
-        this.themeService.applyPendingTheme();
-        this.transition.finish();
+        this.applyTheme();
+        this.finish();
         return;
     }
   }
@@ -114,8 +143,8 @@ export class TransitionOverlayComponent implements AfterViewInit {
       this.weapon.nativeElement,
       this.impactCrack.nativeElement,
       this.impactFlash.nativeElement,
-      () => this.themeService.applyPendingTheme(),
-      () => this.transition.finish(),
+      this.applyTheme,
+      this.finish,
     );
   }
 
@@ -128,8 +157,8 @@ export class TransitionOverlayComponent implements AfterViewInit {
       this.scanBackdrop.nativeElement,
       this.scanGrid.nativeElement,
       this.scanLine.nativeElement,
-      () => this.themeService.applyPendingTheme(),
-      () => this.transition.finish(),
+      this.applyTheme,
+      this.finish,
     );
   }
 
@@ -150,8 +179,8 @@ export class TransitionOverlayComponent implements AfterViewInit {
       this.glitchBackdrop.nativeElement,
       slices,
       this.glitchFlash.nativeElement,
-      () => this.themeService.applyPendingTheme(),
-      () => this.transition.finish(),
+      this.applyTheme,
+      this.finish,
     );
   }
 
@@ -162,8 +191,8 @@ export class TransitionOverlayComponent implements AfterViewInit {
 
     this.fadeTransition.play(
       this.fadeBackdrop.nativeElement,
-      () => this.themeService.applyPendingTheme(),
-      () => this.transition.finish(),
+      this.applyTheme,
+      this.finish,
     );
   }
 }

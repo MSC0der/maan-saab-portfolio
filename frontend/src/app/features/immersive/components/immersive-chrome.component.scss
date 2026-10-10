@@ -1,0 +1,5 @@
+// The chrome pieces are individually fixed-positioned; styling lives in
+// styles/themes/_immersive.scss alongside the rest of the immersive overlay.
+:host {
+  display: contents;
+}
