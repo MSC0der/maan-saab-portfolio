@@ -19,6 +19,8 @@ import { ScanTransitionService } from '../services/scan-transition.service';
 import { GlitchTransitionService } from '../services/glitch-transition.service';
 import { FadeTransitionService } from '../services/fade-transition.service';
 
+const TRANSITION_WATCHDOG_MS = 8000;
+
 @Component({
   selector: 'app-transition-overlay',
   standalone: true,
@@ -50,6 +52,16 @@ export class TransitionOverlayComponent implements AfterViewInit {
     // Deferred a frame (even for "instant") so the signal writes below
     // never land inside this same effect's synchronous run.
     requestAnimationFrame(() => this.playFor(type));
+
+    // Failsafe: every timeline is a few seconds at most. If one never
+    // completes (missing element, throttled tab), apply the pending theme
+    // and drop the overlay rather than leaving the page covered.
+    window.setTimeout(() => {
+      if (this.transition.active() && this.transition.transition() === type) {
+        this.applyTheme();
+        this.finish();
+      }
+    }, TRANSITION_WATCHDOG_MS);
   });
 
   @ViewChild('weapon')
@@ -111,6 +123,12 @@ export class TransitionOverlayComponent implements AfterViewInit {
 
   private finish = (): void => this.zone.run(() => this.transition.finish());
 
+  /** Elements were missing: skip the animation but still land the theme. */
+  private abort(): void {
+    this.applyTheme();
+    this.finish();
+  }
+
   private dispatch(type: TransitionType): void {
     switch (type) {
       case 'wayne':
@@ -136,6 +154,7 @@ export class TransitionOverlayComponent implements AfterViewInit {
 
   private playWayne(): void {
     if (!this.weapon || !this.impactCrack || !this.impactFlash) {
+      this.abort();
       return;
     }
 
@@ -150,6 +169,7 @@ export class TransitionOverlayComponent implements AfterViewInit {
 
   private playScan(): void {
     if (!this.scanBackdrop || !this.scanGrid || !this.scanLine) {
+      this.abort();
       return;
     }
 
@@ -164,6 +184,7 @@ export class TransitionOverlayComponent implements AfterViewInit {
 
   private playGlitch(): void {
     if (!this.glitchBackdrop || !this.glitchFlash || !this.glitchSlices) {
+      this.abort();
       return;
     }
 
@@ -172,6 +193,7 @@ export class TransitionOverlayComponent implements AfterViewInit {
       .map((ref) => ref.nativeElement);
 
     if (!slices.length) {
+      this.abort();
       return;
     }
 
@@ -186,6 +208,7 @@ export class TransitionOverlayComponent implements AfterViewInit {
 
   private playFade(): void {
     if (!this.fadeBackdrop) {
+      this.abort();
       return;
     }
 

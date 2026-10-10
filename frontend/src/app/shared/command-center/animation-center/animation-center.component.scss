@@ -13,7 +13,7 @@
 }
 
 .animation-header {
-  padding: 2rem;
+  padding: 2rem 4rem 2rem 2rem;
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
@@ -130,6 +130,21 @@
   color: var(--button-primary-text);
 
   cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .animation-header {
+    padding: 1.25rem 3.75rem 1.25rem 1.25rem;
+  }
+
+  .animation-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .animation-footer {
+    padding: 1rem 1.25rem;
+    gap: 1rem;
+  }
 }
 
 @keyframes panelIn {

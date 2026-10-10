@@ -1,7 +1,6 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  HostListener,
   inject,
   signal,
 } from '@angular/core';
@@ -40,10 +39,5 @@ export class ThemeSwitcherComponent {
 
   protected currentTheme(): ThemeType {
     return this.themeService.theme();
-  }
-
-  @HostListener('document:keydown.escape')
-  protected onEscape(): void {
-    this.commandCenter.close();
   }
 }

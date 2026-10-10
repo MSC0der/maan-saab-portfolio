@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 
 import { APP_ROUTES } from './core/constants/routes.constants';
+import { STATIC_SEO } from './core/seo/seo.config';
+import { projectSeoResolver } from './core/seo/seo.resolvers';
 
 export const routes: Routes = [
   {
@@ -14,13 +16,13 @@ export const routes: Routes = [
         path: APP_ROUTES.home,
         loadChildren: () =>
           import('./features/home/home.routes').then((m) => m.HOME_ROUTES),
-        title: 'MAAN SAAB | Backend-Focused Full Stack Engineer',
+        data: { seo: STATIC_SEO.home },
       },
       {
         path: APP_ROUTES.about,
         loadChildren: () =>
           import('./features/about/about.routes').then((m) => m.ABOUT_ROUTES),
-        title: 'About | MAAN SAAB',
+        data: { seo: STATIC_SEO.about },
       },
       {
         path: APP_ROUTES.projects,
@@ -28,7 +30,7 @@ export const routes: Routes = [
           import('./features/projects/projects.routes').then(
             (m) => m.PROJECTS_ROUTES,
           ),
-        title: 'Projects | MAAN SAAB',
+        data: { seo: STATIC_SEO.projects },
       },
       {
         path: `${APP_ROUTES.project}/:slug`,
@@ -36,13 +38,13 @@ export const routes: Routes = [
           import('./features/projects/pages/project-case-study-page/project-case-study-page.component').then(
             (m) => m.ProjectCaseStudyPageComponent,
           ),
-        title: 'Project Case Study | MAAN SAAB',
+        resolve: { seo: projectSeoResolver },
       },
       {
         path: APP_ROUTES.blog,
         loadChildren: () =>
           import('./features/blog/blog.routes').then((m) => m.BLOG_ROUTES),
-        title: 'Blog | MAAN SAAB',
+        data: { seo: STATIC_SEO.blog },
       },
       {
         path: APP_ROUTES.contact,
@@ -50,7 +52,7 @@ export const routes: Routes = [
           import('./features/contact/contact.routes').then(
             (m) => m.CONTACT_ROUTES,
           ),
-        title: 'Contact | MAAN SAAB',
+        data: { seo: STATIC_SEO.contact },
       },
     ],
   },

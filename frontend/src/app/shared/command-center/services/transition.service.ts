@@ -43,6 +43,12 @@ export class TransitionService {
   }
 
   play(type: TransitionType) {
+    // A second request mid-flight would swap the DOM out from under the
+    // running timeline, which then ends the new one early (or never).
+    if (this.active()) {
+      return;
+    }
+
     this.transition.set(type);
     this.active.set(true);
   }

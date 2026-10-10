@@ -1,7 +1,9 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  ElementRef,
   HostListener,
+  inject,
   signal,
 } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
@@ -41,6 +43,8 @@ export class HeaderComponent {
   /** Phone-width navigation drawer. */
   protected readonly menuOpen = signal(false);
 
+  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
+
   constructor(
     private readonly themeService: ThemeService,
     private readonly resumeService: ResumeService,
@@ -61,6 +65,17 @@ export class HeaderComponent {
   @HostListener('document:keydown.escape')
   protected closeMenu(): void {
     this.menuOpen.set(false);
+  }
+
+  /** Tapping anywhere outside the header dismisses the open drawer. */
+  @HostListener('document:click', ['$event'])
+  protected onDocumentClick(event: Event): void {
+    if (
+      this.menuOpen() &&
+      !this.host.nativeElement.contains(event.target as Node)
+    ) {
+      this.closeMenu();
+    }
   }
 
   protected onExperienceClick(): void {

@@ -26,6 +26,7 @@
      (not this element) handles anything taller than that. */
   max-height: min(90vh, calc(100vh - 4rem));
 
+  position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -58,6 +59,38 @@
   height: min(90vh, calc(100vh - 4rem));
 }
 
+/* One close control for every panel, so none of them can be a dead end
+   (the animations panel in particular had no way out on a phone). */
+.command-panel__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: #e6e8ec;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+
+  .material-symbols-outlined {
+    font-size: 1.35rem;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: var(--color-primary, #fff);
+  }
+}
+
 @keyframes commandPanelIn {
   from {
     opacity: 0;
@@ -70,9 +103,21 @@
 }
 
 /* The dock sits at the right edge on desktop (hence the 7rem gutter); on small
-   screens the panel takes the full width instead. */
+   screens the panel becomes a bottom sheet instead. The strip above it stays
+   free, so tapping outside always dismisses, and dvh keeps the sheet inside
+   the visible area while mobile browser toolbars come and go. */
 @media (max-width: 768px) {
   .command-overlay {
-    padding: 1rem;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 3rem 0.75rem 0.75rem;
+  }
+
+  .command-panel,
+  .command-panel--themes,
+  .command-panel--animations {
+    width: 100%;
+    max-height: min(85dvh, calc(100dvh - 4rem));
+    border-radius: 20px;
   }
 }

@@ -4,11 +4,23 @@
   <div class="command-overlay" (click)="close()">
     <div
       class="command-panel"
+      role="dialog"
+      aria-modal="true"
+      [attr.aria-label]="panelLabel()"
       [class.command-panel--themes]="activePanel() === 'themes'"
       [class.command-panel--animations]="activePanel() === 'animations'"
       [class.command-panel--terminal]="activePanel() === 'terminal'"
       (click)="$event.stopPropagation()"
     >
+      <button
+        type="button"
+        class="command-panel__close"
+        aria-label="Close panel"
+        (click)="close()"
+      >
+        <span class="material-symbols-outlined" aria-hidden="true">close</span>
+      </button>
+
       @if (activePanel() === "themes") {
         <app-theme-switcher />
       }

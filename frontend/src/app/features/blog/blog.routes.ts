@@ -1,6 +1,8 @@
 // blog.routes.ts
 
 import { Routes } from '@angular/router';
+
+import { articleSeoResolver } from '../../core/seo/seo.resolvers';
 export const BLOG_ROUTES: Routes = [
   
   {
@@ -12,6 +14,7 @@ export const BLOG_ROUTES: Routes = [
   },
   {
     path: ':slug',
+    resolve: { seo: articleSeoResolver },
     loadComponent: () =>
       import('./pages/blog-article-page/blog-article-page.component').then(
         (m) => m.BlogArticlePageComponent,

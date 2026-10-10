@@ -5,6 +5,15 @@
   z-index: 5000;
 }
 
+/* Above the panel backdrop on desktop (where the panel leaves the dock's
+   gutter free), so the launchers stay usable as toggles while a panel is open.
+   On phones the panel's own close button and the backdrop dismiss instead. */
+@media (min-width: 769px) {
+  :host {
+    z-index: 9999;
+  }
+}
+
 /* ---------------- Dock ---------------- */
 
 .theme-dock {
