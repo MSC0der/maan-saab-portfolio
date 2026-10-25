@@ -21,21 +21,21 @@ export const ENGINEERING_TIMELINE: readonly TimelineEntry[] = [
   },
   {
     year: '2024',
-    title: 'Full Stack Development Internship',
+    title: 'Joined Imminent Ideas as Full Stack Intern',
     description:
-      'Worked with Angular, APIs, debugging, and production workflows.',
+      'Four months of training in Angular, APIs and Git workflows, working with production code.',
   },
   {
     year: '2025',
-    title: 'Joined Imminent Ideas as Full Stack Developer',
+    title: 'Full Stack Developer at Imminent Ideas',
     description:
-      'Built REST APIs, authentication systems, Angular integrations, and database solutions.',
+      'Built Node.js and MySQL APIs for PeopleFern, an HRMS SaaS: validation, AES-encrypted payloads, permission management and session handling.',
   },
   {
     year: '2026',
-    title: 'Focused on Backend Engineering',
+    title: 'Backend Engineer on Garage Futurist',
     description:
-      'Working on scalable APIs, query optimization, authentication systems, DSA, and system design.',
+      'Delivering backend work of a live multi-tenant SaaS: Razorpay subscriptions, Socket.IO chat, reports, cron jobs and Swagger docs.',
   },
   {
     year: 'Future',
