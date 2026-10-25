@@ -51,7 +51,8 @@ export const handler = async (event) => {
     const command = new GetObjectCommand({
       Bucket: BUCKET,
       Key: KEY,
-      ResponseContentDisposition: 'attachment; filename="Ranbir_Singh_Maan_Resume.docx"',
+      ResponseContentDisposition: 'attachment; filename="Ranbir_Singh_Maan_Resume.pdf"',
+      ResponseContentType: 'application/pdf',
     });
 
     const url = await getSignedUrl(s3, command, { expiresIn: EXPIRES_IN_SECONDS });

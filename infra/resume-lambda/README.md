@@ -1,14 +1,14 @@
 # resume-signed-url Lambda
 
-Mints a short-lived (60s) pre-signed S3 GET URL for the resume `.docx` on request. Keeps the S3 bucket
+Mints a short-lived (60s) pre-signed S3 GET URL for the resume `.pdf` on request. Keeps the S3 bucket
 fully private — the raw bucket URL is never shipped in the frontend and the object cannot be hotlinked
 or scraped from page source.
 
 ## 1. Lock down the S3 bucket
 
 - Enable **Block Public Access** (all 4 settings) on `maansaabbucket`.
-- Remove any public bucket policy / object ACL on `Resume/Ranbir_Singh_Maan_Resume_2026.docx`.
-- Confirm: `curl -i https://maansaabbucket.s3.ap-south-1.amazonaws.com/Resume/Ranbir_Singh_Maan_Resume_2026.docx`
+- Remove any public bucket policy / object ACL on `Resume/Ranbir_Singh_Maan_Resume.pdf`.
+- Confirm: `curl -i https://maansaabbucket.s3.ap-south-1.amazonaws.com/Resume/Ranbir_Singh_Maan_Resume.pdf`
   should return `403 Forbidden` once locked down.
 
 ## 2. Create the IAM role
@@ -24,7 +24,7 @@ Inline permissions policy (scoped to the single object only):
     {
       "Effect": "Allow",
       "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::maansaabbucket/Resume/Ranbir_Singh_Maan_Resume_2026.docx"
+      "Resource": "arn:aws:s3:::maansaabbucket/Resume/Ranbir_Singh_Maan_Resume.pdf"
     }
   ]
 }
@@ -48,7 +48,7 @@ aws lambda create-function \
   --timeout 5 \
   --memory-size 128 \
   --reserved-concurrent-executions 2 \
-  --environment "Variables={RESUME_BUCKET_NAME=maansaabbucket,RESUME_BUCKET_REGION=ap-south-1,RESUME_OBJECT_KEY=Resume/Ranbir_Singh_Maan_Resume_2026.docx,ALLOWED_ORIGIN=https://your-production-domain.com}"
+  --environment "Variables={RESUME_BUCKET_NAME=maansaabbucket,RESUME_BUCKET_REGION=ap-south-1,RESUME_OBJECT_KEY=Resume/Ranbir_Singh_Maan_Resume.pdf,ALLOWED_ORIGIN=https://your-production-domain.com}"
 ```
 
 To update code later:
