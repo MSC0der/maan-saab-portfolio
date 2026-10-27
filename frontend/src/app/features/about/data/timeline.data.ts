@@ -38,6 +38,13 @@ export const ENGINEERING_TIMELINE: readonly TimelineEntry[] = [
       'Delivering backend work of a live multi-tenant SaaS: Razorpay subscriptions, Socket.IO chat, reports, cron jobs and Swagger docs.',
   },
   {
+    year: '2028',
+    title: 'MCA at Chandigarh University',
+    description:
+      'Pursuing a Master of Computer Applications, expected to graduate in 2028.',
+    future: true,
+  },
+  {
     year: 'Future',
     title: 'Software Engineer at a Product Company',
     description: 'Building large-scale products used by thousands of users.',

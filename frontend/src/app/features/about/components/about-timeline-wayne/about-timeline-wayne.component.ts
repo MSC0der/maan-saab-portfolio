@@ -53,6 +53,14 @@ export class AboutTimelineWayneComponent {
     },
     {
       mission: 'MISSION 005',
+      period: '2028',
+      status: 'Advanced Training',
+      title: 'MCA at Chandigarh University',
+      description:
+        'Pursuing a Master of Computer Applications, expected to graduate in 2028.',
+    },
+    {
+      mission: 'MISSION 006',
       period: 'Future',
       status: 'Ongoing Mission',
       title: 'Software Engineer at a Product Company',
