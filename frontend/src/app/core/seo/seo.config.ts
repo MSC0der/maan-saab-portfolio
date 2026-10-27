@@ -1,7 +1,7 @@
 // Pure data and helpers (no Angular imports) so the runtime SeoService and the
 // build-time scripts/generate-seo.mjs both read the same single source of truth.
 
-export const SITE_URL = 'https://maan-saab-portfolio.pages.dev';
+export const SITE_URL = 'https://ranbirsinghmaan.com';
 export const SITE_NAME = 'Ranbir Singh Maan';
 export const DEFAULT_IMAGE = `${SITE_URL}/og-image.png`;
 export const DEFAULT_IMAGE_ALT =

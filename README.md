@@ -2,7 +2,7 @@
 
 Professional portfolio website built by MSC0der (Ranbir Singh Maan).
 
-**Live site:** https://maan-saab-portfolio.pages.dev/
+**Live site:** https://ranbirsinghmaan.com/
 
 ## Tech Stack
 
